@@ -22,18 +22,6 @@ scroll = new LocomotiveScroll({el: document.querySelector('[data-scroll-containe
 // scroll = new LocomotiveScroll({el: document.querySelector('[data-scroll-container]'),smooth: true,getDirection: true,scrollFromAnywhere: true,breakpoint: 0,inertia: 0,tablet: {breakpoint: 0,smooth: false,inertia: 0,}})
 new ResizeObserver(() => scroll.update()).observe(document.querySelector("[data-scroll-container]"));
 
-const hn_scroll = document.querySelector('.header__nav_scroll');
-const hc_scroll = document.querySelector('.header__consultation_scroll');
-const cp_scroll = document.querySelector('.career_popup__scroll');
-const fp_scroll = document.querySelector('.feedback_popup__scroll');
-const gp_scroll = document.querySelector('.generation_popup__scroll');
-
-// Scrollbar.init(hn_scroll);
-// Scrollbar.init(hc_scroll);
-// if (cp_scroll) {Scrollbar.init(cp_scroll);}
-// if (fp_scroll) {Scrollbar.init(fp_scroll);}
-// if (gp_scroll) {Scrollbar.init(gp_scroll);}
-
 const header = document.querySelector('.header');
 const projecttop = document.querySelector('.project_top');
 const projecttopinfo = document.querySelector('.project_top__info');
@@ -293,10 +281,161 @@ overlay.addEventListener('click', function() {
 })
 // end overlay
 
+// start hover scroll
+const scrolls = document.querySelector('.scrolls');
+if(scrolls){
+  scrolls.onmouseover = function(e) {scroll.stop();};
+  scrolls.onmouseout = function(e) {scroll.start();};
+}
+// end hover scroll
+
+// start product count
+const productinput = document.querySelector(".product__count_input input");
+if(productinput){
+  productinput.oninput = function(){
+    this.value = this.value.replace(/[^0-9]$/g, '');
+  }
+  document.getElementById("product__forname").oninput = function(){
+    this.value = this.value.replace(/[^a-z\ ]+/ig, "");
+  }
+  document.querySelectorAll('.product__count .product__minus').forEach(function (element) {
+    element.addEventListener('click', function(event) {
+      event.preventDefault();
+      let input = this.parentElement.querySelector('.product__count_input input');
+      let count = parseInt(input.value) - 1;
+      count = count < 1 ? 1 : count;
+      input.value = count;
+    });
+  });
+  document.querySelectorAll('.product__count .product__plus').forEach(function (element) {
+    element.addEventListener('click', function(event) {
+      let inputMax = this.parentElement.querySelector('.product__count_input input').getAttribute('max');
+      event.preventDefault();
+      let input = this.parentElement.querySelector('.product__count_input input');
+      let count = parseInt(input.value) + 1;
+      count = count > parseInt(inputMax) ? parseInt(inputMax) : count;
+      input.value = parseInt(count);
+    });
+  });
+  document.querySelectorAll('.product__count .product__count_input input').forEach(function (element) {
+    element.addEventListener("change", function(event) {
+      let inputMax = this.parentElement.querySelector('.product__count_input input').getAttribute('max');
+      event.preventDefault();
+      if (this.value.match(/[^0-9]/g)) {
+        this.value = this.value.replace(/[^0-9]/g, '');
+      }
+      if (this.value == "") {
+        this.value = 1;
+      }
+      if (this.value > parseInt(inputMax)) {
+        this.value = parseInt(inputMax);
+      }
+    });
+  });
+}
+// end product count
+
+// start select
+const SELECT = '[data-select]'
+const SELECT_LIST = '[data-select-list]'
+const SELECT_ARROW = '[data-select-arrow]'
+const SELECT_ACTION = '[data-select-action]'
+const SELECT_TITLE = '[data-select-title]'
+const SELECT_INPUT = '[data-select-input]'
+const SELECT_ITEM = 'selectItem'
+const OPEN_SELECT = 'selectOpen'
+
+class Select {
+  static attach() {
+    document.querySelectorAll(SELECT)
+      .forEach(select => new Select().init(select))
+  }
+
+  init(select) {
+    if (this.findSelect(select)) {
+      this.applyListener()
+    }
+  }
+
+  applyListener() {
+    document.querySelector('*').addEventListener('click', e => {
+      const element = this.select.contains(e.target) && e.target.closest(SELECT_ACTION)
+
+      if (this.isCallSelectElement(element)) {
+        if (this.isOpened()) {
+          this.closeSelectList();
+        } else {
+          this.openSelectList()
+        }
+      }
+
+      if (this.isCallSelectItemElement(element)) {
+        this.addSelectedValue(element)
+      }
+
+      if (this.isCallSelectElement(element) !== true && this.selectOverlayIsClickedElement(element) !== true) {
+        this.closeSelectList()
+      }
+    })
+  }
+
+  isCallSelectElement(element, target) {
+    return element && OPEN_SELECT in element.dataset
+  }
+
+  isCallSelectItemElement(element, target) {
+    return element && SELECT_ITEM in element.dataset
+  }
+
+  findSelect(select) {
+
+    if (select) {
+      this.select = select
+      this.selectList = this.select.querySelector(SELECT_LIST)
+      this.selectArrow = this.select.querySelector(SELECT_ARROW)
+      this.selectTitle = this.select.querySelector(SELECT_TITLE)
+      this.selectInput = this.select.querySelector(SELECT_INPUT)
+      return true
+    }
+    return false
+  }
+
+  isOpened() {
+    return this.selectList.classList.contains('form__select_list_opened')
+  }
+
+  openSelectList() {
+    this.selectList.style.maxHeight = this.selectList.scrollHeight + "px";
+    this.selectList.classList.add('form__select_list_opened')
+    this.selectArrow.classList.add('form__select_arrow_rotate')
+  }
+
+  closeSelectList() {
+    this.selectList.style.maxHeight = null;
+    this.selectList.classList.remove('form__select_list_opened')
+    this.selectArrow.classList.remove('form__select_arrow_rotate')
+  }
+
+  addSelectedValue(element) {
+    this.selectTitle.innerHTML = element.innerHTML;
+    this.selectInput.value = element.innerHTML;
+    element.parentNode.parentNode.classList.add("success");
+    element.parentNode.parentNode.classList.remove("error");
+    this.selectInput.setAttribute('value', this.selectInput.value);
+  }
+
+  selectOverlayIsClickedElement(element, target) {
+    return element && 'select' in element.dataset
+  }
+}
+
+Select.attach()
+// end select
+
 // start about_slider__swiper
-const heroSlider = document.querySelector('.about_slider__swiper');
-if(heroSlider){
-  var heroSwiper = new Swiper('.about_slider__swiper', {
+const aboutSlider = document.querySelector('.about_slider__swiper');
+if(aboutSlider){
+  var aboutSwiper = new Swiper('.about_slider__swiper', {
     loop: false,
     slidesPerView: "auto",
     loopedSlides: 1,
@@ -312,3 +451,26 @@ if(heroSlider){
   });
 }
 // end about_slider__swiper
+
+// start product
+const productSlider = document.querySelector('.product__swiper');
+if(productSlider){
+  var productThumbs = new Swiper('.product__thumbs_swiper', {
+    direction: 'vertical',
+    spaceBetween: 10,
+    slidesPerView: "auto",
+    loop: false,
+    watchSlidesVisibility: true,
+    watchSlidesProgress: true,
+  });
+  var productSlide = new Swiper('.product__swiper', {
+    slidesPerView: "auto",
+    spaceBetween: 20,
+    loop: false,
+    speed: 400,
+    thumbs: {
+      swiper: productThumbs,
+    },
+  });
+}
+// end product

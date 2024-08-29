@@ -14,8 +14,9 @@
   --bg-success: #dff0d8;
   --white: #fff;
   --text: #202020;
+  --hover: rgba(165, 183, 201, 0.5);
   --text-gray: #f8f8f8;
-  --border: #f0f0f4;
+  --border: #2020204D;
   --swiper-btn: #fff6f8;
   --swiper-btn-hover: #ffeff1;
   --white: #fff;
@@ -150,9 +151,9 @@ textarea:-webkit-autofill,
 select:-webkit-autofill {
   border: none;
   -webkit-text-fill-color: var(--text);
-  -webkit-box-shadow: 0 0 0 1000px var(--bg-gray) inset;
+  -webkit-box-shadow: 0 0 0 1000px var(--bg) inset;
   color: var(--text);
-  box-shadow: 0 0 0 1000px var(--bg-gray) inset;
+  box-shadow: 0 0 0 1000px var(--bg) inset;
 }
 
 button,
@@ -179,7 +180,7 @@ a {
 }
 
 a:hover {
-  color: var(--color);
+  color: var(--hover);
   text-decoration: none;
 }
 
@@ -301,7 +302,8 @@ h3 {
   color: var(--text);
 }
 
-.title_two {
+.title_two,
+.breadcrumbs__item:not(:last-child):after {
   font-family: var(--text-font);
   font-size: 24px;
   font-weight: 500;
@@ -561,6 +563,22 @@ small {
   background-color: var(--bg);
 }
 
+.btn__count {
+  background-color: var(--bg);
+  color: var(--text);
+  border-radius: 6px;
+}
+
+.btn__count .btn__text {
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.btn__count .btn__hover,
+.btn__count .btn__hover::after {
+  background-color: var(--text);
+}
+
 .btn__color:not(:disabled).active,
 .btn__input:checked ~ .btn__color:not(:disabled) {
   color: var(--white);
@@ -686,8 +704,6 @@ html.has-scroll-dragging {
 }
 
 .cursor {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 1px;
   height: 1px;
@@ -779,8 +795,6 @@ html.has-scroll-dragging {
 .cursor.cursor__slider.hover .cursor__block,
 .cursor__block {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 15px;
   height: 15px;
@@ -824,8 +838,6 @@ html.has-scroll-dragging {
 
 .cursor.cursor__slider .cursor__text_slider p,
 .cursor.cursor__showreel .cursor__text_showreel p {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -946,8 +958,6 @@ html.has-scroll-dragging {
 }
 
 .swiper-pagination {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -955,8 +965,6 @@ html.has-scroll-dragging {
 }
 
 .swiper-pagination-bullet {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 42px;
   height: 42px;
@@ -1132,8 +1140,6 @@ html.has-scroll-dragging {
 }
 
 .showreel__circle {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin: 0 284px 0 0;
   -webkit-box-pack: end;
@@ -1369,8 +1375,6 @@ html.has-scroll-dragging {
 }
 
 .spec__player.spec__fullscreen {
-  display: -ms-flexbox;
-  display: -webkit-box;
   display: flex;
   height: 100%;
   width: 100%;
@@ -1441,8 +1445,6 @@ html.has-scroll-dragging {
 }
 
 .spec__button {
-  display: -ms-flexbox;
-  display: -webkit-box;
   display: flex;
   max-height: 80px;
   max-width: 80px;
@@ -1482,8 +1484,6 @@ html.has-scroll-dragging {
 }
 
 .spec__button i {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   height: 50px;
   width: 50px;
@@ -1521,8 +1521,6 @@ html.has-scroll-dragging {
 }
 
 .spec__controls {
-  display: -ms-flexbox;
-  display: -webkit-box;
   display: flex;
   margin: 0 40px 40px;
   position: absolute;
@@ -1553,12 +1551,10 @@ html.has-scroll-dragging {
 }
 
 .spec .progress {
-  position: relative;
-  display: -ms-flexbox;
-  display: -webkit-box;
   display: flex;
   height: 80px;
   margin-left: -1px;
+  position: relative;
   -webkit-transition: height 0.3s linear;
   transition: height 0.3s linear;
   background: transparent;
@@ -1581,8 +1577,6 @@ html.has-scroll-dragging {
 }
 
 .spec .progress:hover .progress__line {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -1662,8 +1656,6 @@ html.has-scroll-dragging {
 }
 
 .minimal__button {
-  display: -ms-flexbox;
-  display: -webkit-box;
   display: flex;
   max-width: 50px;
   background: none;
@@ -1710,8 +1702,6 @@ html.has-scroll-dragging {
 }
 
 .minimal__controls {
-  display: -ms-flexbox;
-  display: -webkit-box;
   display: flex;
   position: absolute;
   bottom: 0;
@@ -1763,8 +1753,6 @@ html.has-scroll-dragging {
 }
 
 .minimal .progress {
-  display: -ms-flexbox;
-  display: -webkit-box;
   display: flex;
   height: 10px;
   -webkit-transition: height 0.3s linear;
@@ -1819,8 +1807,6 @@ html.has-scroll-dragging {
 }
 
 .compact__button {
-  display: -ms-flexbox;
-  display: -webkit-box;
   display: flex;
   max-width: 50px;
   -ms-flex-pack: center;
@@ -1867,8 +1853,6 @@ html.has-scroll-dragging {
 }
 
 .compact__controls {
-  display: -ms-flexbox;
-  display: -webkit-box;
   display: flex;
   position: absolute;
   max-width: 400px;
@@ -1921,8 +1905,6 @@ html.has-scroll-dragging {
 }
 
 .compact .progress {
-  display: -ms-flexbox;
-  display: -webkit-box;
   display: flex;
   height: 10px;
   -webkit-transition: height 0.3s linear;
@@ -1951,43 +1933,17 @@ html.has-scroll-dragging {
 
 /* start form */
 
-.form__group {
-  display: flex;
-  gap: 20px;
-}
-
-.form__flex {
-  display: flex;
-  gap: 20px;
-}
-
-.form__group .form__control {
-  width: calc(33.333% - 14px);
-}
-
-.form__flex .form__control {
-  width: calc(50% - 10px);
-}
-
-.form__control_flex {
-  display: flex;
-  gap: 30px;
-}
-
 .form__control {
   display: flex;
-  width: 100%;
   margin: 0 0 13px;
   padding: 0 0 17px;
   flex-direction: column-reverse;
   position: relative;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   overflow: hidden;
+}
+
+.form__control:last-child {
+  margin: 0;
 }
 
 .form__control .form__error {
@@ -2007,98 +1963,39 @@ html.has-scroll-dragging {
   transform: translateX(0%);
 }
 
-.form__counter {
-  display: none;
-  height: 12px;
-  margin: 5px 0 0;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-
 .form__input:focus ~ .form__counter {
   display: block;
 }
 
+.form__counter {
+  display: none;
+  height: 25px;
+  position: absolute;
+  bottom: 25px;
+  right: 0;
+  opacity: 0.3;
+}
+
 .form__counter.success {
-  color: var(--green);
+  color: var(--text);
 }
 
 .form__input {
-  display: flex;
-  width: calc(100% - 2px);
-  height: 54px;
-  max-height: 54px;
-  padding: 10px 20px;
-  margin: 1px 1px 0;
-  flex: 0 0 auto;
+  display: block;
+  width: 100%;
+  height: 38px;
+  max-height: 38px;
+  padding: 0 35px 2px 0;
   border: none;
-  border-radius: 10px;
-  color: var(--text);
-  background-color: var(--bg-gray);
-  border: 1px solid transparent;
+  background: transparent;
   position: relative;
   z-index: 2;
-  -webkit-transition: max-height 0.3s linear, background-color 0.3s linear, border-color 0.3s linear;
-  transition: max-height 0.3s linear, background-color 0.3s linear, border-color 0.3s linear;
-}
-
-.form__control.error .form__input {
-  border: 1px solid var(--error);
-}
-
-.form__control.success .form__input {
-  border: 1px solid transparent;
-}
-
-#personal__dateofbirth {
-  color: var(--text-gray);
-}
-
-.form__control.success #personal__dateofbirth,
-.form__control.error #personal__dateofbirth {
-  color: var(--text);
-}
-
-.form__control::before {
-  content: "";
-  display: flex;
-  width: calc(100% - 2px);
-  height: 54px;
-  position: absolute;
-  left: 1px;
-  bottom: 17px;
-  z-index: 0;
-  background-color: var(--bg-gray);
-  border-radius: 10px;
-}
-
-.form__input::-webkit-calendar-picker-indicator {
-  display: flex;
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  z-index: 2;
-  border-radius: 20px;
-  background-color: transparent;
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTUgMjJIMTlDMjAuMTAzIDIyIDIxIDIxLjEwMyAyMSAyMFY2QzIxIDQuODk3IDIwLjEwMyA0IDE5IDRIMTdWMkgxNVY0SDlWMkg3VjRINUMzLjg5NyA0IDMgNC44OTcgMyA2VjIwQzMgMjEuMTAzIDMuODk3IDIyIDUgMjJaTTUgN0gxOVY5SDVWN1oiIGZpbGw9IiMzMjMyMzIiLz4KPC9zdmc+Cg==");
-  opacity: 0.5;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: opacity 0.2s linear;
-  transition: opacity 0.2s linear;
-}
-
-.form__control.error .form__input::-webkit-calendar-picker-indicator,
-.form__control.success .form__input::-webkit-calendar-picker-indicator,
-.form__input:focus::-webkit-calendar-picker-indicator {
-  opacity: 1;
+  -webkit-transition: max-height 0.3s linear;
+  transition: max-height 0.3s linear;
 }
 
 .form__input::placeholder {
-  color: var(--text-gray);
+  opacity: 0.5;
 }
 
 .form__input:focus {
@@ -2110,156 +2007,164 @@ html.has-scroll-dragging {
 }
 
 .form__textarea {
-  height: 124px;
-  max-height: 124px;
   resize: none;
   overflow: hidden;
 }
 
+.form__pencil,
+.form__close {
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.form__pencil {
+  display: flex;
+  z-index: 0;
+}
+
+.form__close {
+  display: none;
+  z-index: 2;
+}
+
+.form__pencil svg,
+.form__close svg {
+  width: 12px;
+  height: 12px;
+}
+
+.form__input:focus ~ .form__pencil {
+  display: none;
+}
+
+.form__input:focus ~ .form__close {
+  display: flex;
+}
+
+.form__bar,
 .form__border,
-.form__bar {
+.form__select_bar,
+.form__select_border {
   display: flex;
   width: 100%;
-  height: 56px;
+  height: 1px;
   flex: 0 0 auto;
   position: absolute;
   bottom: 16px;
 }
 
-.form__bar {
+.form__select_bar,
+.form__select_border {
+  bottom: -1px;
+}
+
+.form__bar,
+.form__select_bar {
   z-index: 1;
 }
 
-.form__border {
+.form__border,
+.form__select_border {
   z-index: 0;
 }
 
-.form__border::before,
-.form__border::after,
-.form__border span::before,
-.form__border span::after,
 .form__bar::before,
 .form__bar::after,
-.form__bar span::before,
-.form__bar span::after {
+.form__border::before,
+.form__border::after,
+.form__select_bar::before,
+.form__select_bar::after,
+.form__select_border::before,
+.form__select_border::after {
   content: '';
+  height: 1px;
   position: absolute;
-  -webkit-transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
-  transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
-}
-
-/* .form__border::before,
-.form__border::after,
-.form__border span::before,
-.form__border span::after {
-  background-color: var(--border);
+  bottom: 0;
+  -webkit-transition: width 0.3s ease;
+  transition: width 0.3s ease;
 }
 
 .form__bar::before,
 .form__bar::after,
-.form__bar span::before,
-.form__bar span::after {
-  background-color: var(--border);
-} */
+.form__select_bar::before,
+.form__select_bar::after {
+  width: 0;
+  background-color: var(--text);
+}
 
 .form__border::before,
-.form__bar::before {
-  width: 0px;
-  height: 1px;
-  top: 0;
-  left: 0;
-}
-
 .form__border::after,
-.form__bar::after {
-  width: 1px;
-  height: 0px;
-  bottom: 0;
-  right: 0;
+.form__select_border::before,
+.form__select_border::after {
+  width: 50%;
+  background-color: var(--border);
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
 }
-
-.form__border span::before,
-.form__bar span::before {
-  width: 0px;
-  height: 1px;
-  right: 0;
-  bottom: 0;
-}
-
-.form__border span::after,
-.form__bar span::after {
-  width: 1px;
-  height: 0px;
-  top: 0;
-  left: 0;
-}
-
-.form__input ~ .form__border::before,
-.form__input ~ .form__border span::before,
-.form__input ~ .form__border::before,
-.form__input ~ .form__border span::before,
-.form__input:hover ~ .form__bar::before,
-.form__input:hover ~ .form__bar span::before,
-.form__input:focus ~ .form__bar::before,
-.form__input:focus ~ .form__bar span::before {
-  width: 100%;
-}
-
-.form__input ~ .form__border::after,
-.form__input ~ .form__border span::after,
-.form__input ~ .form__border::after,
-.form__input ~ .form__border span::after,
-.form__input:hover ~ .form__bar::after,
-.form__input:hover ~ .form__bar span::after,
-.form__input:focus ~ .form__bar::after,
-.form__input:focus ~ .form__bar span::after {
-  height: 100%;
-}
-
-/* .form__input:focus ~ .form__border::after,
-.form__input:focus ~ .form__border span::after,
-.form__input:focus ~ .form__border::after,
-.form__input:focus ~ .form__border span::after,
-.form__input:focus ~ .form__bar::before,
-.form__input:focus ~ .form__bar span::before,
-.form__input:focus ~ .form__bar::after,
-.form__input:focus ~ .form__bar span::after {
-  background-color: var(--bg-dgray);
-} */
 
 /* .form__control.success .form__border::before,
 .form__control.success .form__border::after,
-.form__control.success .form__border span::before,
-.form__control.success .form__border span::after {
+.form__select.success .form__select_border::before,
+.form__select.success .form__select_border::after {
   background-color: var(--green);
 } */
 
-/* .form__control.error .form__border::before,
+.form__control.error .form__border::before,
 .form__control.error .form__border::after,
-.form__control.error .form__border span::before,
-.form__control.error .form__border span::after {
+.form__select.error .form__select_border::before,
+.form__select.error .form__select_border::after {
   background-color: var(--error);
-} */
+}
+
+.form__bar::before,
+.form__border::before,
+.form__select_bar::before,
+.form__select_border::before {
+  left: 50%;
+}
+
+.form__bar:after,
+.form__border::after,
+.form__select_bar:after,
+.form__select_border::after {
+  right: 50%;
+}
+
+.form__input:hover ~ .form__bar::before,
+.form__input:hover ~ .form__bar::after,
+.form__input:focus ~ .form__bar::before,
+.form__input:focus ~ .form__bar::after,
+.form__select_selected_item:hover ~ .form__select_bar::before,
+.form__select_selected_item:hover ~ .form__select_bar::after,
+.form__select_list.form__select_list_opened ~ .form__select_bar::before,
+.form__select_list.form__select_list_opened ~ .form__select_bar::after {
+  width: 50%;
+}
 
 .form__label span {
   color: var(--error);
 }
 
 .form__label {
-  width: max-content;
   min-height: 24px;
-  padding: 16px 0 10px;
+  padding: 0 30px 0 0;
   color: var(--text);
-  -webkit-transform: translateY(0px);
-  transform: translateY(0px);
+  -webkit-transform: translateY(10px);
+  transform: translateY(10px);
   -webkit-transition: transform 0.2s linear, font-size 0.2s linear, color 0.2s linear;
   transition: transform 0.2s linear, font-size 0.2s linear, color 0.2s linear;
 }
 
 .form__input:focus ~ .form__label {
-  color: var(--text-gray);
-  -webkit-transform: translateY(-10px);
-  transform: translateY(-10px);
+  color: var(--hover);
+  -webkit-transform: translateY(0px);
+  transform: translateY(0px);
 }
 
 .form__file {
@@ -2280,7 +2185,7 @@ html.has-scroll-dragging {
   padding: 10px 20px;
   align-items: center;
   gap: 10px;
-  border: 1px solid var(--bg-gray);
+  border: 1px solid var(--border);
   border-radius: 10px;
 }
 
@@ -2303,251 +2208,117 @@ html.has-scroll-dragging {
   gap: 20px;
 }
 
-.form__btn {
-  width: 100%;
-  margin: 7px 0 0 auto;
-}
-
-.form__input.form__input_pass {
-  padding: 0 64px 0 20px;
-}
-
-.form__button_pass {
+.form__select_box {
   display: flex;
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  right: 20px;
-  bottom: 32px;
-  z-index: 2;
-  color: var(--text-gray);
-  -webkit-transition: color 0.2s linear;
-  transition: color 0.2s linear;
-}
-
-.form__button_pass svg {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.form__button_pass svg:nth-child(1),
-.form__button_pass.active svg:nth-child(2) {
-  display: flex;
-}
-
-.form__button_pass.active svg:nth-child(1),
-.form__button_pass svg:nth-child(2) {
-  display: none;
-}
-
-.form__bottom {
-  display: flex;
-  margin: 20px 0 0;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.form__link {
-  color: var(--color);
-}
-
-.form__texts {
-  display: inline-flex;
-  width: 100%;
-  margin: 0 auto 0 0;
   flex-wrap: wrap;
-  gap: 10px;
 }
 
-.form__pop_success,
-.form__pop_error {
-  display: none;
-  padding: 12px 20px;
-}
-
-.form__pop_success {
-  color: var(--green);
-  background-color: var(--bg-success);
-  opacity: 0;
-  -webkit-transition: opacity 0.3s linear;
-  transition: opacity 0.3s linear;
-}
-
-.form__pop_error {
-  color: var(--error);
-  background-color: var(--bg-error);
-}
-
-.form__pop_success.active,
-.form__pop_error.active {
-  display: block;
-  opacity: 1;
-}
-
-.form__pop_error.active {
-   animation-name: errorShake;
-   animation-duration: 0.3s;
-}
-
-.form__buttons {
-  display: flex;
+.form__select {
+  position: relative;
   width: 100%;
-  padding: 30px 0 0;
-  margin: 0 0 0 auto;
-  gap: 40px;
-}
-
-.form__buttons .btn {
-  width: 100%;
-}
-
-.form__checkbox {
-  display: flex;
-  width: 100%;
-  gap: 10px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 
-.form__checkbox_text {
-  -webkit-transform: translateY(-1.5px);
-  transform: translateY(-1.5px);
-}
-
-.form__checkbox_text,
-.form__checkbox_text a {
-  color: var(--text);
-}
-
-.form__checkbox_text a {
-  display: inline;
-  color: var(--color);
-}
-
-.form__checkbox_input {
-  display: none;
-  position: absolute;
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-.form__checkbox_check {
-  display: inline-flex;
-  width: 20px;
-  height: 20px;
-  padding: 2px;
-  flex: 0 0 auto;
+.form__select_selected_item {
+  display: flex;
+  width: max-content;
+  min-height: 38px;
+  padding: 0 0 2px 10px;
   align-items: center;
-  justify-content: center;
-  border: 2px solid var(--text);
-  -webkit-transition: border 0.15s linear;
-  transition: border 0.15s linear;
-  -webkit-transform: translateY(3px);
-  transform: translateY(3px);
-}
-
-.form__checkbox_check.error {
-  border: 2px solid var(--error);
-}
-
-.form__checkbox_input:checked ~ .form__checkbox_check.error {
-  border: 2px solid var(--text);
-}
-
-.form__checkbox_check svg {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  -webkit-transition: opacity 0.2s linear;
-  transition: opacity 0.2s linear;
-}
-
-.form__checkbox input:checked ~ .form__checkbox_check svg {
-  opacity: 1;
-}
-
-.form__checkbox input ~ .form__checkbox_check svg {
-  opacity: 0;
-}
-
-.form__radios {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.form__radio {
-  display: flex;
-  width: 100%;
-  gap: 10px;
-}
-
-.form__radio_head {
-  padding: 0 0 5px;
-  text-transform: uppercase;
-}
-
-.form__radio_text {
-  -webkit-transform: translateY(-1.5px);
-  transform: translateY(-1.5px);
-}
-
-.form__radio_text,
-.form__radio_text a {
+  justify-content: space-between;
+  gap: 5px;
   color: var(--text);
+  background-color: var(--bg);
+  border: none;
+  -webkit-transition: background-color 0.15s linear;
+  transition: background-color 0.15s linear;
+  cursor: none;
 }
 
-.form__radio_text a {
-  display: inline;
-  text-decoration: underline;
+.form__select_selected_item:hover {
+  background-color: var(--bg-hover);
+}
+
+.dark .form__select_selected_item:hover {
+  background-color: var(--border);
+}
+
+.form__select_arrow {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
   color: var(--text);
+  -webkit-transition: -webkit-transform 0.3s linear;
+  transition: transform 0.3s linear;
 }
 
-.form__radio_input {
-  display: none;
+.form__select_arrow_rotate {
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+.form__select_list {
+  width: max-content;
+  max-width: calc(100vw - 30px);
+  height: 180px;
+  max-height: 0;
   position: absolute;
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-.form__radio_check {
-  display: inline-flex;
-  width: 16px;
-  height: 16px;
-  padding: 2px;
-  flex: 0 0 auto;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid var(--bg-gray-hover);
-  border-radius: 50%;
-  -webkit-transition: border 0.15s linear;
-  transition: border 0.15s linear;
-  -webkit-transform: translateY(3px);
-  transform: translateY(3px);
-}
-
-.form__radio_check::after {
-  content: "";
-  display: flex;
-  width: 100%;
-  height: 100%;
-  background-color: var(--color);
-  border-radius: 50%;
-  -webkit-transition: opacity 0.2s linear;
-  transition: opacity 0.2s linear;
-}
-
-.form__radio input:checked ~ .form__radio_check::after {
-  opacity: 1;
-}
-
-.form__radio input ~ .form__radio_check::after {
+  top: 39px;
+  z-index: 10;
+  border-top: none;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  visibility: hidden;
   opacity: 0;
+  -webkit-transition: max-height 0.3s linear, visibility 0.3s linear, border-color 0.3s linear, opacity 0.3s linear;
+  transition: max-height 0.3s linear, visibility 0.3s linear, border-color 0.3s linear, opacity 0.3s linear;
+  -webkit-transition-delay: 0s, 0.3s, 0.3s, 0.3s;
+  transition-delay: 0s, 0.3s, 0.3s, 0.3s;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.form__select_list_opened {
+  max-height: 180px;
+  border-color: var(--border);
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+  z-index: 11;
+}
+
+.form__select_list::-webkit-scrollbar {
+  display: none;
+  width: 0px;
+}
+
+.form__select_list::-webkit-scrollbar-thumb {
+  display: none;
+  width: 0px;
+}
+
+.form__select_list_item {
+  padding: 10px;
+  color: var(--text);
+  background-color: var(--bg);
+  cursor: none;
+}
+
+.form__select_list_item:hover {
+  color: var(--bg);
+  background-color: var(--text);
+}
+
+.form__select_input {
+  display: none;
+}
+
+.form__select_label {
+  color: var(--text);
 }
 
 /* end form */
@@ -2573,7 +2344,8 @@ html.has-scroll-dragging {
     font-size: 24px;
     line-height: 30px;
   }
-  .title_two {
+  .title_two,
+  .breadcrumbs__item:not(:last-child):after {
     font-size: 19px;
     line-height: 25px;
   }
@@ -2627,7 +2399,8 @@ html.has-scroll-dragging {
     font-size: 24px;
     line-height: 30px;
   }
-  .title_two {
+  .title_two,
+  .breadcrumbs__item:not(:last-child):after {
     font-size: 19px;
     line-height: 25px;
   }
@@ -2659,7 +2432,7 @@ html.has-scroll-dragging {
     box-shadow: 0 0 0 1000px var(--bg) inset;
   }
   .btn:not(:disabled):hover .btn__hover,
-  .btn__cart:hover .btn:not(:disabled) .btn__hover {
+  .btn__cart:hover .btn:not(:disabled) .btn__hover{
     -webkit-transform: translateY(0);
     transform: translateY(0);
     -webkit-transition-delay: .1s;
@@ -2686,7 +2459,8 @@ html.has-scroll-dragging {
   }
   .btn__iosapp:not(:disabled):hover,
   .btn__appstore:not(:disabled):hover,
-  .btn__line:not(:disabled):hover {
+  .btn__line:not(:disabled):hover,
+  .btn__count:not(:disabled):hover {
     color: var(--bg);
     background-color: var(--text);
   }
@@ -2699,7 +2473,7 @@ html.has-scroll-dragging {
   }
 
   .form__button_pass:hover {
-    color: var(--color);
+    color: var(--hover);
   }
   .form__link:hover {
     color: var(--text);
@@ -2708,7 +2482,7 @@ html.has-scroll-dragging {
     color: var(--text);
   }
   .form__radio_text a:hover {
-    color: var(--color);
+    color: var(--hover);
   }
 }
 /* end min 1280px */
@@ -2759,7 +2533,9 @@ html.has-scroll-dragging {
   .terminals__video_img,
   .form__radio_check,
   .form__checkbox_check,
-  #showreel__video {
+  #showreel__video,
+  .form__select_selected_item,
+  .form__select_list_item {
     cursor: pointer;
   }
 
@@ -2809,7 +2585,8 @@ html.has-scroll-dragging {
     font-size: 24px;
     line-height: 30px;
   }
-  .title_two {
+  .title_two,
+  .breadcrumbs__item:not(:last-child):after {
     font-size: 16px;
     line-height: 20px;
   }
