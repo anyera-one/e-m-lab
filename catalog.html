@@ -117,10 +117,215 @@
           <div class="catalog_top">
             <h2 class="catalog_top__title">КАТАЛОГ</h2>
             <p class="catalog_top__subtitle title_three">Формулы E+M LAB содержат эффективные активные ингредиенты</p>
-            <button class="btn btn__line title_three btn__catalog">
+            <button class="btn btn__line title_three btn_filters">
               <span class="btn__hover"></span>
               <span class="btn__text">Фильтр /<span>0</span></span>
             </button>
+            <div class="filters">
+              <form class="filters__wrapper">
+                <div class="filters_box active">
+                  <div class="filters_box__top">
+                    <p class="filters_box__title title_four">Серия</p>
+                  </div>
+                  <ul class="filters_box__bottom" style="max-height: 100%;"> 
+                    <li class="filters_item__wrapper">
+                      <label class="filters_item">
+                        <input class="filters_item__checkbox" type="checkbox" name="series" value="series_minus"> 
+                        <p class="filters_item__name title_four"><span class="arithmetic arithmetic_minus">Series</span></p>
+                      </label>
+                    </li>
+                    <li class="filters_item__wrapper">
+                      <label class="filters_item">
+                        <input class="filters_item__checkbox" type="checkbox" name="series" value="series_equals"> 
+                        <p class="filters_item__name title_four"><span class="arithmetic arithmetic_equals">Series</span></p>
+                      </label>
+                    </li>
+                    <li class="filters_item__wrapper">
+                      <label class="filters_item">
+                        <input class="filters_item__checkbox" type="checkbox" name="series" value="series_plus"> 
+                        <p class="filters_item__name title_four"><span class=" arithmetic arithmetic_plus">Series</span></p>
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+                <div class="filters_box">
+                  <div class="filters_box__top">
+                    <p class="filters_box__title title_four">Продукт</p>
+                    <div class="filters_box__plus"></div>
+                  </div>
+                  <ul class="filters_box__bottom"> 
+                    <li class="filters_item__wrapper">
+                      <label class="filters_item">
+                          <input class="filters_item__checkbox" type="checkbox" name="product" value="foam"> 
+                          <p class="filters_item__name title_four">Пенка</p>
+                        </label>
+                      </li>
+                      <li class="filters_item__wrapper">
+                        <label class="filters_item">
+                          <input class="filters_item__checkbox" type="checkbox" name="product" value="gel"> 
+                          <p class="filters_item__name title_four">Гель</p>
+                        </label>
+                      </li>
+                      <li class="filters_item__wrapper">
+                        <label class="filters_item">
+                          <input class="filters_item__checkbox" type="checkbox" name="product" value="tonic"> 
+                          <p class="filters_item__name title_four">Тоник</p>
+                        </label>
+                      </li>
+                      <li class="filters_item__wrapper">
+                        <label class="filters_item">
+                          <input class="filters_item__checkbox" type="checkbox" name="product" value="hydrophilic_oil"> 
+                          <p class="filters_item__name title_four">ГИДРОФИЛЬНОЕ МАСЛО</p>
+                        </label>
+                      </li>
+                      <li class="filters_item__wrapper">
+                        <label class="filters_item">
+                          <input class="filters_item__checkbox" type="checkbox" name="product" value="exfoliant"> 
+                          <p class="filters_item__name title_four">ЭКСФОЛИАНТ</p>
+                        </label>
+                      </li>
+                  </ul>
+                </div>
+                <div class="filters_box">
+                  <div class="filters_box__top">
+                    <p class="filters_box__title title_four">КЛЮЧЕВОЙ ИНГРЕДИЕНТ</p>
+                    <div class="filters_box__plus"></div>
+                  </div>
+                  <ul class="filters_box__bottom"> 
+                    <li class="filters_item__wrapper">
+                      <label class="filters_item">
+                        <input class="filters_item__checkbox" type="checkbox" name="ingredient" value="hyaluronic_acid"> 
+                        <p class="filters_item__name title_four">HYALURONIC ACID</p>
+                      </label>
+                    </li>
+                    <li class="filters_item__wrapper">
+                      <label class="filters_item">
+                        <input class="filters_item__checkbox" type="checkbox" name="ingredient" value="portulaca_oleracea_extract"> 
+                        <p class="filters_item__name title_four">PORTULACA OLERACEA EXTRACT</p>
+                      </label>
+                    </li>    
+                    <li class="filters_item__wrapper">
+                      <label class="filters_item">
+                        <input class="filters_item__checkbox" type="checkbox" name="ingredient" value="ceramide_eop"> 
+                        <p class="filters_item__name title_four">CERAMIDE EOP</p>
+                      </label>
+                    </li>
+                    <li class="filters_item__wrapper">
+                      <label class="filters_item">
+                        <input class="filters_item__checkbox" type="checkbox" name="ingredient" value="bifida_ferment_filtrate"> 
+                        <p class="filters_item__name title_four">BIFIDA FERMENT FILTRATE</p>
+                      </label>
+                    </li>
+                    <li class="filters_item__wrapper">
+                      <label class="filters_item">
+                        <input class="filters_item__checkbox" type="checkbox" name="ingredient" value="vitamin_c"> 
+                        <p class="filters_item__name title_four">VITAMIN C</p>
+                      </label>
+                    </li>
+                    <li class="filters_item__wrapper">
+                      <label class="filters_item">
+                        <input class="filters_item__checkbox" type="checkbox" name="ingredient" value="niacinamide"> 
+                        <p class="filters_item__name title_four">NIACINAMIDE</p>
+                      </label>
+                    </li>
+                    <li class="filters_item__wrapper">
+                      <label class="filters_item">
+                        <input class="filters_item__checkbox" type="checkbox" name="ingredient" value="lactic_acid"> 
+                        <p class="filters_item__name title_four">LACTIC ACID</p>
+                      </label>
+                    </li>
+                    <li class="filters_item__wrapper">
+                      <label class="filters_item">
+                        <input class="filters_item__checkbox" type="checkbox" name="ingredient" value="panthenol"> 
+                        <p class="filters_item__name title_four">PANTHENOL</p>
+                      </label>
+                    </li>
+                    <li class="filters_item__wrapper">
+                      <label class="filters_item">
+                        <input class="filters_item__checkbox" type="checkbox" name="ingredient" value="lactobacillus_ferment"> 
+                        <p class="filters_item__name title_four">LACTOBACILLUS FERMENT</p>
+                      </label>
+                    </li>
+                    <li class="filters_item__wrapper">
+                      <label class="filters_item">
+                        <input class="filters_item__checkbox" type="checkbox" name="ingredient" value="vitamin_e"> 
+                        <p class="filters_item__name title_four">VITAMIN E</p>
+                      </label>
+                    </li>
+                    <li class="filters_item__wrapper">
+                      <label class="filters_item">
+                        <input class="filters_item__checkbox" type="checkbox" name="ingredient" value="urea"> 
+                        <p class="filters_item__name title_four">UREA</p>
+                      </label>
+                    </li>
+                    <li class="filters_item__wrapper">
+                      <label class="filters_item">
+                        <input class="filters_item__checkbox" type="checkbox" name="ingredient" value="aloe_vera"> 
+                        <p class="filters_item__name title_four">ALOE VERA</p>
+                      </label>
+                    </li>
+                    <li class="filters_item__wrapper">
+                      <label class="filters_item">
+                        <input class="filters_item__checkbox" type="checkbox" name="ingredient" value="coenzyme_q10"> 
+                        <p class="filters_item__name title_four">COENZYME Q10</p>
+                      </label>
+                    </li>
+                    <li class="filters_item__wrapper">
+                      <label class="filters_item">
+                        <input class="filters_item__checkbox" type="checkbox" name="ingredient" value="cucumber_extract"> 
+                        <p class="filters_item__name title_four">CUCUMBER EXTRACT</p>
+                      </label>
+                    </li>
+                    <li class="filters_item__wrapper">
+                      <label class="filters_item">
+                        <input class="filters_item__checkbox" type="checkbox" name="ingredient" value="jojoba_seed_oil"> 
+                        <p class="filters_item__name title_four">JOJOBA SEED OIL</p>
+                      </label>
+                    </li>
+                    <li class="filters_item__wrapper">
+                      <label class="filters_item">
+                        <input class="filters_item__checkbox" type="checkbox" name="ingredient" value="chamomile_oil"> 
+                        <p class="filters_item__name title_four">CHAMOMILE OIL</p>
+                      </label>
+                    </li>
+                    <li class="filters_item__wrapper">
+                      <label class="filters_item">
+                        <input class="filters_item__checkbox" type="checkbox" name="ingredient" value="shea_butter"> 
+                        <p class="filters_item__name title_four">SHEA BUTTER</p>
+                      </label>
+                    </li>
+                    <li class="filters_item__wrapper">
+                      <label class="filters_item">
+                        <input class="filters_item__checkbox" type="checkbox" name="ingredient" value="ceramide_np"> 
+                        <p class="filters_item__name title_four">CERAMIDE NP</p>
+                      </label>
+                    </li>
+                    <li class="filters_item__wrapper">
+                      <label class="filters_item">
+                        <input class="filters_item__checkbox" type="checkbox" name="ingredient" value="peptides"> 
+                        <p class="filters_item__name title_four">PEPTIDES</p>
+                      </label>
+                    </li>
+                    <li class="filters_item__wrapper">
+                      <label class="filters_item">
+                        <input class="filters_item__checkbox" type="checkbox" name="ingredient" value="ceramides"> 
+                        <p class="filters_item__name title_four">CERAMIDES</p>
+                      </label>
+                    </li>
+                    <li class="filters_item__wrapper">
+                      <label class="filters_item">
+                        <input class="filters_item__checkbox" type="checkbox" name="ingredient" value="retinol"> 
+                        <p class="filters_item__name title_four">RETINOL</p>
+                      </label>
+                    </li>
+                  </ul> 
+                </div>
+                <button id="submit_filters" class="btn btn__white title_three footer__button_appstore">
+                  <span class="btn__hover"></span>
+                  <span class="btn__text">Показать все продукты</span>
+                </button>
+              </form>                
+            </div>
           </div>
           <div class="catalog_page__list_wrapper">
             <ul class="catalog_page__list">
@@ -236,9 +441,9 @@
                 <p class="title_one">Концепция SERIES</p>
                 <p class="title_three">Каждая серия продукции обеспечивает комплексный и персонализированный подход к красоте и здоровью вашей кожи</p>
                 <ul>
-                  <li class="title_three"><span>Series</span> — очищение</li>
-                  <li class="title_three"><span>Series</span> — питание и увлажнение</li>
-                  <li class="title_three"><span>Series</span> — специальный уход</li>
+                  <li class="title_three arithmetic_minus"><span>Series</span> — очищение</li>
+                  <li class="title_three arithmetic_plus"><span>Series</span> — питание и увлажнение</li>
+                  <li class="title_three arithmetic_equals"><span>Series</span> — специальный уход</li>
                 </ul>
               </li>
               <li class="catalog_page__item catalog_page__item_order catalog_page__product">

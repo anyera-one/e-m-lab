@@ -474,3 +474,41 @@ if(productSlider){
   });
 }
 // end product
+
+// start filters
+
+const filtersBtn = document.querySelector(".btn_filters");
+const filtersBlock = document.querySelector(".filters");
+const filtersSubmit = document.querySelector("#submit_filters");
+const filtersBoxGroup = document.querySelectorAll(".filters_box");
+
+if (filtersBtn) {
+  filtersBtn.addEventListener('click', function() {
+    filtersBlock.classList.toggle('active')
+  })
+}
+if (filtersSubmit) {
+  filtersSubmit.addEventListener('click', function() {
+    event.preventDefault()
+    filtersBlock.style.maxHeight = null;
+    filtersBlock.classList.remove('active')
+  })
+}
+if (filtersBoxGroup) {
+  filtersBoxGroup.forEach((groupItem, i) => {
+    if (i > 0) {
+      groupItem.addEventListener('click', function() {
+        var questionsitemNext = this.children[1];
+        if (questionsitemNext.style.maxHeight) {
+          questionsitemNext.style.maxHeight = null;
+          groupItem.classList.remove('active')
+        } else {
+          questionsitemNext.style.maxHeight = questionsitemNext.scrollHeight + "px";
+          groupItem.classList.add('active')
+        }
+      });
+    }
+  });
+}
+
+// end filters
