@@ -268,7 +268,8 @@ section {
 
 /* start font */
 
-h1 {
+h1,
+.big_one {
   font-family: var(--title-font);
   font-size: 72px;
   font-weight: 400;
@@ -277,7 +278,8 @@ h1 {
   color: var(--text);
 }
 
-h2 {
+h2,
+.big_two {
   font-family: var(--title-font);
   font-size: 36px;
   font-weight: 500;
@@ -285,7 +287,8 @@ h2 {
   color: var(--text);
 }
 
-h3 {
+h3,
+.big_three {
   font-family: var(--title-font);
   font-size: 36px;
   font-weight: 500;
@@ -369,11 +372,18 @@ small {
   transition-duration: .2s,.3s,.2s;
   -webkit-transition-delay: 0s,0s,.1s;
   transition-delay: 0s,0s,.1s;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   overflow: hidden;
 }
 
 .btn:not(:disabled).active .btn__hover,
 .btn__cart.active .btn:not(:disabled) .btn__hover,
+.btn__incart.active .btn:not(:disabled) .btn__hover,
 .btn__input:checked ~ .btn:not(:disabled) .btn__hover {
   -webkit-transform: translateY(0);
   transform: translateY(0);
@@ -383,6 +393,7 @@ small {
 
 .btn:not(:disabled).active .btn__hover::after,
 .btn__cart.active .btn:not(:disabled) .btn__hover::after,
+.btn__incart.active .btn:not(:disabled) .btn__hover::after,
 .btn__input:checked ~ .btn:not(:disabled) .btn__hover::after {
   -webkit-transform: skew(0,-8deg);
   transform: skew(0,-8deg);
@@ -392,6 +403,7 @@ small {
 
 .btn:not(:disabled).active,
 .btn__cart.active .btn:not(:disabled),
+.btn__incart.active .btn:not(:disabled),
 .btn__input:checked ~ .btn:not(:disabled) {
   color: var(--white);
   -webkit-transition-property: color, background-color;
@@ -562,6 +574,42 @@ small {
 .btn__cart .btn__hover,
 .btn__cart .btn__hover::after {
   background-color: var(--bg);
+}
+
+.btn__incart {
+  width: 100%;
+}
+
+.btn__incart .btn {
+  width: 100%;
+  background-color: var(--text);
+  color: var(--bg);
+  border-radius: 6px;
+}
+
+.btn__incart .btn__text {
+  width: 100%;
+  height: 52px;
+  padding: 16px;
+  border: 1px solid var(--text);
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.btn__incart .btn__text svg {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.btn__incart .btn__hover,
+.btn__incart .btn__hover::after {
+  background-color: var(--bg);
+}
+
+.btn__incart .btn__hover,
+.btn__incart .btn__hover::after {
+  height: 125%;
 }
 
 .btn__count {
@@ -2263,7 +2311,7 @@ html.has-scroll-dragging {
 .form__select_list {
   width: max-content;
   max-width: calc(100vw - 30px);
-  height: 180px;
+  height: 183px;
   max-height: 0;
   position: absolute;
   top: 39px;
@@ -2283,7 +2331,7 @@ html.has-scroll-dragging {
 }
 
 .form__select_list_opened {
-  max-height: 180px;
+  max-height: 183px;
   border-color: var(--border);
   visibility: visible;
   opacity: 1;
@@ -2306,7 +2354,19 @@ html.has-scroll-dragging {
   padding: 10px;
   color: var(--text);
   background-color: var(--bg);
+  position: relative;
   cursor: none;
+}
+
+.form__select_list_item:not(:last-child)::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  background-color: var(--border);
 }
 
 .form__select_list_item:hover {
@@ -2329,15 +2389,18 @@ html.has-scroll-dragging {
   .container {
     padding: 0 60px;
   }
-  h1 {
+  h1,
+  .big_one {
     font-size: 60px;
     line-height: 60px;
   }
-  h2 {
+  h2,
+  .big_two {
     font-size: 30px;
     line-height: 35px;
   }
-  h3 {
+  h3,
+  .big_three {
     font-size: 30px;
     line-height: 35px;
   }
@@ -2388,15 +2451,18 @@ html.has-scroll-dragging {
   .container {
     padding: 0 40px;
   }
-  h1 {
+  h1,
+  .big_one {
     font-size: 60px;
     line-height: 60px;
   }
-  h2 {
+  h2,
+  .big_two {
     font-size: 30px;
     line-height: 35px;
   }
-  h3 {
+  h3,
+  .big_three {
     font-size: 30px;
     line-height: 35px;
   }
@@ -2441,21 +2507,24 @@ html.has-scroll-dragging {
     box-shadow: 0 0 0 1000px var(--bg) inset;
   }
   .btn:not(:disabled):hover .btn__hover,
-  .btn__cart:hover .btn:not(:disabled) .btn__hover{
+  .btn__cart:hover .btn:not(:disabled) .btn__hover,
+  .btn__incart:hover .btn:not(:disabled) .btn__hover {
     -webkit-transform: translateY(0);
     transform: translateY(0);
     -webkit-transition-delay: .1s;
     transition-delay: .1s;
   }
   .btn:not(:disabled):hover .btn__hover:after,
-  .btn__cart:hover .btn:not(:disabled) .btn__hover:after {
+  .btn__cart:hover .btn:not(:disabled) .btn__hover:after,
+  .btn__incart:hover .btn:not(:disabled) .btn__hover:after {
     -webkit-transform: skew(0,-8deg);
     transform: skew(0,-8deg);
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
   }
   .btn:not(:disabled):hover,
-  .btn__cart:hover .btn:not(:disabled) {
+  .btn__cart:hover .btn:not(:disabled),
+  .btn__incart:hover .btn:not(:disabled) {
     color: var(--bg);
     -webkit-transition-property: color, background-color;
     transition-property: color, background-color;
@@ -2476,7 +2545,8 @@ html.has-scroll-dragging {
   .btn__totop:not(:disabled):hover,
   .btn__white:not(:disabled):hover,
   .btn__transparent:not(:disabled):hover,
-  .btn__cart:hover .btn:not(:disabled) {
+  .btn__cart:hover .btn:not(:disabled),
+  .btn__incart:hover .btn:not(:disabled) {
     color: var(--text);
     background-color: var(--bg);
   }
@@ -2578,16 +2648,19 @@ html.has-scroll-dragging {
   .container {
     padding: 0 24px;
   }
-  h1 {
+  h1,
+  .big_one {
     font-size: 36px;
     line-height: 35px;
   }
-  h2 {
+  h2,
+  .big_two {
     font-size: 24px;
     line-height: 25px;
     letter-spacing: -0.01em;
   }
-  h3 {
+  h3,
+  .big_three {
     font-size: 24px;
     line-height: 25px;
   }

@@ -296,6 +296,7 @@ if(productinput){
     this.value = this.value.replace(/[^0-9]$/g, '');
   }
   document.getElementById("product__forname").oninput = function(){
+    this.value = this.value.substr(0, this.getAttribute('maxl'));
     this.value = this.value.replace(/[^a-z\ ]+/ig, "");
   }
   document.querySelectorAll('.product__count .product__minus').forEach(function (element) {
@@ -430,6 +431,38 @@ class Select {
 }
 
 Select.attach()
+// end select
+
+// start select
+var productButton = document.getElementsByClassName("product__accordion_button");
+var i;
+
+for (i = 0; i < productButton.length; i++) {
+  productButton[i].onclick = function(e) {
+    var productNext = this.nextElementSibling;
+    var productInfo = document.getElementsByClassName("product__accordion_info");
+    var productInfoActive = document.getElementsByClassName("product__accordion_button active");
+
+    if (productNext.style.maxHeight) {
+      productNext.style.maxHeight = null;
+      this.classList.remove("active");
+      productNext.classList.remove("active");
+    } else {
+      for (var q = 0; q < productInfoActive.length; q++) {
+        productInfoActive[q].classList.remove("active");
+        productInfo[q].classList.remove("active");
+      }
+      for (var p = 0; p < productInfo.length; p++) {
+        this.classList.remove("active");
+        productInfo[p].classList.remove("active");
+        productInfo[p].style.maxHeight = null;
+      }
+      productNext.style.maxHeight = productNext.scrollHeight + "px";
+      productNext.classList.add("active");
+      this.classList.add("active");
+    }
+  };
+}
 // end select
 
 // start about_slider__swiper
