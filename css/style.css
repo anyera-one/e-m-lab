@@ -1765,7 +1765,6 @@
   letter-spacing: -0.02em;
   text-align: center;
   text-transform: uppercase;
-  
 }
 
 /* end ingredients */
@@ -3128,7 +3127,114 @@
   .ingredients__scanner_wrapper h2 {
     padding: 45px 15px 0;
   }
+  .ingredients_page__item:hover .ingredient__img {
+    opacity: 1;
+  }
+  .ingredients_page__item:hover .ingredient__text {
+    opacity: 0;
+  }
 
+  .ingredient_popup__overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+    background: transparent;
+    -webkit-transition: visibility 0.3s linear, opacity 0.5s linear, background-color 0.3s linear;
+    transition: visibility 0.3s linear, opacity 0.5s linear, background-color 0.3s linear;
+    -webkit-transition-delay: 0.3s;
+    transition-delay: 0.3s;
+  }
+  .ingredient_popup__overlay {
+    z-index: 110;
+  }
+  .ingredient_popup__overlay.active {
+    background-color: var(--text);
+    opacity: 0.3;
+    visibility: visible;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+  }
+  .ingredient_popup {
+    display: flex;
+    width: 100%;
+    max-width: 328px;
+    padding: 16px ;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 111;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity 0.3s linear, visibility 0.3s linear;
+    transition: opacity 0.3s linear, visibility 0.3s linear;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+  }
+  .ingredient_popup.active {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition:  opacity 0.3s linear , visibility 0.3s linear ;
+    transition:  opacity 0.3s linear, visibility 0.3s linear ;
+  }
+  .ingredient_popup__block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ingredient_popup__scroll {
+    height: 100%;
+    max-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  .ingredient_popup__scroll::-webkit-scrollbar {
+    display: none;
+    width: 0px;
+  }
+  .ingredient_popup__scroll::-webkit-scrollbar-thumb {
+    display: none;
+    width: 0px;
+  }
+  .ingredient_popup__wrapper {
+    padding: 16px;
+    position: relative;
+    background: var(--bg);
+    overflow: hidden;
+  }
+  .ingredient_popup__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 100;
+  }
+  .ingredient_popup__close svg{
+    width: 15px;
+    height: 15px;
+  }
+  .ingredient_popup__info {
+    position: relative;
+    z-index: 2;
+  }
+  .ingredient_popup__info p:nth-child(1) {
+    max-width: 214px;
+    padding: 0 0 13px 0;
+  }
+  .ingredient__text_description {
+    padding: 0 0 13px 0;
+  }
+  .ingredient__text_contains {
+    padding: 0 0 5px 0;
+  }
+  .ingredient__text_name {
+    padding: 0;
+  }
 }
 /* end 767px */
 
@@ -3136,3 +3242,5 @@
 @media (max-width: 390px) {
 }
 /* end 390px */
+
+

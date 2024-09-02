@@ -516,7 +516,7 @@ const filtersSubmit = document.querySelector("#submit_filters");
 const filtersBoxGroup = document.querySelectorAll(".filters_box");
 const filtersCheckbox = document.querySelectorAll(".filters_item__checkbox");
 const uncheck = [...document.querySelectorAll(".filters_item__checkbox")];
-const spanCheck = document.querySelector(".btn_filters").children[1].children[0]
+const spanCheck = document.querySelector(".btn_filters")?.children[1].children[0]
 let numberCheck = 0
 
 if (filtersBtn) {
@@ -560,3 +560,39 @@ uncheck.forEach(input => input.addEventListener('input', function(event) {
 }))
 
 // end filters
+
+// start ingredient popup mobile
+
+const ingredientItems = document.querySelectorAll(".ingredient");
+const ingredientpopup = document.querySelector('.ingredient_popup');
+const ingredientpopupOverlay = document.querySelector('.ingredient_popup__overlay');
+const ingredientPopupInfo = document.querySelector('.ingredient_popup__info');
+
+if (ingredientItems) {
+  ingredientItems.forEach((ingredient, i) => {
+    ingredient.addEventListener('click', function() {
+      ingredientpopup.classList.add('active');
+      ingredientpopupOverlay.classList.add('active');
+      document.documentElement.classList.add("noscroll");
+      const ingredientText = this.children[0].children[1]
+      const ingredientName = this.children[1]
+      ingredientPopupInfo.innerHTML = `<p>${ingredientName.innerHTML}</p>` + ingredientText.innerHTML ;
+      scroll.stop();
+    });  
+  });
+  ingredientpopupOverlay.addEventListener('click', e => {
+    ingredientpopup.classList.remove('active');
+    ingredientpopupOverlay.classList.remove('active');
+    document.documentElement.classList.remove("noscroll");
+    scroll.start();
+  });
+  document.querySelector('.ingredient_popup__close').addEventListener('click', e => {
+    ingredientpopup.classList.remove('active');
+    ingredientpopupOverlay.classList.remove('active');
+    document.documentElement.classList.remove("noscroll");
+    console.log('sss')
+    scroll.start();
+  });
+}
+
+// end ingredient popup mobile
