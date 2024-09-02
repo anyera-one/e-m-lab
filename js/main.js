@@ -514,19 +514,24 @@ const filtersBtn = document.querySelector(".btn_filters");
 const filtersBlock = document.querySelector(".filters");
 const filtersSubmit = document.querySelector("#submit_filters");
 const filtersBoxGroup = document.querySelectorAll(".filters_box");
+const filtersCheckbox = document.querySelectorAll(".filters_item__checkbox");
+const uncheck = [...document.querySelectorAll(".filters_item__checkbox")];
+const spanCheck = document.querySelector(".btn_filters").children[1].children[0]
+let numberCheck = 0
 
 if (filtersBtn) {
   filtersBtn.addEventListener('click', function() {
-    filtersBlock.classList.toggle('active')
+    filtersBlock.classList.toggle('active') 
   })
 }
+
 if (filtersSubmit) {
   filtersSubmit.addEventListener('click', function() {
     event.preventDefault()
-    filtersBlock.style.maxHeight = null;
     filtersBlock.classList.remove('active')
   })
 }
+
 if (filtersBoxGroup) {
   filtersBoxGroup.forEach((groupItem, i) => {
     if (i > 0) {
@@ -543,5 +548,15 @@ if (filtersBoxGroup) {
     }
   });
 }
+
+uncheck.forEach(input => input.addEventListener('input', function(event) {
+  if (event.target.checked) {
+    numberCheck++
+    spanCheck.innerHTML = numberCheck
+  } else {
+    numberCheck--
+    spanCheck.innerHTML = numberCheck
+  }
+}))
 
 // end filters

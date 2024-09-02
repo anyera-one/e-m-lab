@@ -117,10 +117,22 @@
           <div class="catalog_top">
             <h2 class="catalog_top__title">КАТАЛОГ</h2>
             <p class="catalog_top__subtitle title_three">Формулы E+M LAB содержат эффективные активные ингредиенты</p>
-            <button class="btn btn__line title_three btn_filters">
-              <span class="btn__hover"></span>
-              <span class="btn__text">Фильтр /<span>0</span></span>
-            </button>
+            <div class="catalog__filters_btn">
+              <button class="btn btn__line title_three btn_filters">
+                <span class="btn__hover"></span>
+                <span class="btn__text">Фильтр /<span>0</span></span>
+              </button>
+              <div class="catalog__filters_list">
+                <div class="catalog__filters_item">
+                  <div class="filters_box__close"></div>
+                  <p class="title_four"><span class="arithmetic arithmetic_minus">Series</span></p>
+                </div>
+                <div class="catalog__filters_item">
+                  <div class="filters_box__close"></div>
+                  <p class="title_four">HYALURONIC ACID</p>
+                </div>
+              </div>
+            </div>
             <div class="filters">
               <form class="filters__wrapper">
                 <div class="filters_box active">
@@ -320,9 +332,9 @@
                     </li>
                   </ul> 
                 </div>
-                <button id="submit_filters" class="btn btn__white title_three footer__button_appstore">
+                <button id="submit_filters" class="btn btn__white title_three  footer__button_appstore filters__btn_submit">
                   <span class="btn__hover"></span>
-                  <span class="btn__text">Показать все продукты</span>
+                  <span class="btn__text title_four">Показать все продукты</span>
                 </button>
               </form>                
             </div>
@@ -1088,7 +1100,7 @@
                 <a href="" class="footer__link title_four">О нас</a>
               </li>
               <li class="footer__item animate_top">
-                <a href="" class="footer__link title_four">Ингредиенты</a>
+                <a href="ingredients.html" class="footer__link title_four">Ингредиенты</a>
               </li>
               <li class="footer__item animate_top">
                 <a href="" class="footer__link title_four">Контакты</a>
