@@ -1769,6 +1769,59 @@
 
 /* end ingredients */
 
+/* start answer */
+
+.answer__block {
+  display: flex;
+  min-height: 950px;
+  padding: 82px 0 100px;
+  justify-content: space-between;
+}
+
+.answer__nav {
+  display: flex;
+  width: 20%;
+  padding: 33px 0 0;
+  flex-direction: column;
+  gap: 15px;
+  text-transform: uppercase;
+}
+
+.answer__accordion {
+  width: 67%;
+  padding: 0 0 0 13px;
+}
+
+.answer__accordion .product__accordion_desc {
+  padding: 0 0 84px;
+}
+
+.answer__accordion .product__accordion_info {
+  max-width: 720px;
+}
+
+.answer__accordion .product__accordion_info:not(:last-child) {
+  padding: 0;
+}
+
+.answer__accordion .product__accordion_button {
+  border-top: 1px solid #2020204D
+}
+
+.answer__accordion .product__accordion_button:nth-child(1) {
+  border-top: none
+}
+
+.answer__accordion .product__accordion_head {
+  padding: 15px 0 25px;
+}
+
+.answer__accordion .product__accordion_button {
+  height: 90px;
+}
+
+/* end answer */
+
 /* start 1919px for 1440px */
 @media (max-width: 1919px) {
   .header {
@@ -2053,7 +2106,19 @@
   }
   .ingredient__wrapper {
     height: 429px;
-}
+  }
+
+  .answer__nav {
+    width: 25%;
+    gap: 11px;
+  }
+  .answer__accordion .product__accordion_head {
+    padding: 15px 0 15px;
+  }
+  .answer__accordion .product__accordion_button {
+    height: 77px;
+  }
+  
 }
 /* end 1919px */
 
@@ -2318,6 +2383,11 @@
   }
   .ingredients__scanner_wrapper h2 {
     padding: 0 30px;
+  }
+
+  .answer__nav {
+    width: 33%;
+    gap: 11px;
   }
 
 }
@@ -2686,6 +2756,22 @@
   .ingredient__text_name {
     padding: 5px 0 0 0;
   }
+
+  .answer__block {
+    min-height: 600px;
+    padding: 34px 0 100px;
+  }
+  .answer__nav {
+    width: 30%;
+    gap: 12px;
+  }
+  .answer__accordion {
+    width: 66%;
+    padding: 0;
+  }
+  .answer__accordion .product__accordion_desc {
+    padding: 0 0 54px;
+  } 
 }
 /* end 1023px */
 
@@ -3235,6 +3321,26 @@
   .ingredient__text_name {
     padding: 0;
   }
+
+  .answer__block {
+    min-height: 100%;
+    padding: 58px 0 20px;
+    flex-direction: column;
+  }
+  
+  .answer__nav {
+    width: 100%;
+    padding: 0;
+    gap: 7px;
+  }
+  .answer__accordion {
+    width: 100%;
+    padding: 41px 0;
+  } 
+  .answer__accordion .product__accordion_button {
+    gap: 3px;
+  }
+
 }
 /* end 767px */
 
