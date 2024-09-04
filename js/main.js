@@ -568,7 +568,7 @@ const ingredientpopup = document.querySelector('.ingredient_popup');
 const ingredientpopupOverlay = document.querySelector('.ingredient_popup__overlay');
 const ingredientPopupInfo = document.querySelector('.ingredient_popup__info');
 
-if (ingredientItems) {
+if (ingredientpopupOverlay) {
   ingredientItems.forEach((ingredient, i) => {
     ingredient.addEventListener('click', function() {
       ingredientpopup.classList.add('active');
@@ -580,12 +580,14 @@ if (ingredientItems) {
       scroll.stop();
     });  
   });
-  ingredientpopupOverlay.addEventListener('click', e => {
-    ingredientpopup.classList.remove('active');
-    ingredientpopupOverlay.classList.remove('active');
-    document.documentElement.classList.remove("noscroll");
-    scroll.start();
-  });
+  if (ingredientpopupOverlay) {
+    ingredientpopupOverlay.addEventListener('click', e => {
+      ingredientpopup.classList.remove('active');
+      ingredientpopupOverlay.classList.remove('active');
+      document.documentElement.classList.remove("noscroll");
+      scroll.start();
+    });
+}
   document.querySelector('.ingredient_popup__close').addEventListener('click', e => {
     ingredientpopup.classList.remove('active');
     ingredientpopupOverlay.classList.remove('active');
@@ -596,3 +598,99 @@ if (ingredientItems) {
 }
 
 // end ingredient popup mobile
+
+// start yandex map
+const maps = document.getElementById("map");
+if(maps) {
+  var myMap,ymaps;
+  function init() {
+    myMap = document.getElementById("map");
+    if (!myMap) return;
+    myMap = new ymaps.Map(myMap, {
+      center: [55.749633, 37.537434],
+      zoom: 14, 
+      controls: []
+      },{
+      zoomControlPosition: { right: 0, top: 0 },
+      zoomControlSize: 'auto'
+    });
+
+    if(oldWidth <= 1200){
+      myMap.behaviors.disable('drag');
+    }
+
+    const zoomInBtn = document.getElementById('zoom-in');
+    const zoomOutBtn = document.getElementById('zoom-out');
+
+    zoomInBtn.addEventListener('click', zoomIn);
+    zoomOutBtn.addEventListener('click', zoomOut);
+
+    function zoomIn() {
+      const currentZoom = myMap.getZoom();
+      myMap.setZoom(currentZoom + 1);
+    }
+  
+    function zoomOut() {
+      const currentZoom = myMap.getZoom();
+      myMap.setZoom(currentZoom - 1);
+    }
+
+    var data = {
+      'points': [{
+        "infoPoint": '<div id="mapmoscow" class="map__point{% if properties.active %} map__active{% endif %}">\
+        <div class="map__icon"></div>\
+          <div class="map__point_block">\
+            <div class="map__point_temp"><br>г. Москва,ул. Старокалужское шоссе, д. 62</div>\
+          </div>\
+        </div>',
+        "latitude": 55.749633,
+        "longitude": 37.537434,
+        },
+      ],
+    };
+
+    var mapCoordinates = new ymaps.GeoObjectCollection();
+
+    var results = [];
+    data.points.forEach(function(item, index){
+      results.push(createPlacemark(item));
+    });
+    myMap.geoObjects.add(mapCoordinates);
+    myMap.behaviors.disable('scrollZoom');
+
+    function createPlacemark(item) {
+      var options = Object();
+      var squareLayout = ymaps.templateLayoutFactory.createClass(item.infoPoint);
+      var place = new ymaps.Placemark([item.latitude, item.longitude],{hintContent: false}, {
+        iconLayout: squareLayout,
+        iconShape: {   
+          type: 'Rectangle',
+          coordinates: [
+            [-55, -50], [30, 50]
+          ]
+        }
+      });
+      mapCoordinates.add(place);
+    }
+    var thatCoordinates;
+    mapCoordinates.events.add('click', function (e) {
+      var that = e.get('target').properties.get('active');
+      mapCoordinates.each(function(item, index){
+        item.properties.set('active', false);
+        if(e.get('target') == item && !that){
+          e.get('target').properties.set('active', true);
+          thatCoordinates = e.get('coords');
+        }
+      });
+
+      var mapmoscow = document.getElementById('mapmoscow');
+      if (mapmoscow.classList.contains("map__active")) {
+        myMap.setCenter([55.749633, 37.537434],17);
+      } else {
+        myMap.setCenter([55.749633, 37.537434],9);
+      };
+    });
+  }
+  if (ymaps != undefined) ymaps.ready(init);
+}
+// end yandex map
