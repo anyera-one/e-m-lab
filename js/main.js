@@ -694,3 +694,23 @@ if(maps) {
   if (ymaps != undefined) ymaps.ready(init);
 }
 // end yandex map
+
+// start indago picture
+
+const indagoPicturesWrapper = document.querySelector('.indago_sub_pictures');
+const indagoPictureslist = document.querySelectorAll(".indago_sub_picture");
+
+if (indagoPicturesWrapper) {
+  indagoPictureslist.forEach((indagoPicture) => {
+    indagoPicture.addEventListener('mouseover', function() {
+      indagoPictureslist.forEach((picture) => {
+        if(picture.classList.contains('active')) {
+          picture.classList.remove('active');
+        }
+      })
+      indagoPicture.classList.add('active');
+    });  
+  });
+}
+
+// end indago picture
