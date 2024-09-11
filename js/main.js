@@ -714,3 +714,48 @@ if (indagoPicturesWrapper) {
 }
 
 // end indago picture
+
+// start indago efficiency mobile
+
+const indagoEfficiencyIcon = document.querySelector('.indago_efficiency__svg_mobule');
+const indagoEfficiencyWrapper = document.querySelector('.indago_efficiency__right');
+const indagoEfficiencyDescr = document.querySelector('.indago_efficiency__descr');
+const indagoEfficiencyText = document.querySelector('.indago_efficiency__text');
+
+if(indagoEfficiencyDescr) {
+  if (indagoEfficiencyDescr.scrollHeight > indagoEfficiencyText.scrollHeight) {
+    indagoEfficiencyText.style.maxHeight = indagoEfficiencyDescr.scrollHeight + "px";
+    indagoEfficiencyText.style.height = indagoEfficiencyDescr.scrollHeight + "px";
+    console.log(indagoEfficiencyDescr.scrollHeight, indagoEfficiencyText.scrollHeight)
+  } else {
+    indagoEfficiencyText.style.maxHeight = indagoEfficiencyText.scrollHeight + "px";
+    indagoEfficiencyText.style.height = indagoEfficiencyText.scrollHeight + "px";
+    console.log(indagoEfficiencyDescr.scrollHeight, indagoEfficiencyText.scrollHeight)
+  }
+}
+
+if (indagoEfficiencyDescr) {
+  indagoEfficiencyDescr.style.maxHeight = null;
+  indagoEfficiencyDescr.style.height =  null;
+}
+
+if(indagoEfficiencyIcon) {
+  indagoEfficiencyIcon.addEventListener('click', e => {
+    indagoEfficiencyWrapper.classList.toggle("active")
+    if (indagoEfficiencyText.style.maxHeight) {
+      indagoEfficiencyDescr.style.maxHeight = indagoEfficiencyText.style.maxHeight;
+      indagoEfficiencyDescr.style.height =  indagoEfficiencyText.style.height;
+      indagoEfficiencyText.style.maxHeight = null;
+      indagoEfficiencyText.style.height =  null;
+    } else {
+      indagoEfficiencyText.style.maxHeight = indagoEfficiencyDescr.style.maxHeight;
+      indagoEfficiencyText.style.height =  indagoEfficiencyDescr.style.height;
+      indagoEfficiencyDescr.style.maxHeight = null;
+      indagoEfficiencyDescr.style.height =  null;
+    }
+  })
+}
+
+// end indago efficiency mobile
+
+  
