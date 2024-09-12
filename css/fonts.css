@@ -424,6 +424,11 @@ small {
 
 .btn__hover,
 .btn__hover::after {
+  display: none;
+}
+
+/* .btn__hover,
+.btn__hover::after {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -446,7 +451,7 @@ small {
   transform-origin: 0 0;
   -webkit-transition-delay: .1s;
   transition-delay: .1s;
-}
+} */
 
 .btn__iosapp {
   background-color: var(--bg);
@@ -2507,7 +2512,7 @@ html.has-scroll-dragging {
     color: var(--text);
     box-shadow: 0 0 0 1000px var(--bg) inset;
   }
-  .btn:not(:disabled):hover .btn__hover,
+  /* .btn:not(:disabled):hover .btn__hover,
   .btn__cart:hover .btn:not(:disabled) .btn__hover,
   .btn__incart:hover .btn:not(:disabled) .btn__hover {
     -webkit-transform: translateY(0);
@@ -2522,15 +2527,15 @@ html.has-scroll-dragging {
     transform: skew(0,-8deg);
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
-  }
+  } */
   .btn:not(:disabled):hover,
   .btn__cart:hover .btn:not(:disabled),
   .btn__incart:hover .btn:not(:disabled) {
     color: var(--bg);
     -webkit-transition-property: color, background-color;
     transition-property: color, background-color;
-    -webkit-transition-delay: 0s, .3s, 0s;
-    transition-delay: 0s, .3s, 0s;
+    /* -webkit-transition-delay: 0s, .3s, 0s;
+    transition-delay: 0s, .3s, 0s; */
   }
   .btn__color:not(:disabled):hover {
     color: var(--bg);
@@ -2615,7 +2620,8 @@ html.has-scroll-dragging {
   .form__checkbox_check,
   #showreel__video,
   .form__select_selected_item,
-  .form__select_list_item {
+  .form__select_list_item,
+  .product__accordion_button {
     cursor: pointer;
   }
 

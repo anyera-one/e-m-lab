@@ -513,6 +513,14 @@ img.about__text_img_3 {
   padding: 60px 0 160px;
 }
 
+.about_slider__block_two {
+  padding: 80px 0 160px;
+}
+
+.about_slider__block_three {
+  padding: 80px 0;
+}
+
 .about_slider__flex {
   display: flex;
   gap: 24px;
@@ -637,7 +645,7 @@ img.about__text_img_3 {
   transition: opacity 0.3s;
 }
 
-.catalog_page__item:hover .about_slider__image_1{
+.catalog_page__item:hover .about_slider__image_1 {
   opacity: 0;
 }
 
@@ -645,7 +653,7 @@ img.about__text_img_3 {
   opacity: 1;
 }
 
-.about_slider__card:hover .about_slider__image_1{
+.about_slider__card:hover .about_slider__image_1 {
   opacity: 0;
 }
 
@@ -1601,8 +1609,8 @@ img.about__text_img_3 {
   max-width: 620px;
   max-height: 0;
   opacity: 0;
-  -webkit-transition: max-height 0.3s linear, opacity 0.3s linear, margin 0.3s linear;
-  transition: max-height 0.3s linear, opacity 0.3s linear,  margin 0.3s linear;
+  -webkit-transition: max-height 0.3s linear, opacity 0.3s linear;
+  transition: max-height 0.3s linear, opacity 0.3s linear;
   overflow: hidden;
 }
 
@@ -1674,8 +1682,13 @@ img.about__text_img_3 {
 /* end product_related */
 
 /* start ingredients */
+
 .ingredients__block {
   padding: 49px 0 150px;
+}
+
+.ingredients__block_two {
+  padding: 60px 0 80px;
 }
 
 .ingredients_home {
@@ -2326,6 +2339,11 @@ img.about__text_img_3 {
   padding: 29px 0 44px;
 }
 
+.indago_sub__block_two {
+  padding: 80px 0 40px;
+  margin: 0 0 80px;
+}
+
 .indago_sub__top {
   display: flex;
   flex-wrap: wrap;
@@ -2488,6 +2506,12 @@ img.about__text_img_3 {
   
   .about_slider__block {
     padding: 0 0 100px;
+  }
+  .about_slider__block_two {
+    padding: 50px 0 100px;
+  }
+  .about_slider__block_three {
+    padding: 50px 0;
   }
   .about_slider__swiper {
     padding-right: 60px;
@@ -2701,6 +2725,9 @@ img.about__text_img_3 {
   .ingredients__block {
     padding: 60px 0 150px;
   }
+  .ingredients__block_two {
+    padding: 60px 0 80px;
+  }
   .ingredients_home {
     height: 600px;
   }
@@ -2892,6 +2919,10 @@ img.about__text_img_3 {
   .indago_sub__block {
     padding: 27px 0 33px;
   }
+  .indago_sub__block_two {
+    padding: 50px 0 30px;
+    margin: 0 0 50px;
+  }
   .indago_sub__text_left {
     padding: 13px 0 0;
   }
@@ -2951,6 +2982,12 @@ img.about__text_img_3 {
   
   .about_slider__block {
     padding: 0 0 80px;
+  }
+  .about_slider__block_two {
+    padding: 40px 0 80px;
+  }
+  .about_slider__block_three {
+    padding: 40px 0;
   }
   .about_slider__swiper {
     padding-right: 40px;
@@ -3402,6 +3439,12 @@ img.about__text_img_3 {
   
   .about_slider__block {
     padding: 0 0 80px;
+  }
+  .about_slider__block_two {
+    padding: 40px 0 80px;
+  }
+  .about_slider__block_three {
+    padding: 40px 0;
   }
   .about_slider__swiper {
     padding-right: 24px;
@@ -3905,6 +3948,10 @@ img.about__text_img_3 {
   .indago_sub__block {
     padding: 32px 0 36px;
   }
+  .indago_sub__block_two {
+    padding: 40px 0 30px;
+    margin: 0 0 40px;
+  }
   .indago_sub__text_left {
     padding: 7px 0 0;
   }
@@ -4005,6 +4052,12 @@ img.about__text_img_3 {
 
   .about_slider__block {
     padding: 20px 0 80px;
+  }
+  .about_slider__block_two {
+    padding: 40px 0 80px;
+  }
+  .about_slider__block_three {
+    padding: 40px 0;
   }
   .about_slider__flex {
     flex-direction: column;
@@ -4708,6 +4761,10 @@ img.about__text_img_3 {
   }
   .indago_sub__block {
     padding: 32px 0 43px;
+  }
+  .indago_sub__block_two {
+    padding: 40px 0 30px;
+    margin: 0 0 40px;
   }
   .indago_sub__top {
     display: flex;
