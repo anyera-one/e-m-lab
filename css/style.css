@@ -1302,12 +1302,16 @@ img.about__text_img_3 {
 /* start product */
 
 .product__block {
-  padding: 100px 0;
+  padding: 100px 0 80px;
 }
 
 .product__flex {
   display: flex;
   gap: 80px;
+}
+
+.product__pagination {
+  display: none;
 }
 
 .product__slider {
@@ -1366,6 +1370,10 @@ img.about__text_img_3 {
   padding: 0 0 60px;
   flex-direction: column;
   gap: 10px;
+}
+
+.product__denomination_m {
+  display: none;
 }
 
 .product__head {
@@ -3306,6 +3314,69 @@ img.about__text_img_3 {
   .order_compound__title {
     padding: 0 0 21px;
   }
+  
+  .product__block {
+    padding: 100px 0 20px;
+  }
+  .product__flex {
+    gap: 50px;
+  }
+  .product__slider,
+  .product__swiper {
+    width: 600px;
+    height: 600px;
+  }
+  .product__thumbs_swiper {
+    width: 60px;
+    height: calc(100% - 20px);
+    top: 10px;
+    left: 10px;
+  }
+  .product__thumbs_image {
+    width: 60px;
+    height: 60px;
+  }
+  .product__info {
+    width: calc(100% - 600px);
+  }
+  .product__denomination {
+    padding: 0 0 50px;
+    gap: 7px;
+  }
+  .product__incart {
+    padding: 50px 0 0;
+  }
+  .product__subscription {
+    padding: 36px 0 0;
+    gap: 16px;
+  }
+  .product__description {
+    max-width: 488px;
+    padding: 85px 0 0;
+  }
+  .product__denomination,
+  .product__volume,
+  .product__incart,
+  .product__subscription,
+  .product__characteristics {
+    max-width: 424px;
+  }
+  .product__accordion {
+    max-width: 100%;
+  }
+  .product__accordion_info {
+    max-width: 488px;
+  }
+  .product__head {
+    padding: 0 0 3px;
+  }
+  .product__volume {
+    gap: 17px;
+  }
+  .product__subscription_image {
+    width: 110px;
+    height: 110px;
+  }
 }
 /* end 1919px */
 
@@ -3772,6 +3843,36 @@ img.about__text_img_3 {
   .order_data__item_meaning {
     max-width: 300px;
   }
+
+  .ingredients__block_two {
+    padding: 50px 0;
+  }
+  
+  .product__block {
+    padding: 70px 0;
+  }
+  .product__slider,
+  .product__swiper {
+    width: 434px;
+    height: 434px;
+  }
+  .product__thumbs_swiper {
+    width: 43.4px;
+  }
+  .product__thumbs_image {
+    width: 43.4px;
+    height: 43.4px;
+  }
+  .product__info {
+    width: calc(100% - 434px);
+  }
+  .product__denomination,
+  .product__volume,
+  .product__incart,
+  .product__subscription,
+  .product__accordion_info {
+    max-width: 100%;
+  }
 }
 /* end 1439px */
 
@@ -4120,6 +4221,9 @@ img.about__text_img_3 {
   }
   .ingredients__block {
     padding: 50px 0 60px;
+  }
+  .ingredients__block_two {
+    padding: 50px 0;
   }
   .ingredients_home {
     height: 320px;
@@ -4479,6 +4583,62 @@ img.about__text_img_3 {
   }
   .order .orders_item__top {
     flex-direction: column;
+  }
+
+  .product__block {
+    padding: 80px 0 50px;
+  }
+  .product__slider,
+  .product__swiper {
+    width: 340px;
+    height: 340px;
+  }
+  .product__thumbs_swiper {
+    display: none;
+  }
+  .product__flex {
+    gap: 28px;
+  }
+  .product__info {
+    width: calc(100% - 340px);
+  }
+  .product__head {
+    padding: 0 0 5px;
+  }
+  .product__denomination {
+    padding: 0 0 36px;
+    gap: 10px;
+  }
+  .product__volume {
+    gap: 5px;
+  }
+  .product__incart {
+    padding: 50px 0 0;
+  }
+  .product__select_box,
+  .product__count,
+  .product__forname .form__control {
+    width: calc(100% - 114px);
+  }
+  .product__volume_name,
+  .product__counts_name,
+  .product__forname_name {
+    width: 114px;
+  }
+  .btn__incart .btn__text {
+    height: 40px;
+    padding: 12.5px;
+  }
+  .product__subscription_image {
+    width: 92px;
+    height: 92px;
+  }
+  .product__description {
+    max-width: 100%;
+    padding: 60px 0 0;
+  }
+  .product__pagination {
+    display: flex;
   }
 }
 /* end 1023px */
@@ -4867,6 +5027,9 @@ img.about__text_img_3 {
 
   .ingredients__block {
     padding: 45px 0 60px;
+  }
+  .ingredients__block_two {
+    padding: 40px 0;
   }
   .ingredients_home {
     height: 500px;
@@ -5301,7 +5464,7 @@ img.about__text_img_3 {
   }
   .indago_sub .catalog_banner_max__img {
     -webkit-transform: translateX(0);
-    -webkit-transform: translateX(0);
+    transform: translateX(0);
   }
   .indago_sub .catalog_banner_max__img img {
     width: 100%;
@@ -5370,7 +5533,29 @@ img.about__text_img_3 {
     display: block;
   }
 
-
+  .product__block {
+    padding: 60px 0 80px;
+  }
+  .product__flex {
+    flex-direction: column;
+  }
+  .product__slider,
+  .product__swiper {
+    width: 100%;
+    height: calc(100vw - 32px);
+  }
+  .product__info {
+    width: 100%;
+  }
+  .product__denomination_d {
+    display: none;
+  }
+  .product__denomination_m {
+    display: flex;
+  }
+  .product__incart {
+    padding: 36px 0 0;
+  }
 }
 /* end 767px */
 
@@ -5378,5 +5563,3 @@ img.about__text_img_3 {
 @media (max-width: 390px) {
 }
 /* end 390px */
-
-

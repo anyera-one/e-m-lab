@@ -504,6 +504,10 @@ if(productSlider){
     thumbs: {
       swiper: productThumbs,
     },
+    pagination: {
+      el: ".product__pagination",
+      clickable: true,
+    },
   });
 }
 // end product
