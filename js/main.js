@@ -758,4 +758,52 @@ if(indagoEfficiencyIcon) {
 
 // end indago efficiency mobile
 
+
+// start orders swiper
+const ordersSwiperSwip = document.querySelector('.orders_item__swiper');
+if (ordersSwiperSwip) {
+  var ordersSwiper = new Swiper(".orders_item__swiper", {
+    spaceBetween: 8,
+    slidesPerView: 4.2,
+    scrollbar: {
+      el: ".orders_item__scrollbar",
+      hide: true,
+    },
+    breakpoints: {
+      1439: {
+        spaceBetween: 10,
+        slidesPerView: 5.4,
+      },
+      1023: {
+        spaceBetween: 8,
+        slidesPerView: 4.4,
+      },
+    },
+  });
+}
+// end orders swiper
   
+// start order list
+
+const ordersList = document.querySelector('.orders__list');
+const ordersItemlist = document.querySelectorAll(".orders_item");
+const ordersWrapper = document.querySelector('.orders__wrapper');
+const order = document.querySelector('.order');
+const ordersLink = document.querySelector('#orders');
+
+if (ordersList) {
+  ordersItemlist.forEach((ordersItem) => {
+    ordersItem.addEventListener('click', function() {
+      ordersWrapper.classList.remove('active');  
+      order.classList.add('active');
+    });  
+  });
+}
+
+if (ordersLink) {
+  ordersLink.addEventListener('click', function() {
+    order.classList.remove('active');  
+    ordersWrapper.classList.add('active');
+  });  
+}
+// end order list
