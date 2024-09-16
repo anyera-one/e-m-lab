@@ -32,14 +32,6 @@
       <div class="cursor__right"></div>
     </div>
   </div>
-  <div class="add_cart"> 
-    <p class="title_three">Cleansing gel добавлено в корзину</p>
-    <div class="add_cart_close">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M11.9941 13.0605L16.9336 18L17.9941 16.9395L13.0546 12L17.9941 7.0605L16.9336 6L11.9941 10.9395L7.05464 6L5.99414 7.0605L10.9336 12L5.99414 16.9395L7.05464 18L11.9941 13.0605Z" fill="white"/>
-      </svg> 
-    </div>
-  </div>
   <header class="header">
     <div class="header__close"></div>
     <div class="header__progress">
@@ -89,78 +81,18 @@
         </div>
         <div class="header__links">
           <div class="header__links_left">
-            <a href="orders.html" class="header__link header__link_login">
+            <a href="personal.html" class="header__link header__link_login">
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33" fill="none">
                 <circle cx="15.9993" cy="16.4993" r="12.3333" stroke="currentColor" stroke-width="1.2"/>
                 <path d="M21.6635 17.2344C21.6635 20.3624 19.1278 22.8982 15.9997 22.8982C12.8717 22.8982 10.3359 20.3624 10.3359 17.2344" stroke="currentColor" stroke-width="1.2"/>
               </svg>
             </a>
-            <button class="header__link header__link_cart">
+            <a href="cart.html" class="header__link header__link_cart">
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33" fill="none">
                 <path d="M22.3328 12.6997V11.2172C22.3328 7.71988 19.4977 4.88477 16.0004 4.88477C12.5031 4.88477 9.66797 7.71988 9.66797 11.2172V12.6997" stroke="currentColor" stroke-width="1.2" stroke-linecap="square" stroke-linejoin="round"/>
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M26.9153 28.1152L28.3327 10.3118L3.66601 10.3118L5.08344 28.1152L26.9153 28.1152Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
               </svg>
-              <span class="header__link_cart_circle active"></span>
-            </button>
-            <div class="cart_min">
-              <ul class="cart_min__list">
-                <li class="cart_min__item">
-                  <div class="cart_min__item_img">
-                    <img src="./img/orders/order_product.webp" alt=""/>
-                  </div>
-                  <div class="cart_min__item_info">
-                    <div class="cart_min__item_text">
-                      <p class="cart_min__item_name title_three">Cleansing gel</p>
-                      <p class="cart_min__item_price title_three">4 999 ₽</p>
-                    </div>
-                    <form class="cart_min__item_close">
-                      <label>
-                        <input type="submit" name="cartClose" class="hidden">                                 
-                          <div class="cart_min__item_close_svg">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.2">
-                              <path d="M11.9941 13.0605L16.9336 18L17.9941 16.9395L13.0546 12L17.9941 7.0605L16.9336 6L11.9941 10.9395L7.05464 6L5.99414 7.0605L10.9336 12L5.99414 16.9395L7.05464 18L11.9941 13.0605Z" fill="#202020"/></g>
-                            </svg>
-                          </div>
-                      </label>
-                    </form>
-                  </div>
-                </li>
-                <li class="cart_min__item">
-                  <div class="cart_min__item_img">
-                    <img src="./img/orders/order_product.webp" alt=""/>
-                  </div>
-                  <div class="cart_min__item_info">
-                    <div class="cart_min__item_text">
-                      <p class="cart_min__item_name title_three">Cleansing gel</p>
-                      <p class="cart_min__item_price title_three">4 999 ₽</p>
-                    </div>
-                    <form class="cart_min__item_close">
-                      <label>
-                        <input type="submit" name="cartClose" class="hidden">                                 
-                          <div class="cart_min__item_close_svg">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.2">
-                              <path d="M11.9941 13.0605L16.9336 18L17.9941 16.9395L13.0546 12L17.9941 7.0605L16.9336 6L11.9941 10.9395L7.05464 6L5.99414 7.0605L10.9336 12L5.99414 16.9395L7.05464 18L11.9941 13.0605Z" fill="#202020"/></g>
-                            </svg>
-                          </div>
-                      </label>
-                    </form>
-                  </div>
-                </li>
-              </ul>
-              <div class="cart_min__price">
-                <p class="order_data__item_name title_three">Итого</p>
-                <div class="order_data__item_dots"></div>
-                <p class="order_data__item_meaning title_three">12 999 ₽</p>
-              </div>
-              <div class="cart_min__btn">
-                <a href="" class="btn btn__white catalog_banner_max_button title_four">
-                  <span class="btn__hover"></span>
-                  <span class="btn__text">
-                    В КОРЗИНУ
-                  </span>
-                </a>
-              </div>
-            </div>
+            </a>
           </div>
           <div class="header__links_right">
             <a href="" class="btn btn__iosapp header__links_button title_three">
@@ -179,6 +111,115 @@
   </header>
   <main class="main" data-scroll-container>
     <section class="top" data-scroll-section id="top"></section>
+    <section class="about" data-scroll-section>
+      <div class="container about__container">
+        <div class="about__block">
+          <div class="about__flex">
+            <div class="about__left animate_top">
+              <p class="about__head title_three">Inspired by you<br>made by California</p>
+            </div>
+            <div class="about__right animate_top">
+              <div class="about__text title_three">
+                Калифорния вдохновила нас на философию спокойствия 
+                и осознанности, которую мы передаем через наши 
+                продукты, сочетая легкость солнечного побережья 
+                с передовыми технологиями для вашего комфорта и гармонии<br>
+                <img  class="about__text_img_1"src="img/about/about_1.webp" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="about__flex">
+            <div class="about__left animate_top">
+              <p class="about__head title_three">Персонализация</p>
+            </div>
+            <div class="about__right animate_top">
+              <div class="about__text title_three">
+                Уникальный продукт от формулы до упаковки
+              </div>
+            </div>
+          </div>
+          <div class="about__flex">
+            <div class="about__left animate_top">
+              <p class="about__head title_three">Indago</p>
+            </div>
+            <div class="about__right animate_top">
+              <div class="about__text title_three">
+                — это технология, которая сканирует вашу кожу, 
+                анализируя более 16 её состояний, чтобы создать 
+                персонализированный план ухода с индивидуально 
+                подобранными ингредиентами, специально для вас<br>
+                <a href="">[Подробнее]</a>
+              </div>
+            </div>
+          </div>
+          <div class="about__flex">
+            <div class="about__left animate_top">
+              <p class="about__head title_three">E+M LAB APP</p>
+            </div>
+            <div class="about__right animate_top">
+              <div class="about__text title_three">
+                Наше мобильное приложение — ваш личный косметолог и 
+                центр экосистемы E+M LAB. Сканируйте, получайте 
+                индивидуальный план ухода и отслеживайте прогресс<br>
+                <a href="">[Подробнее]</a>
+              </div>
+            </div>
+          </div>
+          <div class="about__flex">
+            <div class="about__left animate_top">
+              <p class="about__head title_three">ПОДПИСКА</p>
+            </div>
+            <div class="about__right animate_top">
+              <div class="about__text title_three">
+                Мы убеждены, что решение проблем кожи заключается 
+                в ежедневном уходе с комплексными средствами<br>
+                <a href="">[ОФОРМИТЬ ПОДПИСКУ]</a>
+              </div>
+            </div>
+          </div>
+          <div class="about__flex">
+            <div class="about__left animate_top">
+              <p class="about__head title_three">Ингредиенты</p>
+            </div>
+            <div class="about__right animate_top">
+              <div class="about__text title_three">
+                Формулы E+M LAB содержат эффективные активные ингредиенты<br>
+                <a href="">[Подробнее]</a>
+                <img class="about__text_img_2" src="img/about/about_2.webp" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="about__flex">
+            <div class="about__left animate_top">
+              <p class="about__head title_three">Производство</p>
+            </div>
+            <div class="about__right animate_top">
+              <div class="about__text title_three">
+                Продукты EM LAB создаются на заводе "Ariel Biotech"
+                – международный центр производства косметики премиум-класса , 
+                который производит  ведущие косметические бренды Европы, 
+                Кореи и США.
+                <br> Ariel Biotech — это высокотехнологичное производство, 
+                которое соответствует самым строгим стандартам качества и безопасности<br><br>
+                Сертификаты качества:<br>
+                <img class="about__text_img_3" src="img/about/about_3.webp" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="about__flex">
+            <div class="about__left animate_top">
+              <p class="about__head title_three">Упаковка</p>
+            </div>
+            <div class="about__right animate_top">
+              <div class="about__text title_three">
+                Промойте колпачки, крышки, помпы, капельницы, стеклянные банки и пластиковые бутылки.
+                Привозите в магазины Золотого яблока и выбрасывайте в контейнеры
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="about_slider" data-scroll-section>
       <div class="container about_slider__container">
         <div class="about_slider__block">
@@ -208,7 +249,7 @@
                       </div>
                       <label class="btn btn__cart about_slider__btn">
                         <input type="hidden" class="hidden">
-                        <div class="btn buy-pokup">
+                        <div class="btn">
                           <span class="btn__hover"></span>
                           <span class="btn__text">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -243,7 +284,7 @@
                       </div>
                       <label class="btn btn__cart about_slider__btn">
                         <input type="hidden" class="hidden">
-                        <div class="btn buy-pokup">
+                        <div class="btn">
                           <span class="btn__hover"></span>
                           <span class="btn__text">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -278,7 +319,7 @@
                       </div>
                       <label class="btn btn__cart about_slider__btn">
                         <input type="hidden" class="hidden">
-                        <div class="btn buy-pokup">
+                        <div class="btn">
                           <span class="btn__hover"></span>
                           <span class="btn__text">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -313,61 +354,6 @@
               </a>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-    <section class="answer emLabApp" data-scroll-section>
-      <div class="container answer__container">
-        <div class="answer__block">
-          <div class="answer__nav title_three animate_top">
-            <a href="" class="answer__nav_item">Вопрос — ответ</a>
-          </div>
-          <div class="answer__accordion">
-            <div class="product__accordion_button animate_top">
-              <p class="product__accordion_head big_two">Как оформить подписку?</p>
-              <div class="product__accordion_arrow"></div>
-            </div>
-            <div class="product__accordion_info">
-              <p class="product__accordion_desc title_three">
-                Искусственный интеллект подбирает средства, исходя из сканирования лица, возраста и типа кожи.
-                <br>Каждые два месяца состав обновляется для достижения максимального эффекта.
-                Рекомендуем PREMIUM, всего доступно три вида подписки:
-              </p>
-            </div>
-            <div class="product__accordion_button animate_top">
-              <p class="product__accordion_head big_two">INDAGO —</p>
-              <div class="product__accordion_arrow"></div>
-            </div>
-            <div class="product__accordion_info">
-              <p class="product__accordion_desc title_three">
-                Искусственный интеллект подбирает средства, исходя из сканирования лица, возраста и типа кожи.
-                <br>Каждые два месяца состав обновляется для достижения максимального эффекта.
-                Рекомендуем PREMIUM, всего доступно три вида подписки:
-              </p>
-            </div>
-            <div class="product__accordion_button animate_top">
-              <p class="product__accordion_head big_two">Кому подойдет E+M LAB</p>
-              <div class="product__accordion_arrow"></div>
-            </div>
-            <div class="product__accordion_info">
-              <p class="product__accordion_desc title_three">
-                Искусственный интеллект подбирает средства, исходя из сканирования лица, возраста и типа кожи.
-                <br>Каждые два месяца состав обновляется для достижения максимального эффекта.
-                Рекомендуем PREMIUM, всего доступно три вида подписки:
-              </p>
-            </div>
-            <div class="product__accordion_button animate_top ">
-              <p class="product__accordion_head big_two">Как работает подписка?</p>
-              <div class="product__accordion_arrow"></div>
-            </div>
-            <div class="product__accordion_info">
-              <p class="product__accordion_desc title_three">
-                Искусственный интеллект подбирает средства, исходя из сканирования лица, возраста и типа кожи.Каждые два месяца состав обновляется для достижения максимального эффекта.
-                <br>
-                Рекомендуем PREMIUM, всего доступно три вида подписки:
-              </p>
-            </div>
-          </div>    
         </div>
       </div>
     </section>
