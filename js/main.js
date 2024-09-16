@@ -811,3 +811,41 @@ if (ordersLink) {
   });  
 }
 // end order list
+
+// start cart min
+
+const cardBtn = document.querySelector('.header__link_cart');
+const cardMinWrapper = document.querySelector('.cart_min');
+
+if (cardBtn) {
+  cardBtn.addEventListener('click', function() {
+    cardMinWrapper.classList.toggle('active');  
+  }); 
+}
+
+// end cart min
+
+// start cart min
+
+const addCart = document.querySelector('.add_cart');
+const addCartClose = document.querySelector('.add_cart_close');
+const buyPokup = document.querySelector('.buy-pokup');
+const buyPokupList = document.querySelectorAll('.buy-pokup');
+
+if (buyPokupList.length > 0) {
+  buyPokupList.forEach((buyPokupItem) => {
+    buyPokupItem.addEventListener('click', function() {
+      if (addCart) {
+        addCart.classList.add('active');  
+      } 
+    });
+  })
+}
+
+if (addCartClose) {
+  addCartClose.addEventListener('click', function() {
+      addCart.classList.remove('active');  
+  }); 
+}
+
+// end cart min
