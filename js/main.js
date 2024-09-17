@@ -849,3 +849,33 @@ if (addCartClose) {
 }
 
 // end cart min
+
+// start ingredients_scroll__list
+const ingredients_scrolllist = document.querySelector('.ingredients_scroll__list');
+if(ingredients_scrolllist){
+  const ingredients_scrolllists = document.querySelectorAll('.ingredients_scroll__list');
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.querySelectorAll(".ingredients_scroll__item").length <= 1) {
+      [...document.querySelectorAll('.ingredients_scroll__block')].map((n, i) => {
+        let l = ingredients_scrolllists[i].innerHTML;
+        n.querySelector('.ingredients_scroll__list').innerHTML = l + l + l + l + l + l + l + l
+      })
+    } else if (document.querySelectorAll(".ingredients_scroll__item").length <= 2) {
+      [...document.querySelectorAll('.ingredients_scroll__block')].map((n, i) => {
+        let l = ingredients_scrolllists[i].innerHTML;
+        n.querySelector('.ingredients_scroll__list').innerHTML = l + l + l + l
+      })
+    } else if (document.querySelectorAll(".ingredients_scroll__item").length <= 3) {
+      [...document.querySelectorAll('.ingredients_scroll__block')].map((n, i) => {
+        let l = ingredients_scrolllists[i].innerHTML;
+        n.querySelector('.ingredients_scroll__list').innerHTML = l + l + l + l
+      })
+    } else if (document.querySelectorAll(".ingredients_scroll__item").length <= 17) {
+      [...document.querySelectorAll('.ingredients_scroll__block')].map((n, i) => {
+        let l = ingredients_scrolllists[i].innerHTML;
+        n.querySelector('.ingredients_scroll__list').innerHTML = l + l
+      })
+    }
+  });
+}
+// // end ingredients_scroll__list
