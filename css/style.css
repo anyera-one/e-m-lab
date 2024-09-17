@@ -2819,6 +2819,19 @@ img.about__text_img_3 {
   height: max-content;
 }
 
+.cart_min.zero .cart_min__goods {
+  display: none;
+}
+
+.cart_min__zero {
+  display: none;
+}
+
+.cart_min.zero .cart_min__zero {
+  display: block;
+  padding: 19px 0 0;
+}
+
 .cart_min__list {
   display: flex;
   max-height: 40vh;
@@ -2862,6 +2875,19 @@ img.about__text_img_3 {
 
 .cart_min__item_name {
   text-transform: uppercase;
+}
+
+.cart_min__item_add {
+  align-self: end;
+}
+
+.cart_min__item_add .btn__text{
+  padding: 6px 11px;
+}
+
+.cart_min__zero .cart_min__list{
+  margin: 60px 0 0;
+  max-height: 70vh;
 }
 
 .cart_min__price  {
@@ -3729,8 +3755,10 @@ width: 230px;
   }
 
   .cart_min {
-    padding: 14px 0 11px 10px;
     top: 55px;
+  }
+  .cart_min.active {
+    padding: 14px 0 11px 10px;
   }
   .cart_min__item_img {
     margin: 0;
@@ -4322,6 +4350,9 @@ width: 230px;
 
   .add_cart p{
     max-width: 240px;
+  }
+  .cart_min__zero .cart_min__list {
+    margin: 45px 0 0;
   }
 
   .home_page .ingredients_home {
@@ -5160,8 +5191,10 @@ width: 230px;
   }
   .cart_min {
     width: 352px;
-    padding: 10px 0 11px 10px;
     top: 45px;
+  }
+  .cart_min.active {
+    padding: 10px 0 11px 10px;
   }
   .cart_min__item_img {
     width: 60px;
@@ -6190,8 +6223,10 @@ width: 230px;
 
   .cart_min {
     width: calc(100vw - 32px);
-    padding: 10px 0 11px 10px;
     top: 52px;
+  }
+  .cart_min.active {
+    padding: 10px 0 11px 10px;
   }
   .cart_min__btn .catalog_banner_max_button {
     display: block;
