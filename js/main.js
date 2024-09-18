@@ -18,7 +18,7 @@ appHeight();
 // end height
 
 // start scroll
-scroll = new LocomotiveScroll({el: document.querySelector('[data-scroll-container]'),smooth:true,getDirection: true,scrollFromAnywhere: true,breakpoint: 0,inertia: 1.7,mobile: {breakpoint: 0,smooth: false,inertia: 0,},tablet: {breakpoint: 0,smooth: false,inertia: 1.7,},smartphone: {breakpoint: 0,smooth: false,inertia: 1.7,}})
+scroll = new LocomotiveScroll({ el: document.querySelector('[data-scroll-container]'), smooth: true, getDirection: true, scrollFromAnywhere: true, breakpoint: 0, inertia: 1.7, mobile: { breakpoint: 0, smooth: false, inertia: 0, }, tablet: { breakpoint: 0, smooth: false, inertia: 1.7, }, smartphone: { breakpoint: 0, smooth: false, inertia: 1.7, } })
 // scroll = new LocomotiveScroll({el: document.querySelector('[data-scroll-container]'),smooth: true,getDirection: true,scrollFromAnywhere: true,breakpoint: 0,inertia: 0,tablet: {breakpoint: 0,smooth: false,inertia: 0,}})
 new ResizeObserver(() => scroll.update()).observe(document.querySelector("[data-scroll-container]"));
 
@@ -28,7 +28,7 @@ const projecttopinfo = document.querySelector('.project_top__info');
 const headerprogress = document.querySelector('.header__progress_bar');
 
 if (!document.querySelector('.has-scroll-smooth')) {
-  window.addEventListener('scroll', function() {
+  window.addEventListener('scroll', function () {
     if (headert) {
       if (window.scrollY <= 40) {
         header.classList.add('header__transparent');
@@ -36,7 +36,7 @@ if (!document.querySelector('.has-scroll-smooth')) {
         header.classList.remove('header__transparent');
       }
     }
-    
+
     document.documentElement.setAttribute('scroll', `${window.scrollY}`);
     let scrollTop = window.scrollY || document.documentElement.scrollTop;
     let windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
@@ -45,7 +45,7 @@ if (!document.querySelector('.has-scroll-smooth')) {
     );
     let scrollpage = Math.round((scrollTop / (document.querySelector('.main').clientHeight - windowHeight)) * 100);
     headerprogress.style.flexBasis = scrollpage + '%';
-  
+
   });
 } else {
   scroll.on('scroll', (args) => {
@@ -55,7 +55,7 @@ if (!document.querySelector('.has-scroll-smooth')) {
     headerprogress.style.flexBasis = scrollheader + '%';
 
     document.documentElement.setAttribute('scroll', `${Math.round(args["scroll"]["y"])}`);
-  
+
     if (headert) {
       if (Math.round(args["scroll"]["y"]) <= 40) {
         header.classList.add('header__transparent');
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const buttonprev = document.querySelectorAll('.swiper-button-prev');
   const sliders = document.querySelectorAll(".swiper-wrapper");
 
-  document.addEventListener('mousemove', function(e){
+  document.addEventListener('mousemove', function (e) {
     let ctx = e.clientX;
     let cty = e.clientY;
     if (ctx > (document.body.offsetWidth - 5) || cty > (document.body.offsetHeight - 5) || ctx < 5 || cty < 5) {
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
       cursor.classList.remove('leave')
     }
   });
-  
+
   function moveCursor(event) {
     var cursorX = event.clientX + "px";
     var cursorY = event.clientY + "px";
@@ -107,14 +107,14 @@ document.addEventListener("DOMContentLoaded", () => {
     cursor.classList.remove("active");
   };
 
-  document.addEventListener('mousedown', function(){
+  document.addEventListener('mousedown', function () {
     cursor.classList.add('active')
   });
 
-  document.addEventListener('mouseup', function(){
+  document.addEventListener('mouseup', function () {
     cursor.classList.remove('active')
   });
-  
+
   sinview.forEach(item => {
     item.onmouseenter = () => {
       cursor.classList.add("cursor__showreel");
@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
       cursor.classList.remove('hover');
     });
   });
-  
+
   sliders.forEach(item => {
     item.onmouseenter = () => {
       cursor.classList.add("cursor__slider");
@@ -214,7 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // start year
 const year = document.querySelector('.footer__year');
-if(year) {
+if (year) {
   const currentYear = new Date().getFullYear();
   year.insertAdjacentText('beforebegin', currentYear);
   year.remove();
@@ -223,7 +223,7 @@ if(year) {
 
 // start domen
 const domen = document.querySelector('.domen');
-if(domen){
+if (domen) {
   let domens = document.querySelectorAll(".domen");
   for (let i = 0; i < domens.length; i++) {
     domens[i].innerText = window.location.hostname;
@@ -238,7 +238,7 @@ const headerClose = document.querySelector('.header__close');
 const menuItemActive = document.getElementsByClassName("header__nav_item active");
 
 // button header__burger
-burger.addEventListener('click', function() {
+burger.addEventListener('click', function () {
   if (burger.classList.contains("active")) {
     overlay.classList.remove("active");
     menu.classList.remove("active");
@@ -261,7 +261,7 @@ burger.addEventListener('click', function() {
 // end header__burger
 
 // button overlay
-headerClose.addEventListener('click', function() {
+headerClose.addEventListener('click', function () {
   overlay.classList.remove("active");
   menu.classList.remove("active");
   burger.classList.remove("active");
@@ -270,7 +270,7 @@ headerClose.addEventListener('click', function() {
   document.documentElement.classList.remove("noscroll");
   scroll.start();
 })
-overlay.addEventListener('click', function() {
+overlay.addEventListener('click', function () {
   overlay.classList.remove("active");
   menu.classList.remove("active");
   burger.classList.remove("active");
@@ -281,59 +281,84 @@ overlay.addEventListener('click', function() {
 })
 // end overlay
 
-// start hover scroll
-const scrolls = document.querySelector('.scrolls');
-if(scrolls){
-  scrolls.onmouseover = function(e) {scroll.stop();};
-  scrolls.onmouseout = function(e) {scroll.start();};
-}
-// end hover scroll
-
 // start product count
-const productinput = document.querySelector(".product__count_input input");
-if(productinput){
-  productinput.oninput = function(){
-    this.value = this.value.replace(/[^0-9]$/g, '');
+const productInputs = document.querySelectorAll(".product__count_input input");
+productInputs.forEach(productInput => {
+  const countContainer = productInput.closest('.product__count');
+  if (productInput) {
+    productInput.oninput = function () {
+      this.value = this.value.replace(/[^0-9]$/g, '');
+      updateButtonState(parseInt(this.value) || 0, parseInt(this.getAttribute('max')), 1, countContainer);
+    }
+
+    if (document.getElementById("product__forname")) {
+      document.getElementById("product__forname").oninput = function () {
+        this.value = this.value.substr(0, this.getAttribute('maxl'));
+        this.value = this.value.replace(/[^a-z\ ]+/ig, "");
+      }
+    }
+
+    const updateButtonState = (currentValue, max, min, container) => {
+      const minusButton = container.querySelector('.product__minus');
+      const plusButton = container.querySelector('.product__plus');
+
+      if (currentValue <= min) {
+        minusButton.classList.add('disabled');
+      } else {
+        minusButton.classList.remove('disabled');
+      }
+
+      if (currentValue >= max) {
+        plusButton.classList.add('disabled');
+      } else {
+        plusButton.classList.remove('disabled');
+      }
+    };
+
+    countContainer.querySelectorAll('.product__minus').forEach(function (element) {
+      element.addEventListener('click', function (event) {
+        event.preventDefault();
+        let input = this.parentElement.querySelector('.product__count_input input');
+        let count = parseInt(input.value) - 1;
+        count = count < 1 ? 1 : count;
+        input.value = count;
+        updateButtonState(count, parseInt(input.getAttribute('max')), 1, countContainer);
+      });
+    });
+
+    countContainer.querySelectorAll('.product__plus').forEach(function (element) {
+      element.addEventListener('click', function (event) {
+        let inputMax = this.parentElement.querySelector('.product__count_input input').getAttribute('max');
+        event.preventDefault();
+        let input = this.parentElement.querySelector('.product__count_input input');
+        let count = parseInt(input.value) + 1;
+        count = count > parseInt(inputMax) ? parseInt(inputMax) : count;
+        input.value = count;
+        updateButtonState(count, parseInt(inputMax), 1, countContainer);
+      });
+    });
+
+    countContainer.querySelectorAll('.product__count_input input').forEach(function (element) {
+      element.addEventListener("change", function (event) {
+        let inputMax = this.getAttribute('max');
+        event.preventDefault();
+        if (this.value.match(/[^0-9]/g)) {
+          this.value = this.value.replace(/[^0-9]/g, '');
+        }
+        if (this.value == "") {
+          this.value = 1;
+        }
+        if (this.value > parseInt(inputMax)) {
+          this.value = inputMax;
+        }
+        updateButtonState(parseInt(this.value), parseInt(inputMax), 1, countContainer);
+      });
+    });
+
+    updateButtonState(parseInt(productInput.value) || 1, parseInt(productInput.getAttribute('max')), 1, countContainer);
   }
-  document.getElementById("product__forname").oninput = function(){
-    this.value = this.value.substr(0, this.getAttribute('maxl'));
-    this.value = this.value.replace(/[^a-z\ ]+/ig, "");
-  }
-  document.querySelectorAll('.product__count .product__minus').forEach(function (element) {
-    element.addEventListener('click', function(event) {
-      event.preventDefault();
-      let input = this.parentElement.querySelector('.product__count_input input');
-      let count = parseInt(input.value) - 1;
-      count = count < 1 ? 1 : count;
-      input.value = count;
-    });
-  });
-  document.querySelectorAll('.product__count .product__plus').forEach(function (element) {
-    element.addEventListener('click', function(event) {
-      let inputMax = this.parentElement.querySelector('.product__count_input input').getAttribute('max');
-      event.preventDefault();
-      let input = this.parentElement.querySelector('.product__count_input input');
-      let count = parseInt(input.value) + 1;
-      count = count > parseInt(inputMax) ? parseInt(inputMax) : count;
-      input.value = parseInt(count);
-    });
-  });
-  document.querySelectorAll('.product__count .product__count_input input').forEach(function (element) {
-    element.addEventListener("change", function(event) {
-      let inputMax = this.parentElement.querySelector('.product__count_input input').getAttribute('max');
-      event.preventDefault();
-      if (this.value.match(/[^0-9]/g)) {
-        this.value = this.value.replace(/[^0-9]/g, '');
-      }
-      if (this.value == "") {
-        this.value = 1;
-      }
-      if (this.value > parseInt(inputMax)) {
-        this.value = parseInt(inputMax);
-      }
-    });
-  });
-}
+});
+
 // end product count
 
 // start select
@@ -438,7 +463,7 @@ var productButton = document.getElementsByClassName("product__accordion_button")
 var i;
 
 for (i = 0; i < productButton.length; i++) {
-  productButton[i].onclick = function(e) {
+  productButton[i].onclick = function (e) {
     var productNext = this.nextElementSibling;
     var productInfo = document.getElementsByClassName("product__accordion_info");
     var productInfoActive = document.getElementsByClassName("product__accordion_button active");
@@ -467,7 +492,7 @@ for (i = 0; i < productButton.length; i++) {
 
 // start about_slider__swiper
 const aboutSlider = document.querySelector('.about_slider__swiper');
-if(aboutSlider){
+if (aboutSlider) {
   var aboutSwiper = new Swiper('.about_slider__swiper', {
     loop: false,
     slidesPerView: "auto",
@@ -487,7 +512,7 @@ if(aboutSlider){
 
 // start product
 const productSlider = document.querySelector('.product__swiper');
-if(productSlider){
+if (productSlider) {
   var productThumbs = new Swiper('.product__thumbs_swiper', {
     direction: 'vertical',
     spaceBetween: 10,
@@ -524,13 +549,13 @@ const spanCheck = document.querySelector(".btn_filters")?.children[1].children[0
 let numberCheck = 0
 
 if (filtersBtn) {
-  filtersBtn.addEventListener('click', function() {
-    filtersBlock.classList.toggle('active') 
+  filtersBtn.addEventListener('click', function () {
+    filtersBlock.classList.toggle('active')
   })
 }
 
 if (filtersSubmit) {
-  filtersSubmit.addEventListener('click', function() {
+  filtersSubmit.addEventListener('click', function () {
     event.preventDefault()
     filtersBlock.classList.remove('active')
   })
@@ -539,7 +564,7 @@ if (filtersSubmit) {
 if (filtersBoxGroup) {
   filtersBoxGroup.forEach((groupItem, i) => {
     if (i > 0) {
-      groupItem.addEventListener('click', function() {
+      groupItem.addEventListener('click', function () {
         var questionsitemNext = this.children[1];
         if (questionsitemNext.style.maxHeight) {
           questionsitemNext.style.maxHeight = null;
@@ -553,7 +578,7 @@ if (filtersBoxGroup) {
   });
 }
 
-uncheck.forEach(input => input.addEventListener('input', function(event) {
+uncheck.forEach(input => input.addEventListener('input', function (event) {
   if (event.target.checked) {
     numberCheck++
     spanCheck.innerHTML = numberCheck
@@ -574,15 +599,15 @@ const ingredientPopupInfo = document.querySelector('.ingredient_popup__info');
 
 if (ingredientpopupOverlay) {
   ingredientItems.forEach((ingredient, i) => {
-    ingredient.addEventListener('click', function() {
+    ingredient.addEventListener('click', function () {
       ingredientpopup.classList.add('active');
       ingredientpopupOverlay.classList.add('active');
       document.documentElement.classList.add("noscroll");
       const ingredientText = this.children[0].children[1]
       const ingredientName = this.children[1]
-      ingredientPopupInfo.innerHTML = `<p>${ingredientName.innerHTML}</p>` + ingredientText.innerHTML ;
+      ingredientPopupInfo.innerHTML = `<p>${ingredientName.innerHTML}</p>` + ingredientText.innerHTML;
       scroll.stop();
-    });  
+    });
   });
   if (ingredientpopupOverlay) {
     ingredientpopupOverlay.addEventListener('click', e => {
@@ -591,7 +616,7 @@ if (ingredientpopupOverlay) {
       document.documentElement.classList.remove("noscroll");
       scroll.start();
     });
-}
+  }
   document.querySelector('.ingredient_popup__close').addEventListener('click', e => {
     ingredientpopup.classList.remove('active');
     ingredientpopupOverlay.classList.remove('active');
@@ -603,23 +628,112 @@ if (ingredientpopupOverlay) {
 
 // end ingredient popup mobile
 
+// start popup
+
+const forWhomItems = document.querySelectorAll(".order_compound__for_whom_wrapper");
+const popUpForWhom = document.querySelector('.pop_up.for_whom');
+const popUpOverlay = document.querySelector('.pop_up__overlay');
+const problemPaymentItem = document.querySelector("#orderBtnCancel");
+
+const popUpProblemPayment = document.querySelector('.pop_up.problem_payment');
+const popUpCancelOrder = document.querySelector('.pop_up.cancel_order');
+
+if (forWhomItems.length > 0) {
+  forWhomItems.forEach((forWhom, i) => {
+    forWhom.addEventListener('click', function () {
+      forWhom.classList.add('active')
+      popUpForWhom.classList.add('active');
+      popUpOverlay.classList.add('active');
+      document.documentElement.classList.add("noscroll");
+      scroll.stop();
+    });
+  });
+}
+
+if (problemPaymentItem) {
+  problemPaymentItem.addEventListener('click', function () {
+    popUpCancelOrder.classList.add('active')
+    popUpOverlay.classList.add('active');
+    document.documentElement.classList.add("noscroll");
+    scroll.stop();
+  });
+}
+
+if (popUpOverlay) {  
+  popUpOverlay.addEventListener('click', e => {
+    popUpForWhom?.classList.remove('active');
+    popUpOverlay.classList.remove('active');
+    popUpProblemPayment?.classList.remove('active');
+    popUpCancelOrder?.classList.remove('active');
+    document.documentElement.classList.remove("noscroll");
+    scroll.start();
+  });
+  document.querySelectorAll('.pop_up__close').forEach((closeItem) => {
+    closeItem.addEventListener('click', e => {
+      popUpForWhom?.classList.remove('active');
+      popUpOverlay.classList.remove('active');
+      popUpProblemPayment?.classList.remove('active');
+      popUpCancelOrder?.classList.remove('active');
+      document.documentElement.classList.remove("noscroll");
+      scroll.start();
+    });
+  })
+  
+}
+
+// end popup 
+
+// start for whom popup btn
+const forWhomPopUpBtn = document.querySelector('.for_whom .pop_up__btn .btn');
+const forWhomPopUpInput = document.querySelector('.for_whom.pop_up .form__input');
+
+if (forWhomPopUpBtn) {
+  forWhomPopUpBtn.disabled = true;
+}
+
+if (forWhomPopUpInput) {
+  forWhomPopUpInput.addEventListener('input', e => {
+    forWhomPopUpBtn.disabled = e.target.value.trim().length === 0;
+  });
+}
+
+if (forWhomPopUpBtn) {
+  forWhomPopUpBtn.addEventListener('click', () => {
+    const activeWrapper = document.querySelector('.order_compound__for_whom_wrapper.active');
+    const activeName = activeWrapper.querySelector('.order_compound__for_whom_name');
+    if (activeName) {
+      activeName.innerText = forWhomPopUpInput.value;
+      activeName.classList.remove('order_compound__for_whom_question');
+    }
+    activeWrapper.classList.remove('active');
+    forWhomPopUpBtn.disabled = true; 
+    popUpForWhom.classList.remove('active');
+    popUpOverlay.classList.remove('active');
+    document.documentElement.classList.remove("noscroll");
+    scroll.start();
+    forWhomPopUpInput.value = ""; 
+  });
+}
+
+// end forWhomPopUpBtn
+
 // start yandex map
 const maps = document.getElementById("map");
-if(maps) {
-  var myMap,ymaps;
+if (maps) {
+  var myMap, ymaps;
   function init() {
     myMap = document.getElementById("map");
     if (!myMap) return;
     myMap = new ymaps.Map(myMap, {
       center: [55.749633, 37.537434],
-      zoom: 14, 
+      zoom: 14,
       controls: []
-      },{
+    }, {
       zoomControlPosition: { right: 0, top: 0 },
       zoomControlSize: 'auto'
     });
 
-    if(oldWidth <= 1200){
+    if (oldWidth <= 1200) {
       myMap.behaviors.disable('drag');
     }
 
@@ -633,7 +747,7 @@ if(maps) {
       const currentZoom = myMap.getZoom();
       myMap.setZoom(currentZoom + 1);
     }
-  
+
     function zoomOut() {
       const currentZoom = myMap.getZoom();
       myMap.setZoom(currentZoom - 1);
@@ -649,14 +763,14 @@ if(maps) {
         </div>',
         "latitude": 55.749633,
         "longitude": 37.537434,
-        },
+      },
       ],
     };
 
     var mapCoordinates = new ymaps.GeoObjectCollection();
 
     var results = [];
-    data.points.forEach(function(item, index){
+    data.points.forEach(function (item, index) {
       results.push(createPlacemark(item));
     });
     myMap.geoObjects.add(mapCoordinates);
@@ -665,9 +779,9 @@ if(maps) {
     function createPlacemark(item) {
       var options = Object();
       var squareLayout = ymaps.templateLayoutFactory.createClass(item.infoPoint);
-      var place = new ymaps.Placemark([item.latitude, item.longitude],{hintContent: false}, {
+      var place = new ymaps.Placemark([item.latitude, item.longitude], { hintContent: false }, {
         iconLayout: squareLayout,
-        iconShape: {   
+        iconShape: {
           type: 'Rectangle',
           coordinates: [
             [-55, -50], [30, 50]
@@ -679,9 +793,9 @@ if(maps) {
     var thatCoordinates;
     mapCoordinates.events.add('click', function (e) {
       var that = e.get('target').properties.get('active');
-      mapCoordinates.each(function(item, index){
+      mapCoordinates.each(function (item, index) {
         item.properties.set('active', false);
-        if(e.get('target') == item && !that){
+        if (e.get('target') == item && !that) {
           e.get('target').properties.set('active', true);
           thatCoordinates = e.get('coords');
         }
@@ -689,9 +803,9 @@ if(maps) {
 
       var mapmoscow = document.getElementById('mapmoscow');
       if (mapmoscow.classList.contains("map__active")) {
-        myMap.setCenter([55.749633, 37.537434],17);
+        myMap.setCenter([55.749633, 37.537434], 17);
       } else {
-        myMap.setCenter([55.749633, 37.537434],9);
+        myMap.setCenter([55.749633, 37.537434], 9);
       };
     });
   }
@@ -706,14 +820,14 @@ const indagoPictureslist = document.querySelectorAll(".indago_sub_picture");
 
 if (indagoPicturesWrapper) {
   indagoPictureslist.forEach((indagoPicture) => {
-    indagoPicture.addEventListener('mouseover', function() {
+    indagoPicture.addEventListener('mouseover', function () {
       indagoPictureslist.forEach((picture) => {
-        if(picture.classList.contains('active')) {
+        if (picture.classList.contains('active')) {
           picture.classList.remove('active');
         }
       })
       indagoPicture.classList.add('active');
-    });  
+    });
   });
 }
 
@@ -726,7 +840,7 @@ const indagoEfficiencyWrapper = document.querySelector('.indago_efficiency__righ
 const indagoEfficiencyDescr = document.querySelector('.indago_efficiency__descr');
 const indagoEfficiencyText = document.querySelector('.indago_efficiency__text');
 
-if(indagoEfficiencyDescr) {
+if (indagoEfficiencyDescr) {
   if (indagoEfficiencyDescr.scrollHeight > indagoEfficiencyText.scrollHeight) {
     indagoEfficiencyText.style.maxHeight = indagoEfficiencyDescr.scrollHeight + "px";
     indagoEfficiencyText.style.height = indagoEfficiencyDescr.scrollHeight + "px";
@@ -740,22 +854,22 @@ if(indagoEfficiencyDescr) {
 
 if (indagoEfficiencyDescr) {
   indagoEfficiencyDescr.style.maxHeight = null;
-  indagoEfficiencyDescr.style.height =  null;
+  indagoEfficiencyDescr.style.height = null;
 }
 
-if(indagoEfficiencyIcon) {
+if (indagoEfficiencyIcon) {
   indagoEfficiencyIcon.addEventListener('click', e => {
     indagoEfficiencyWrapper.classList.toggle("active")
     if (indagoEfficiencyText.style.maxHeight) {
       indagoEfficiencyDescr.style.maxHeight = indagoEfficiencyText.style.maxHeight;
-      indagoEfficiencyDescr.style.height =  indagoEfficiencyText.style.height;
+      indagoEfficiencyDescr.style.height = indagoEfficiencyText.style.height;
       indagoEfficiencyText.style.maxHeight = null;
-      indagoEfficiencyText.style.height =  null;
+      indagoEfficiencyText.style.height = null;
     } else {
       indagoEfficiencyText.style.maxHeight = indagoEfficiencyDescr.style.maxHeight;
-      indagoEfficiencyText.style.height =  indagoEfficiencyDescr.style.height;
+      indagoEfficiencyText.style.height = indagoEfficiencyDescr.style.height;
       indagoEfficiencyDescr.style.maxHeight = null;
-      indagoEfficiencyDescr.style.height =  null;
+      indagoEfficiencyDescr.style.height = null;
     }
   })
 }
@@ -786,7 +900,7 @@ if (ordersSwiperSwip) {
   });
 }
 // end orders swiper
-  
+
 // start order list
 
 const ordersList = document.querySelector('.orders__list');
@@ -797,18 +911,18 @@ const ordersLink = document.querySelector('#orders');
 
 if (ordersList) {
   ordersItemlist.forEach((ordersItem) => {
-    ordersItem.addEventListener('click', function() {
-      ordersWrapper.classList.remove('active');  
+    ordersItem.addEventListener('click', function () {
+      ordersWrapper.classList.remove('active');
       order.classList.add('active');
-    });  
+    });
   });
 }
 
 if (ordersLink) {
-  ordersLink.addEventListener('click', function() {
-    order.classList.remove('active');  
+  ordersLink.addEventListener('click', function () {
+    order.classList.remove('active');
     ordersWrapper.classList.add('active');
-  });  
+  });
 }
 // end order list
 
@@ -818,9 +932,9 @@ const cardBtn = document.querySelector('.header__link_cart');
 const cardMinWrapper = document.querySelector('.cart_min');
 
 if (cardBtn) {
-  cardBtn.addEventListener('click', function() {
-    cardMinWrapper.classList.toggle('active');  
-  }); 
+  cardBtn.addEventListener('click', function () {
+    cardMinWrapper.classList.toggle('active');
+  });
 }
 
 // end cart min
@@ -834,25 +948,25 @@ const buyPokupList = document.querySelectorAll('.buy-pokup');
 
 if (buyPokupList.length > 0) {
   buyPokupList.forEach((buyPokupItem) => {
-    buyPokupItem.addEventListener('click', function() {
+    buyPokupItem.addEventListener('click', function () {
       if (addCart) {
-        addCart.classList.add('active');  
-      } 
+        addCart.classList.add('active');
+      }
     });
   })
 }
 
 if (addCartClose) {
-  addCartClose.addEventListener('click', function() {
-      addCart.classList.remove('active');  
-  }); 
+  addCartClose.addEventListener('click', function () {
+    addCart.classList.remove('active');
+  });
 }
 
 // end cart min
 
 // start ingredients_scroll__list
 const ingredients_scrolllist = document.querySelector('.ingredients_scroll__list');
-if(ingredients_scrolllist){
+if (ingredients_scrolllist) {
   const ingredients_scrolllists = document.querySelectorAll('.ingredients_scroll__list');
   document.addEventListener("DOMContentLoaded", () => {
     if (document.querySelectorAll(".ingredients_scroll__item").length <= 1) {
@@ -878,4 +992,4 @@ if(ingredients_scrolllist){
     }
   });
 }
-// // end ingredients_scroll__list
+// end ingredients_scroll__list
