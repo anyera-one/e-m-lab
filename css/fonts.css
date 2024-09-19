@@ -139,13 +139,17 @@ body.loaded .main {
 }
 
 img {
+  pointer-events: none;
+}
+
+form,
+img {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  pointer-events: none;
 }
 
 input:-webkit-autofill,
@@ -385,7 +389,9 @@ small {
 .btn:not(:disabled).active .btn__hover,
 .btn__cart.active .btn:not(:disabled) .btn__hover,
 .btn__incart.active .btn:not(:disabled) .btn__hover,
-.btn__input:checked ~ .btn:not(:disabled) .btn__hover {
+.btn__input:checked ~ .btn:not(:disabled) .btn__hover,
+.login_popup__button.active .btn:not(:disabled):not(.disabled) .btn__hover,
+.login_popup__button:checked ~ .btn:not(:disabled):not(.disabled) .btn__hover {
   -webkit-transform: translateY(0);
   transform: translateY(0);
   -webkit-transition-delay: .1s;
@@ -395,6 +401,7 @@ small {
 .btn:not(:disabled).active .btn__hover::after,
 .btn__cart.active .btn:not(:disabled) .btn__hover::after,
 .btn__incart.active .btn:not(:disabled) .btn__hover::after,
+.login_popup__button.active .btn:not(:disabled):not(.disabled) .btn__hover::after
 .btn__input:checked ~ .btn:not(:disabled) .btn__hover::after {
   -webkit-transform: skew(0,-8deg);
   transform: skew(0,-8deg);
@@ -405,6 +412,7 @@ small {
 .btn:not(:disabled).active,
 .btn__cart.active .btn:not(:disabled),
 .btn__incart.active .btn:not(:disabled),
+.login_popup__button.active .btn:not(:disabled):not(.disabled),
 .btn__input:checked ~ .btn:not(:disabled) {
   color: var(--white);
   -webkit-transition-property: color, background-color;
@@ -582,18 +590,28 @@ small {
   background-color: var(--bg);
 }
 
-.btn__incart {
+.btn__incart,
+.login_popup__button {
   width: 100%;
 }
 
-.btn__incart .btn {
+.btn__incart .btn,
+.login_popup__button .btn {
   width: 100%;
   background-color: var(--text);
   color: var(--bg);
   border-radius: 6px;
 }
 
-.btn__incart .btn__text {
+.login_popup__button .btn:disabled,
+.login_popup__button .btn.disabled,
+.login_popup__button input:disabled ~ .btn {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.btn__incart .btn__text,
+.login_popup__button .btn__text {
   width: 100%;
   height: 52px;
   padding: 16px;
@@ -602,19 +620,24 @@ small {
   text-transform: uppercase;
 }
 
-.btn__incart .btn__text svg {
+.btn__incart .btn__text svg,
+.login_popup__button .btn__text svg {
   width: 24px;
   height: 24px;
   object-fit: contain;
 }
 
 .btn__incart .btn__hover,
-.btn__incart .btn__hover::after {
+.btn__incart .btn__hover::after,
+.login_popup__button .btn__hover,
+.login_popup__button .btn__hover::after {
   background-color: var(--bg);
 }
 
 .btn__incart .btn__hover,
-.btn__incart .btn__hover::after {
+.btn__incart .btn__hover::after,
+.login_popup__button .btn__hover,
+.login_popup__button .btn__hover::after {
   height: 125%;
 }
 
@@ -2388,6 +2411,17 @@ html.has-scroll-dragging {
   color: var(--text);
 }
 
+.form__bottom {
+  display: flex;
+  padding: 24px 0 0;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form__policy {
+  opacity: 0.5;
+}
+
 /* end form */
 
 /* start 1919px for 1440px */
@@ -2514,7 +2548,8 @@ html.has-scroll-dragging {
   }
   /* .btn:not(:disabled):hover .btn__hover,
   .btn__cart:hover .btn:not(:disabled) .btn__hover,
-  .btn__incart:hover .btn:not(:disabled) .btn__hover {
+  .btn__incart:hover .btn:not(:disabled) .btn__hover,
+  .login_popup__button .btn:not(:disabled):not(.disabled) .btn__hover {
     -webkit-transform: translateY(0);
     transform: translateY(0);
     -webkit-transition-delay: .1s;
@@ -2522,7 +2557,8 @@ html.has-scroll-dragging {
   }
   .btn:not(:disabled):hover .btn__hover:after,
   .btn__cart:hover .btn:not(:disabled) .btn__hover:after,
-  .btn__incart:hover .btn:not(:disabled) .btn__hover:after {
+  .btn__incart:hover .btn:not(:disabled) .btn__hover:after,
+  .login_popup__button:hover .btn:not(:disabled):not(.disabled) .btn__hover:after {
     -webkit-transform: skew(0,-8deg);
     transform: skew(0,-8deg);
     -webkit-transition-delay: 0s;
@@ -2530,8 +2566,8 @@ html.has-scroll-dragging {
   } */
   .btn:not(:disabled):hover,
   .btn__cart:hover .btn:not(:disabled),
-  .btn__incart:hover .btn:not(:disabled) {
-    color: var(--bg);
+  .btn__incart:hover .btn:not(:disabled),
+  .login_popup__button:hover input:not(:disabled) ~ .btn {
     -webkit-transition-property: color, background-color;
     transition-property: color, background-color;
     /* -webkit-transition-delay: 0s, .3s, 0s;
@@ -2552,7 +2588,8 @@ html.has-scroll-dragging {
   .btn__white:not(:disabled):hover,
   .btn__transparent:not(:disabled):hover,
   .btn__cart:hover .btn:not(:disabled),
-  .btn__incart:hover .btn:not(:disabled) {
+  .btn__incart:hover .btn:not(:disabled),
+  .login_popup__button:hover input:not(:disabled) ~ .btn {
     color: var(--text);
     background-color: var(--bg);
   }
@@ -2702,20 +2739,20 @@ html.has-scroll-dragging {
     flex-direction: column;
     gap: 0;
   }
-  .form__control {
+  .form__control_flex .form__control {
     margin: 0 0 20px;
     padding: 0;
   }
-  .form__label {
+  .form__control_flex .form__label {
     width: max-content;
     min-height: 24px;
     padding: 0 0 10px;
   }
-  .form__buttons {
+  .form__control_flex .form__buttons {
     flex-direction: column;
     gap: 30px;
   }
-  .form__buttons .btn {
+  .form__control_flex .form__buttons .btn {
     width: 100%;
   }
 

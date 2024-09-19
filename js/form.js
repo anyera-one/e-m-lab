@@ -84,46 +84,119 @@ for (i = 0; i < fbp.length; i++) {
 }
 // end form__button_pass
 
-// start faq form and sending_popup
-const faqform = document.getElementById('faq__form');
+// start timer
+const logincr = document.querySelector("#login_popup__form_code .login_popup__button");
+const minutesSpan = document.querySelector(".minutes");
+const secondsSpan = document.querySelector(".seconds");
+const loginct = document.querySelector(".login__code_times");
+const logincm = document.querySelector(".login__code_reload");
 
-if(faqform) {
-  const faqname = document.getElementById('faq__name');
-  const faqemail = document.getElementById('faq__email');
-  const faqphone = document.getElementById('faq__phone');
-  const faqmessage = document.getElementById('faq__message');
-  const faqcheckbox = document.getElementById('faq__checkbox');
-  const sendingpopup = document.querySelector('.sending_popup');
-  const sendingpopupOverlay = document.querySelector('.sending_popup__overlay');
-  const faqnameMin = faqname.getAttribute('minl');
-  const faqnameMax = faqname.getAttribute('maxl');
-  const faqemailMin = faqemail.getAttribute('minl');
-  const faqemailMax = faqemail.getAttribute('maxl');
-  const faqphoneMin = faqphone.getAttribute('minl');
-  const faqphoneMax = faqphone.getAttribute('maxl');
-  const faqmessageMin = faqmessage.getAttribute('minl');
-  const faqmessageMax = faqmessage.getAttribute('maxl');
+let temp = 0;
+const timer = (remainingMinutes, d, h, m, s) => {
+  loginct.classList.remove("hidden");
+  logincm.classList.add("hidden");
+  document.querySelector('#login_popup__form_code .login_popup__button input').setAttribute("disabled", "true");
+  var finishTime = new Date();
+  finishTime.setSeconds(finishTime.getSeconds() + remainingMinutes);
+  var timesOver;
 
-  faqname.oninput = function(){
-    this.value = this.value.substr(0, faqnameMax);
+  function update() {
+    var diff = finishTime - new Date();
+    var millis = diff % 1000;
+    diff = Math.floor(diff / 1000);
+    var sec = diff % 60;
+    if (sec < 10) sec = "0" + sec;
+    diff = Math.floor(diff / 60);
+    var min = diff % 60;
+    if (min < 10) min = "0" + min;
+    diff = Math.floor(diff / 60);
+    var hours = diff % 24;
+    if (hours < 10) hours = "0" + hours;
+    var days = Math.floor(diff / 24);
+
+    d = +days;
+    h = +hours;
+    m = +min;
+    s = +sec;
+
+    minutesSpan.innerHTML = ("0" + m).slice(-2);
+    secondsSpan.innerHTML = ("0" + s).slice(-2);
+
+    timesOver = d * 86400 + h * 3600 + m * 60 + s;
+
+    if (timesOver <= 0) {
+      loginct.classList.add("hidden");
+      logincm.classList.remove("hidden");
+      document.querySelector('#login_popup__form_code .login_popup__button input').removeAttribute("disabled");
+      return
+    }
+    clearTimeout(temp);
+    temp = setTimeout(update, millis);
+  }
+  setTimeout(update, 0);
+};
+// end timer
+
+// start login_popup__form_reg
+const loginFormReg = document.getElementById('login_popup__form_reg');
+
+if(loginFormReg) {
+  const loginRegName = document.getElementById('login_popup__reg_name');
+  const loginRegLastname = document.getElementById('login_popup__reg_lastname');
+  const loginRegEmail = document.getElementById('login_popup__reg_email');
+  const loginRegPhone = document.getElementById('login_popup__reg_tel');
+  const loginRegNameMin = loginRegName.getAttribute('minl');
+  const loginRegNameMax = loginRegName.getAttribute('maxl');
+  const loginRegLastnameMin = loginRegLastname.getAttribute('minl');
+  const loginRegLastnameMax = loginRegLastname.getAttribute('maxl');
+  const loginRegEmailMin = loginRegEmail.getAttribute('minl');
+  const loginRegEmailMax = loginRegEmail.getAttribute('maxl');
+  const loginRegPhoneMin = loginRegPhone.getAttribute('minl');
+  const loginRegPhoneMax = loginRegPhone.getAttribute('maxl');
+
+  function setForButton() {
+    const loginRegNameValue = loginRegName.value.trim();
+    const loginRegLastnameValue = loginRegLastname.value.trim();
+    const loginRegEmailValue = loginRegEmail.value.trim();
+    const loginRegPhoneValue = loginRegPhone.value.trim();
+    if(!isFormEmailValid(loginRegEmailValue)) {
+      setErrorFor(loginRegEmail);
+    } else if(
+    loginRegNameValue !== '' && loginRegNameValue.length >= loginRegNameMin && loginRegNameValue.length <= loginRegNameMax && 
+    loginRegLastnameValue !== '' && loginRegLastnameValue.length >= loginRegLastnameMin && loginRegLastnameValue.length <= loginRegLastnameMax && 
+    loginRegEmailValue !== '' && loginRegEmailValue.length >= loginRegEmailMin && loginRegEmailValue.length <= loginRegEmailMax && 
+    loginRegPhoneValue !== '' && loginRegPhoneValue.length >= loginRegPhoneMin && loginRegPhoneValue.length <= loginRegPhoneMax) {
+      document.querySelector('#login_popup__form_reg .login_popup__button input').removeAttribute("disabled");
+    } else {
+      document.querySelector('#login_popup__form_reg .login_popup__button input').setAttribute("disabled", "true");
+    }
+  }
+
+  loginRegName.oninput = function(){
+    setForButton();
+    this.value = this.value.substr(0, loginRegNameMax);
     this.value = this.value.replace(/[0-9]/g, '');
     this.value = this.value.replace(/[()!?•—@:,'";№\-_=« »<>%#~`&\/\$\^\.\*\+\\\{\}\[\]\(\|]$/g, '');
   }
-  faqemail.oninput = function(){
-    this.value = this.value.substr(0, faqemailMax);
+  loginRegLastname.oninput = function(){
+    setForButton();
+    this.value = this.value.substr(0, loginRegLastnameMax);
+    this.value = this.value.replace(/[0-9]/g, '');
+    this.value = this.value.replace(/[()!?•—@:,'";№\-_=« »<>%#~`&\/\$\^\.\*\+\\\{\}\[\]\(\|]$/g, '');
+  }
+  loginRegEmail.oninput = function(){
+    setForButton();
+    this.value = this.value.substr(0, loginRegEmailMax);
     this.value = this.value.replace(/[а-яА-ЯёЁ]$/g, '');
     this.value = this.value.replace(/[()!?•—:,'";№\-_=« »<>%#~`&\/\$\^\*\+\\\{\}\[\]\(\|]$/g, '');
   }
-  faqphone.oninput = function(){
-    this.value = this.value.substr(0, faqphoneMax);
-  }
-  faqmessage.oninput = function(){
-    this.value = this.value.substr(0, faqmessageMax);
-    this.value = this.value.replace(/[()!?•—@'";№_=«»<>%#~`&\/\$\^\\*\+\\\{\}\[\]\(\|]$/g, '');
+  loginRegPhone.oninput = function(){
+    setForButton();
+    this.value = this.value.substr(0, loginRegPhoneMax);
   }
 
-  faqemail.addEventListener('input', function () {
-    const emailValid = faqemail.value.trim();
+  loginRegEmail.addEventListener('input', function () {
+    const emailValid = loginRegEmail.value.trim();
     if (this.value.length < this.getAttribute('minl')) {
       this.parentElement.classList.add('error');
       this.parentElement.classList.remove('success');
@@ -138,99 +211,184 @@ if(faqform) {
       this.nextElementSibling.classList.add('success');
     }
   })
-
-  faqform.addEventListener('submit', e => {
+  loginFormReg.addEventListener('submit', e => {
     e.preventDefault();
-    checkfaqformInputs();
+    checkloginFormRegInputs();
   });
-  function checkfaqformInputs() {
-    const faqnameValue = faqname.value.trim();
-    const faqemailValue = faqemail.value.trim();
-    const faqphoneValue = faqphone.value.trim();
-    const faqmessageValue = faqmessage.value.trim();
+  function checkloginFormRegInputs() {
+    const loginRegNameValue = loginRegName.value.trim();
+    const loginRegLastnameValue = loginRegLastname.value.trim();
+    const loginRegEmailValue = loginRegEmail.value.trim();
+    const loginRegPhoneValue = loginRegPhone.value.trim();
     
-    if(faqnameValue !== '' && faqnameValue.length >= faqnameMin && faqnameValue.length <= faqnameMax) {
-      setSuccessFor(faqname);
+    if(loginRegNameValue !== '' && loginRegNameValue.length >= loginRegNameMin && loginRegNameValue.length <= loginRegNameMax) {
+      setSuccessFor(loginRegName);
     } else {
-      setErrorFor(faqname);
+      setErrorFor(loginRegName);
     }
-    if(!isFormEmailValid(faqemailValue)) {
-      setErrorFor(faqemail);
-    } else if (faqemailValue !== '' && faqemailValue.length >= faqemailMin && faqemailValue.length <= faqemailMax) {
-      setSuccessFor(faqemail);
+    if(loginRegLastnameValue !== '' && loginRegLastnameValue.length >= loginRegLastnameMin && loginRegLastnameValue.length <= loginRegLastnameMax) {
+      setSuccessFor(loginRegLastname);
     } else {
-      setErrorFor(faqemail);
+      setErrorFor(loginRegLastname);
     }
-    if(faqphoneValue !== '' && faqphoneValue.length >= faqphoneMin && faqphoneValue.length <= faqphoneMax) {
-      setSuccessFor(faqphone);
+    if(!isFormEmailValid(loginRegEmailValue)) {
+      setErrorFor(loginRegEmail);
+    } else if (loginRegEmailValue !== '' && loginRegEmailValue.length >= loginRegEmailMin && loginRegEmailValue.length <= loginRegEmailMax) {
+      setSuccessFor(loginRegEmail);
     } else {
-      setErrorFor(faqphone);
+      setErrorFor(loginRegEmail);
     }
-    if(
-    faqmessageValue !== '' && faqmessageValue.length >= faqmessageMin && faqmessageValue.length <= faqmessageMax) {
-      setSuccessFor(faqmessage);
+    if(loginRegPhoneValue !== '' && loginRegPhoneValue.length >= loginRegPhoneMin && loginRegPhoneValue.length <= loginRegPhoneMax) {
+      setSuccessFor(loginRegPhone);
     } else {
-      setErrorFor(faqmessage);
-    }
-    if(faqcheckbox.checked) {
-      faqcheckbox.nextElementSibling.classList.remove('error');
-    } else {
-      faqcheckbox.nextElementSibling.classList.add('error');
+      setErrorFor(loginRegPhone);
     }
     
-    if(!isFormEmailValid(faqemailValue)) {
-      setErrorFor(faqemail);
+    if(!isFormEmailValid(loginRegEmailValue)) {
+      setErrorFor(loginRegEmail);
     } else if(
-    faqnameValue !== '' && faqnameValue.length >= faqnameMin && faqnameValue.length <= faqnameMax && 
-    faqemailValue !== '' && faqemailValue.length >= faqemailMin && faqemailValue.length <= faqemailMax && 
-    faqphoneValue !== '' && faqphoneValue.length >= faqphoneMin && faqphoneValue.length <= faqphoneMax && 
-    faqmessageValue !== '' && faqmessageValue.length >= faqmessageMin && faqmessageValue.length <= faqmessageMax && 
-    faqcheckbox.checked) {
+    loginRegNameValue !== '' && loginRegNameValue.length >= loginRegNameMin && loginRegNameValue.length <= loginRegNameMax && 
+    loginRegLastnameValue !== '' && loginRegLastnameValue.length >= loginRegLastnameMin && loginRegLastnameValue.length <= loginRegLastnameMax && 
+    loginRegEmailValue !== '' && loginRegEmailValue.length >= loginRegEmailMin && loginRegEmailValue.length <= loginRegEmailMax && 
+    loginRegPhoneValue !== '' && loginRegPhoneValue.length >= loginRegPhoneMin && loginRegPhoneValue.length <= loginRegPhoneMax) {
       fetch('/ajax/sendMail.php', {
         method: 'POST',
         body: JSON.stringify({
-          faqnameValue: faqnameValue,
-          faqemailValue: faqemailValue,
-          faqphoneValue: faqphoneValue,
-          faqmessageValue: faqmessageValue
+          loginRegNameValue: loginRegNameValue,
+          loginRegLastnameValue: loginRegLastnameValue,
+          loginRegEmailValue: loginRegEmailValue,
+          loginRegPhoneValue: loginRegPhoneValue
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8"
         },
       })
       .then(() => {
-        faqname.value = '';
-        faqemail.value = '';
-        faqphone.value = '';
-        faqmessage.value = '';
-        faqcheckbox.checked = false;
-        sendingpopup.classList.add('active');
-        sendingpopupOverlay.classList.add('active');
-        document.documentElement.classList.add("noscroll");
-        scroll.stop();
+        loginRegName.value = '';
+        loginRegLastname.value = '';
+        loginRegEmail.value = '';
+        loginRegPhone.value = '';
+        document.querySelector('.login_overlay').classList.remove("active");
+        document.querySelector('.login_popup').classList.remove("active");
+        document.documentElement.classList.remove("noscroll");
+        scroll.start();
       })
     }
   }
-  if (sendingpopup) {
-    sendingpopupOverlay.addEventListener('click', e => {
-      sendingpopup.classList.remove('active');
-      sendingpopupOverlay.classList.remove('active');
-      document.documentElement.classList.remove("noscroll");
-      scroll.start();
-    });
-    document.querySelector('.sending_popup__close').addEventListener('click', e => {
-      sendingpopup.classList.remove('active');
-      sendingpopupOverlay.classList.remove('active');
-      document.documentElement.classList.remove("noscroll");
-      scroll.start();
-    });
-    document.getElementById('btnClose').addEventListener('click', e => {
-      sendingpopup.classList.remove('active');
-      sendingpopupOverlay.classList.remove('active');
-      document.documentElement.classList.remove("noscroll");
-      scroll.start();
-    });
+}
+// end login_popup__form_reg
+
+// start login_popup__form_log
+const loginFormLog = document.getElementById('login_popup__form_log');
+
+if(loginFormLog) {
+  const loginLogPhone = document.getElementById('login_popup__log_tel');
+  const loginLogPhoneMin = loginLogPhone.getAttribute('minl');
+  const loginLogPhoneMax = loginLogPhone.getAttribute('maxl');
+
+  function setForButton() {
+    const loginLogPhoneValue = loginLogPhone.value.trim();
+    if(
+    loginLogPhoneValue !== '' && loginLogPhoneValue.length >= loginLogPhoneMin && loginLogPhoneValue.length <= loginLogPhoneMax) {
+      document.querySelector('#login_popup__form_log .login_popup__button input').removeAttribute("disabled");
+    } else {
+      document.querySelector('#login_popup__form_log .login_popup__button input').setAttribute("disabled", "true");
+    }
+  }
+
+  loginLogPhone.oninput = function(){
+    setForButton();
+    this.value = this.value.substr(0, loginLogPhoneMax);
+  }
+
+  loginFormLog.addEventListener('submit', e => {
+    e.preventDefault();
+    checkloginFormLogInputs();
+  });
+  function checkloginFormLogInputs() {
+    const loginLogPhoneValue = loginLogPhone.value.trim();
+    
+    if(loginLogPhoneValue !== '' && loginLogPhoneValue.length >= loginLogPhoneMin && loginLogPhoneValue.length <= loginLogPhoneMax) {
+      setSuccessFor(loginLogPhone);
+    } else {
+      setErrorFor(loginLogPhone);
+    }
+    
+    if(
+    loginLogPhoneValue !== '' && loginLogPhoneValue.length >= loginLogPhoneMin && loginLogPhoneValue.length <= loginLogPhoneMax) {
+      fetch('/ajax/sendMail.php', {
+        method: 'POST',
+        body: JSON.stringify({
+          loginLogPhoneValue: loginLogPhoneValue
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        },
+      })
+      .then(() => {
+        document.querySelector('.login_popup__form_one').classList.remove("active");
+        document.querySelector('.login_popup__form_three').classList.add("active");
+        document.querySelector('.login_popup__code_tel').innerText = loginLogPhone.value;
+        document.querySelector('.login_popup__buttons').classList.remove("active");
+        timer(300);
+      })
+    }
   }
 }
+// end login_popup__form_log
 
-// end validate faqform
+// start login_popup__form_code
+const loginFormCode = document.getElementById('login_popup__form_code');
+
+if(loginFormCode) {
+  const loginLogCode = document.getElementById('login_popup__log_code');
+  const loginLogCodeMin = loginLogCode.getAttribute('minl');
+  const loginLogCodeMax = loginLogCode.getAttribute('maxl');
+
+  loginLogCode.oninput = function(){
+    this.value = this.value.substr(0, loginLogCodeMax);
+  }
+
+  loginFormCode.addEventListener('submit', e => {
+    e.preventDefault();
+    checkloginFormCodeInputs();
+  });
+  function checkloginFormCodeInputs() {
+    const loginLogCodeValue = loginLogCode.value.trim();
+    
+    if(loginLogCodeValue !== '' && loginLogCodeValue.length >= loginLogCodeMin && loginLogCodeValue.length <= loginLogCodeMax) {
+      setSuccessFor(loginLogCode);
+    } else {
+      setErrorFor(loginLogCode);
+    }
+    
+    if(
+    loginLogCodeValue !== '' && loginLogCodeValue.length >= loginLogCodeMin && loginLogCodeValue.length <= loginLogCodeMax) {
+      fetch('/ajax/sendMail.php', {
+        method: 'POST',
+        body: JSON.stringify({
+          loginLogCodeValue: loginLogCodeValue
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        },
+      })
+      .then(() => {
+        loginLogCode.value = '';
+        document.querySelector('.login_overlay').classList.remove("active");
+        document.querySelector('.login_popup').classList.remove("active");
+        document.documentElement.classList.remove("noscroll");
+        scroll.start();
+      })
+    }
+  }
+  document.querySelector('.login_popup__form_code_button').addEventListener('click', function() {
+    timer(300);
+  });
+  document.querySelector('.login_popup__back').addEventListener('click', function() {
+    document.querySelector('.login_popup__buttons').classList.add("active");
+    document.querySelector('.login_popup__form_one').classList.add("active");
+    document.querySelector('.login_popup__form_three').classList.remove("active");
+  });
+}
+// end login_popup__form_code

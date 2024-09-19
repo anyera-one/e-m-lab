@@ -238,7 +238,7 @@ const headerClose = document.querySelector('.header__close');
 const menuItemActive = document.getElementsByClassName("header__nav_item active");
 
 // button header__burger
-burger.addEventListener('click', function () {
+burger.addEventListener('click', function() {
   if (burger.classList.contains("active")) {
     overlay.classList.remove("active");
     menu.classList.remove("active");
@@ -254,14 +254,42 @@ burger.addEventListener('click', function () {
     header.classList.add("active");
     headerClose.classList.add("active");
     document.documentElement.classList.add("noscroll");
-    header.classList.remove("hidden");
     scroll.stop();
   }
 })
 // end header__burger
 
+// button header__login
+const headerLogin = document.querySelector('.header__login');
+const loginOverlay = document.querySelector('.login_overlay');
+const loginPopup = document.querySelector('.login_popup');
+const loginPopupClose = document.querySelector('.login_popup__close');
+
+headerLogin.addEventListener('click', function() {
+  loginOverlay.classList.add("active");
+  loginPopup.classList.add("active");
+  burger.classList.add("active");
+  header.classList.add("active");
+  headerClose.classList.add("active");
+  document.documentElement.classList.add("noscroll");
+  scroll.stop();
+})
+// end header__login
+
 // button overlay
-headerClose.addEventListener('click', function () {
+loginPopupClose.addEventListener('click', function() {
+  loginOverlay.classList.remove("active");
+  loginPopup.classList.remove("active");
+  document.documentElement.classList.remove("noscroll");
+  scroll.start();
+})
+loginOverlay.addEventListener('click', function() {
+  loginOverlay.classList.remove("active");
+  loginPopup.classList.remove("active");
+  document.documentElement.classList.remove("noscroll");
+  scroll.start();
+})
+headerClose.addEventListener('click', function() {
   overlay.classList.remove("active");
   menu.classList.remove("active");
   burger.classList.remove("active");
@@ -270,7 +298,7 @@ headerClose.addEventListener('click', function () {
   document.documentElement.classList.remove("noscroll");
   scroll.start();
 })
-overlay.addEventListener('click', function () {
+overlay.addEventListener('click', function() {
   overlay.classList.remove("active");
   menu.classList.remove("active");
   burger.classList.remove("active");
@@ -280,6 +308,33 @@ overlay.addEventListener('click', function () {
   scroll.start();
 })
 // end overlay
+
+// start login_popup__button
+const loginPopupLog = document.querySelector('.login_popup__log');
+const loginPopupReg = document.querySelector('.login_popup__reg');
+const loginPopupFormOne = document.querySelector('.login_popup__form_one');
+const loginPopupFormTwo = document.querySelector('.login_popup__form_two');
+loginPopupLog.addEventListener('click', function() {
+  loginPopupReg.classList.remove("active");
+  loginPopupFormTwo.classList.remove("active");
+  loginPopupLog.classList.add("active");
+  loginPopupFormOne.classList.add("active");
+})
+loginPopupReg.addEventListener('click', function() {
+  loginPopupLog.classList.remove("active");
+  loginPopupFormOne.classList.remove("active");
+  loginPopupReg.classList.add("active");
+  loginPopupFormTwo.classList.add("active");
+})
+// end login_popup__button
+
+// start hover scroll
+const scrolls = document.querySelector('.scrolls');
+if(scrolls){
+  scrolls.onmouseover = function(e) {scroll.stop();};
+  scrolls.onmouseout = function(e) {scroll.start();};
+}
+// end hover scroll
 
 // start product count
 const productInputs = document.querySelectorAll(".product__count_input input");
