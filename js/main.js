@@ -638,9 +638,12 @@ const problemPaymentItem = document.querySelector("#orderBtnCancel");
 const popUpProblemPayment = document.querySelector('.pop_up.problem_payment');
 const popUpCancelOrder = document.querySelector('.pop_up.cancel_order');
 
+const forWhomPopUpInput = document.querySelector('.for_whom.pop_up .form__input');
+
 if (forWhomItems.length > 0) {
   forWhomItems.forEach((forWhom, i) => {
     forWhom.addEventListener('click', function () {
+      forWhomPopUpInput.setAttribute("data-idproduct",forWhom.getAttribute("data-idproduct")); 
       forWhom.classList.add('active')
       popUpForWhom.classList.add('active');
       popUpOverlay.classList.add('active');
@@ -685,7 +688,6 @@ if (popUpOverlay) {
 
 // start for whom popup btn
 const forWhomPopUpBtn = document.querySelector('.for_whom .pop_up__btn .btn');
-const forWhomPopUpInput = document.querySelector('.for_whom.pop_up .form__input');
 
 if (forWhomPopUpBtn) {
   forWhomPopUpBtn.disabled = true;
