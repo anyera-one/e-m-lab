@@ -3697,6 +3697,18 @@ width: 230px;
 
 /* end login_popup */
 
+/* start profile__form */
+
+.profile__form {
+  max-width: 570px;
+}
+
+.profile__form .form__bottom {
+  gap: 40px;
+}
+
+/* end profile__form */
+
 /* start 1919px for 1440px */
 @media (max-width: 1919px) {
   .header {

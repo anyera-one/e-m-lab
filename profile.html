@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +12,6 @@
   <script>window.console = window.console || function (t) { };</script>
   <title>EM LAB orders</title>
 </head>
-
 <body>
   <div class="overlay"></div>
   <div class="cursor">
@@ -163,159 +161,58 @@
                 </div>
               </div>
             </div>
-            <p class="answer__nav_item" id="orders">[Заказы]</p>
-            <a href="profile.html" class="answer__nav_item">Профиль</a>
+            <a href="orders.html" id="orders" class="answer__nav_item">[Заказы]</a>
+            <p class="answer__nav_item">Профиль</p>
             <a href="" class="answer__nav_item">выйти</a>
           </div>
           <div class="orders__main">
             <div class="orders__wrapper active">
-              <h2 class="orders__title animate_top">Заказы &nbsp;[0]</h2>
-              <div class="orders__btn_zero animate_top">
-                <a href="" class="btn btn__line title_four">
-                  <span class="btn__hover"></span>
-                  <span class="btn__text">В каталог</span>
-                </a>
-              </div>
-              <ul class="orders__list active">
-                <li class="orders_item">
-                  <div class="orders_item__top">
-                    <p class="orders_item__date title_two animate_top">Заказ от 23 июля</p>
-                    <p class="orders_item__number title_three animate_top">485789802-2345</p>
+              <h2 class="orders__title animate_top">ПРОФИЛЬ</h2>
+              <form action="" class="profile__form" id="profile__form">
+                <div class="profile__scroll">
+                  <div class="form__control animate_top">
+                    <input class="form__input title_three" placeholder="Имя" type="text" minl="2" maxl="23" id="profile__name" />
+                    <small class="form__counter title_three">/<span class="form__counter_min">0</span></small>
+                    <span class="form__bar"></span>
+                    <span class="form__border"></span>
+                    <small class="form__error">Введите имя</small>
                   </div>
-                  <div class="orders_item__status_wrapper">
-                    <p class="orders_item__status title_four orders_item__status_delivery animate_top">Доставка</p>
-                    <p class="orders_item__status_text title_four orders_item__status_text_delivery animate_top">Готов к выдаче</p>
+                  <div class="form__control animate_top">
+                    <input class="form__input title_three" placeholder="Фамилие" type="text" minl="2" maxl="23" id="profile__lastname" />
+                    <small class="form__counter title_three">/<span class="form__counter_min">0</span></small>
+                    <span class="form__bar"></span>
+                    <span class="form__border"></span>
+                    <small class="form__error">Введите фамилие</small>
                   </div>
-                  <div class="orders_item__bottom">
-                    <div class="orders_item__swiper swiper">
-                      <div class="orders_item__img_boxs swiper-wrapper">
-                        <div class="orders_item__img swiper-slide animate_image">
-                          <img src="./img/orders/orders_product.webp" loading="lazy" alt="product">
-                        </div>
-                        <div class="orders_item__img swiper-slide animate_image">
-                          <img src="./img/orders/orders_product.webp" loading="lazy" alt="product">
-                        </div>
-                        <div class="orders_item__img swiper-slide animate_image">
-                          <img src="./img/orders/orders_product.webp" loading="lazy" alt="product">
-                        </div>
+                  <div class="form__control animate_top">
+                    <input class="form__input title_three" data-phone-pattern placeholder="+ 7(___) ___-__-__" type="text" minl="17" maxl="23" id="profile__tel" />
+                    <small class="form__counter title_three">/<span class="form__counter_min">0</span></small>
+                    <span class="form__bar"></span>
+                    <span class="form__border"></span>
+                    <small class="form__error">Введите корректный номер</small>
+                  </div>
+                  <div class="form__control animate_top">
+                    <input class="form__input title_three" placeholder="Email" type="text" minl="6" maxl="23" id="profile__email" />
+                    <small class="form__counter title_three">/<span class="form__counter_min">0</span></small>
+                    <span class="form__bar"></span>
+                    <span class="form__border"></span>
+                    <small class="form__error">Введите корректный email</small>
+                  </div>
+                  <div class="form__bottom animate_top">
+                    <label class="profile__button title_four">
+                      <input type="submit" class="hidden" disabled>
+                      <div class="btn">
+                        <span class="btn__hover"></span>
+                        <span class="btn__text">Сохранить</span>
                       </div>
-                      <div class="orders_item__scrollbar"></div>
-                    </div>
-                    <div class="orders_item__price">
-                      <p class="orders_item__price_text title_four animate_top">итого</p>
-                      <p class="orders_item__price_number title_two animate_top">3 999 ₽</p> 
-                    </div>
+                    </label>
+                    <a class="btn btn__line profile__del title_four">
+                      <span class="btn__hover"></span>
+                      <span class="btn__text">Удалить профиль</span>
+                    </a>
                   </div>
-                </li>
-                <li class="orders_item">
-                  <div class="orders_item__top">
-                    <p class="orders_item__date title_two animate_top">Заказ от 23 июля</p>
-                    <p class="orders_item__number title_three animate_top">485789802-2345</p>
-                  </div>
-                  <div class="orders_item__status_wrapper">
-                    <p class="orders_item__status title_four orders_item__status_delivery animate_top ">Доставка</p>
-                    <p class="orders_item__status_text title_four orders_item__status_text_delivery animate_top ">24 июля, 10:00 - 13:00
-                    </p>
-                  </div>
-                  <div class="orders_item__bottom">
-                    <div class="orders_item__swiper swiper">
-                      <div class="orders_item__img_boxs swiper-wrapper">
-                        <div class="orders_item__img swiper-slide animate_image">
-                          <img src="./img/orders/orders_product.webp" loading="lazy" alt="product">
-                        </div>
-                      </div>
-                      <div class="orders_item__scrollbar"></div>
-                    </div>
-                    <div class="orders_item__price">
-                      <p class="orders_item__price_text title_four animate_top">итого</p>
-                      <p class="orders_item__price_number title_two animate_top">3 999 ₽</p>
-                    </div>
-                  </div>
-                </li>
-                <li class="orders_item">
-                  <div class="orders_item__top">
-                    <p class="orders_item__date title_two animate_top">Заказ от 18 июля</p>
-                    <p class="orders_item__number title_three animate_top">485789802-2345</p>
-                  </div>
-                  <div class="orders_item__status_wrapper">
-                    <p class="orders_item__status title_four orders_item__status_cancelled animate_top">Отменен</p>
-                    <p class="orders_item__status_text title_four orders_item__status_text_cancelled animate_top">Вернули деньги на карту
-                    </p>
-                  </div>
-                  <div class="orders_item__bottom">
-                    <div class="orders_item__swiper swiper">
-                      <div class="orders_item__img_boxs swiper-wrapper">
-                        <div class="orders_item__img swiper-slide animate_image">
-                          <img src="./img/orders/orders_product.webp" loading="lazy" alt="product">
-                        </div>
-                        <div class="orders_item__img swiper-slide animate_image">
-                          <img src="./img/orders/orders_product.webp" loading="lazy" alt="product">
-                        </div>
-                        <div class="orders_item__img swiper-slide animate_image">
-                          <img src="./img/orders/orders_product.webp" loading="lazy" alt="product">
-                        </div>
-                        <div class="orders_item__img swiper-slide animate_image">
-                          <img src="./img/orders/orders_product.webp" loading="lazy" alt="product">
-                        </div>
-                        <div class="orders_item__img swiper-slide animate_image">
-                          <img src="./img/orders/orders_product.webp" loading="lazy" alt="product">
-                        </div>
-                      </div>
-                      <div class="orders_item__scrollbar"></div>
-                    </div>
-                    <div class="orders_item__price">
-                      <p class="orders_item__price_text title_four animate_top">итого</p>
-                      <p class="orders_item__price_number title_two animate_top">12 999 ₽</p>
-                    </div>
-                  </div>
-                </li> 
-                <li class="orders_item">
-                  <div class="orders_item__top">
-                    <p class="orders_item__date title_two animate_top">Заказ от 10 мая</p>
-                    <p class="orders_item__number title_three animate_top">485789802-2345</p>
-                  </div>
-                  <div class="orders_item__status_wrapper">
-                    <p class="orders_item__status title_four orders_item__status_you  animate_top">Уже у вас</p>
-                    <p class="orders_item__status_text title_four orders_item__status_text_you animate_top">Доставлен 11 мая
-                    </p>
-                  </div>
-                  <div class="orders_item__bottom">
-                    <div class="orders_item__swiper swiper">
-                      <div class="orders_item__img_boxs swiper-wrapper">
-                        <div class="orders_item__img swiper-slide animate_image">
-                          <img src="./img/orders/orders_product.webp" loading="lazy" alt="product">
-                        </div>
-                        <div class="orders_item__img swiper-slide animate_image">
-                          <img src="./img/orders/orders_product.webp" loading="lazy" alt="product">
-                        </div>
-                        <div class="orders_item__img swiper-slide animate_image">
-                          <img src="./img/orders/orders_product.webp" loading="lazy" alt="product">
-                        </div>
-                        <div class="orders_item__img swiper-slide animate_image">
-                          <img src="./img/orders/orders_product.webp" loading="lazy" alt="product">
-                        </div>
-                        <div class="orders_item__img swiper-slide animate_image">
-                          <img src="./img/orders/orders_product.webp" loading="lazy" alt="product">
-                        </div>
-                        <div class="orders_item__img swiper-slide animate_image">
-                          <img src="./img/orders/orders_product.webp" loading="lazy" alt="product">
-                        </div>
-                        <div class="orders_item__img swiper-slide animate_image">
-                          <img src="./img/orders/orders_product.webp" loading="lazy" alt="product">
-                        </div>
-                        <div class="orders_item__img swiper-slide animate_image">
-                          <img src="./img/orders/orders_product.webp" loading="lazy" alt="product">
-                        </div>
-                      </div>
-                      <div class="orders_item__scrollbar"></div>
-                    </div>
-                    <div class="orders_item__price">
-                      <p class="orders_item__price_text title_four animate_top">итого</p>
-                      <p class="orders_item__price_number title_two animate_top">20 999 ₽</p>
-                    </div>
-                  </div>
-                </li>
-              </ul> 
+                </div>
+              </form>
             </div>
             <div class="order">
               <div class="orders_item__top">
@@ -583,9 +480,7 @@
                 </ul>
                 <a href="" class="btn btn__white catalog_banner_max_button title_four animate_top">
                   <span class="btn__hover"></span>
-                  <span class="btn__text">
-                    Повторить заказ
-                  </span>
+                  <span class="btn__text">Повторить заказ</span>
                 </a>
                 <button id="orderBtnCancel" class="btn btn__line title_four order_btn_cancel animate_top">
                   <span class="btn__hover"></span>

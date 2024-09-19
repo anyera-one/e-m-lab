@@ -391,7 +391,8 @@ small {
 .btn__incart.active .btn:not(:disabled) .btn__hover,
 .btn__input:checked ~ .btn:not(:disabled) .btn__hover,
 .login_popup__button.active .btn:not(:disabled):not(.disabled) .btn__hover,
-.login_popup__button:checked ~ .btn:not(:disabled):not(.disabled) .btn__hover {
+.profile__button.active .btn:not(:disabled):not(.disabled) .btn__hover,
+.profile__del.active .btn:not(:disabled) .btn__hover {
   -webkit-transform: translateY(0);
   transform: translateY(0);
   -webkit-transition-delay: .1s;
@@ -401,8 +402,10 @@ small {
 .btn:not(:disabled).active .btn__hover::after,
 .btn__cart.active .btn:not(:disabled) .btn__hover::after,
 .btn__incart.active .btn:not(:disabled) .btn__hover::after,
-.login_popup__button.active .btn:not(:disabled):not(.disabled) .btn__hover::after
-.btn__input:checked ~ .btn:not(:disabled) .btn__hover::after {
+.login_popup__button.active .btn:not(:disabled):not(.disabled) .btn__hover::after,
+.btn__input:checked ~ .btn:not(:disabled) .btn__hover::after,
+.profile__button.active .btn:not(:disabled):not(.disabled) .btn__hover::after,
+.profile__del.active .btn:not(:disabled) .btn__hover::after {
   -webkit-transform: skew(0,-8deg);
   transform: skew(0,-8deg);
   -webkit-transition-delay: 0s;
@@ -413,7 +416,9 @@ small {
 .btn__cart.active .btn:not(:disabled),
 .btn__incart.active .btn:not(:disabled),
 .login_popup__button.active .btn:not(:disabled):not(.disabled),
-.btn__input:checked ~ .btn:not(:disabled) {
+.profile__button.active .btn:not(:disabled):not(.disabled),
+.btn__input:checked ~ .btn:not(:disabled),
+.profile__del.active .btn:not(:disabled) {
   color: var(--white);
   -webkit-transition-property: color, background-color;
   transition-property: color, background-color;
@@ -591,27 +596,41 @@ small {
 }
 
 .btn__incart,
-.login_popup__button {
+.login_popup__button,
+.profile__button,
+.profile__del {
   width: 100%;
 }
 
 .btn__incart .btn,
-.login_popup__button .btn {
+.login_popup__button .btn,
+.profile__button .btn {
   width: 100%;
   background-color: var(--text);
   color: var(--bg);
   border-radius: 6px;
 }
 
+.profile__del {
+  background-color: var(--bg);
+  color: var(--text);
+  border-radius: 6px;
+}
+
 .login_popup__button .btn:disabled,
 .login_popup__button .btn.disabled,
-.login_popup__button input:disabled ~ .btn {
+.login_popup__button input:disabled ~ .btn,
+.profile__button .btn:disabled,
+.profile__button .btn.disabled,
+.profile__button input:disabled ~ .btn {
   opacity: 0.2;
   pointer-events: none;
 }
 
 .btn__incart .btn__text,
-.login_popup__button .btn__text {
+.login_popup__button .btn__text,
+.profile__button .btn__text,
+.profile__del .btn__text {
   width: 100%;
   height: 52px;
   padding: 16px;
@@ -621,7 +640,9 @@ small {
 }
 
 .btn__incart .btn__text svg,
-.login_popup__button .btn__text svg {
+.login_popup__button .btn__text svg,
+.profile__button .btn__text svg,
+.profile__del .btn__text svg {
   width: 24px;
   height: 24px;
   object-fit: contain;
@@ -630,14 +651,22 @@ small {
 .btn__incart .btn__hover,
 .btn__incart .btn__hover::after,
 .login_popup__button .btn__hover,
-.login_popup__button .btn__hover::after {
+.login_popup__button .btn__hover::after,
+.profile__button .btn__hover,
+.profile__button .btn__hover::after,
+.profile__del .btn__hover,
+.profile__del .btn__hover::after {
   background-color: var(--bg);
 }
 
 .btn__incart .btn__hover,
 .btn__incart .btn__hover::after,
 .login_popup__button .btn__hover,
-.login_popup__button .btn__hover::after {
+.login_popup__button .btn__hover::after,
+.profile__button .btn__hover,
+.profile__button .btn__hover::after,
+.profile__del .btn__hover,
+.profile__del .btn__hover::after {
   height: 125%;
 }
 
@@ -2549,7 +2578,9 @@ html.has-scroll-dragging {
   /* .btn:not(:disabled):hover .btn__hover,
   .btn__cart:hover .btn:not(:disabled) .btn__hover,
   .btn__incart:hover .btn:not(:disabled) .btn__hover,
-  .login_popup__button .btn:not(:disabled):not(.disabled) .btn__hover {
+  .login_popup__button .btn:not(:disabled):not(.disabled) .btn__hover,
+  .profile__button .btn:not(:disabled):not(.disabled) .btn__hover,
+  .profile__del .btn:not(:disabled) .btn__hover {
     -webkit-transform: translateY(0);
     transform: translateY(0);
     -webkit-transition-delay: .1s;
@@ -2558,7 +2589,9 @@ html.has-scroll-dragging {
   .btn:not(:disabled):hover .btn__hover:after,
   .btn__cart:hover .btn:not(:disabled) .btn__hover:after,
   .btn__incart:hover .btn:not(:disabled) .btn__hover:after,
-  .login_popup__button:hover .btn:not(:disabled):not(.disabled) .btn__hover:after {
+  .login_popup__button:hover .btn:not(:disabled):not(.disabled) .btn__hover:after,
+  .profile__button:hover .btn:not(:disabled):not(.disabled) .btn__hover:after,
+  .profile__del .btn:not(:disabled) .btn__hover:after {
     -webkit-transform: skew(0,-8deg);
     transform: skew(0,-8deg);
     -webkit-transition-delay: 0s;
@@ -2567,7 +2600,9 @@ html.has-scroll-dragging {
   .btn:not(:disabled):hover,
   .btn__cart:hover .btn:not(:disabled),
   .btn__incart:hover .btn:not(:disabled),
-  .login_popup__button:hover input:not(:disabled) ~ .btn {
+  .login_popup__button:hover input:not(:disabled) ~ .btn,
+  .profile__button:hover input:not(:disabled) ~ .btn,
+  .profile__del:hover .btn:not(:disabled) {
     -webkit-transition-property: color, background-color;
     transition-property: color, background-color;
     /* -webkit-transition-delay: 0s, .3s, 0s;
@@ -2580,7 +2615,8 @@ html.has-scroll-dragging {
   .btn__iosapp:not(:disabled):hover,
   .btn__appstore:not(:disabled):hover,
   .btn__line:not(:disabled):hover,
-  .btn__count:not(:disabled):hover {
+  .btn__count:not(:disabled):hover,
+  .profile__del:not(:disabled):hover {
     color: var(--bg);
     background-color: var(--text);
   }
@@ -2589,7 +2625,8 @@ html.has-scroll-dragging {
   .btn__transparent:not(:disabled):hover,
   .btn__cart:hover .btn:not(:disabled),
   .btn__incart:hover .btn:not(:disabled),
-  .login_popup__button:hover input:not(:disabled) ~ .btn {
+  .login_popup__button:hover input:not(:disabled) ~ .btn,
+  .profile__button:hover input:not(:disabled) ~ .btn {
     color: var(--text);
     background-color: var(--bg);
   }
