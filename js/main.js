@@ -901,31 +901,6 @@ if (ordersSwiperSwip) {
 }
 // end orders swiper
 
-// start order list
-
-const ordersList = document.querySelector('.orders__list');
-const ordersItemlist = document.querySelectorAll(".orders_item");
-const ordersWrapper = document.querySelector('.orders__wrapper');
-const order = document.querySelector('.order');
-const ordersLink = document.querySelector('#orders');
-
-if (ordersList) {
-  ordersItemlist.forEach((ordersItem) => {
-    ordersItem.addEventListener('click', function () {
-      ordersWrapper.classList.remove('active');
-      order.classList.add('active');
-    });
-  });
-}
-
-if (ordersLink) {
-  ordersLink.addEventListener('click', function () {
-    order.classList.remove('active');
-    ordersWrapper.classList.add('active');
-  });
-}
-// end order list
-
 // start cart min
 
 const cardBtn = document.querySelector('.header__link_cart');
