@@ -40,7 +40,7 @@
       </svg> 
     </div>
   </div>
-  <header class="header">
+  <header class="header header__transparent">
     <div class="header__close"></div>
     <div class="header__progress">
       <div class="header__progress_bar"></div>
@@ -101,12 +101,6 @@
                 <path d="M21.6635 17.2344C21.6635 20.3624 19.1278 22.8982 15.9997 22.8982C12.8717 22.8982 10.3359 20.3624 10.3359 17.2344" stroke="currentColor" stroke-width="1.2"/>
               </svg>
             </button>
-            <a href="orders.html" class="header__link header__link_login">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33" fill="none">
-                <circle cx="15.9993" cy="16.4993" r="12.3333" stroke="currentColor" stroke-width="1.2"/>
-                <path d="M21.6635 17.2344C21.6635 20.3624 19.1278 22.8982 15.9997 22.8982C12.8717 22.8982 10.3359 20.3624 10.3359 17.2344" stroke="currentColor" stroke-width="1.2"/>
-              </svg>
-            </a>
             <button class="header__link header__link_cart">
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33" fill="none">
                 <path d="M22.3328 12.6997V11.2172C22.3328 7.71988 19.4977 4.88477 16.0004 4.88477C12.5031 4.88477 9.66797 7.71988 9.66797 11.2172V12.6997" stroke="currentColor" stroke-width="1.2" stroke-linecap="square" stroke-linejoin="round"/>
@@ -1047,6 +1041,44 @@
       </div>
     </footer>
   </main>
+  <div class="burger_popup">
+    <div class="container burger_popup__container">
+      <div class="burger_popup__block">
+        <button class="burger_popup__login title_four">
+          <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none">
+            <circle cx="23" cy="23" r="13.875" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M29.3724 23.8262C29.3724 27.3452 26.5197 30.1979 23.0007 30.1979C19.4816 30.1979 16.6289 27.3452 16.6289 23.8262" stroke="currentColor" stroke-width="1.2"/>
+          </svg>
+          Войти
+        </button>
+        <ul class="burger_popup__profile_list">
+          <li class="burger_popup__profile_item">
+            <a href="" class="burger_popup__profile_link">Заказы</a>
+          </li>
+          <li class="burger_popup__profile_item">
+            <a href="" class="burger_popup__profile_link">Профиль</a>
+          </li>
+          <li class="burger_popup__profile_item">
+            <a href="" class="burger_popup__profile_link">Выйти</a>
+          </li>
+        </ul>
+        <ul class="burger_popup__list">
+          <li class="burger_popup__item">
+            <a href="catalog.html" class="burger_popup__link">Каталог</a>
+          </li>
+          <li class="burger_popup__item">
+            <a href="about.html" class="burger_popup__link">О нас</a>
+          </li>
+          <li class="burger_popup__item">
+            <a href="emLabApp.html" class="burger_popup__link">Сканер</a>
+          </li>
+          <li class="burger_popup__item">
+            <a href="E+M LAB APP" class="burger_popup__link">E+M LAB APP</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
   <div class="login_overlay"></div>
   <div class="login_popup">
     <div class="container login_popup__container">

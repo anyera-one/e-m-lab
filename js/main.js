@@ -235,7 +235,10 @@ const overlay = document.querySelector('.overlay');
 const menu = document.querySelector('.header__navigation');
 const burger = document.querySelector('.header__burger');
 const headerClose = document.querySelector('.header__close');
+const burgerPopup = document.querySelector('.burger_popup');
 const menuItemActive = document.getElementsByClassName("header__nav_item active");
+const loginOverlay = document.querySelector('.login_overlay');
+const loginPopup = document.querySelector('.login_popup');
 
 // button header__burger
 burger.addEventListener('click', function() {
@@ -245,6 +248,7 @@ burger.addEventListener('click', function() {
     burger.classList.remove("active");
     header.classList.remove("active");
     headerClose.classList.remove("active");
+    burgerPopup.classList.remove("active");
     document.documentElement.classList.remove("noscroll");
     scroll.start();
   } else {
@@ -253,6 +257,9 @@ burger.addEventListener('click', function() {
     burger.classList.add("active");
     header.classList.add("active");
     headerClose.classList.add("active");
+    burgerPopup.classList.add("active");
+    loginOverlay.classList.remove("active");
+    loginPopup.classList.remove("active");
     document.documentElement.classList.add("noscroll");
     scroll.stop();
   }
@@ -261,15 +268,33 @@ burger.addEventListener('click', function() {
 
 // button header__login
 const headerLogin = document.querySelector('.header__login');
-const loginOverlay = document.querySelector('.login_overlay');
-const loginPopup = document.querySelector('.login_popup');
+const headerPopupLogin = document.querySelector('.burger_popup__login');
 const loginPopupClose = document.querySelector('.login_popup__close');
 
 headerLogin.addEventListener('click', function() {
+  overlay.classList.remove("active");
+  menu.classList.remove("active");
+  burger.classList.remove("active");
+  header.classList.remove("active");
+  headerClose.classList.remove("active");
+  burgerPopup.classList.remove("active");
+  header.classList.remove("header__transparent");
   loginOverlay.classList.add("active");
   loginPopup.classList.add("active");
-  burger.classList.add("active");
-  header.classList.add("active");
+  headerClose.classList.add("active");
+  document.documentElement.classList.add("noscroll");
+  scroll.stop();
+})
+headerPopupLogin.addEventListener('click', function() {
+  overlay.classList.remove("active");
+  menu.classList.remove("active");
+  burger.classList.remove("active");
+  header.classList.remove("active");
+  headerClose.classList.remove("active");
+  burgerPopup.classList.remove("active");
+  header.classList.remove("header__transparent");
+  loginOverlay.classList.add("active");
+  loginPopup.classList.add("active");
   headerClose.classList.add("active");
   document.documentElement.classList.add("noscroll");
   scroll.stop();
@@ -295,6 +320,7 @@ headerClose.addEventListener('click', function() {
   burger.classList.remove("active");
   header.classList.remove("active");
   headerClose.classList.remove("active");
+  burgerPopup.classList.remove("active");
   document.documentElement.classList.remove("noscroll");
   scroll.start();
 })
@@ -304,6 +330,7 @@ overlay.addEventListener('click', function() {
   burger.classList.remove("active");
   header.classList.remove("active");
   headerClose.classList.remove("active");
+  burgerPopup.classList.remove("active");
   document.documentElement.classList.remove("noscroll");
   scroll.start();
 })
