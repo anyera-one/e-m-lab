@@ -3371,6 +3371,14 @@ width: 230px;
   transition-delay: 0.3s;
 }
 
+.pop_up__overlay.onclick_none {
+  background-color: var(--text);
+  opacity: 0.3;
+  visibility: visible;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+
 .pop_up__overlay {
   z-index: 110;
 }
@@ -3400,6 +3408,13 @@ width: 230px;
   transition: opacity 0.3s linear, visibility 0.3s linear;
   -webkit-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
+}
+
+.pop_up.onclick_none {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition:  opacity 0.3s linear , visibility 0.3s linear ;
+  transition:  opacity 0.3s linear, visibility 0.3s linear ;
 }
 
 .pop_up.active {
