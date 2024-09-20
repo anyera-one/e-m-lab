@@ -143,7 +143,7 @@
   </header>
   <main class="main" data-scroll-container>
     <section class="top" data-scroll-section id="top"></section>
-    <section class="orders" data-scroll-section>
+    <section class="orders profile" data-scroll-section>
       <div class="container orders__container">
         <div class="orders__block">
           <div class="answer__nav title_three animate_top">
@@ -218,294 +218,19 @@
                         <span class="btn__text">Сохранить</span>
                       </div>
                     </label>
-                    <a class="btn btn__line profile__del title_four">
+                    <button id="deleteProfileBtnDel" class="btn btn__line profile__del title_four">
                       <span class="btn__hover"></span>
                       <span class="btn__text">Удалить профиль</span>
-                    </a>
+                    </button>
                   </div>
                 </div>
               </form>
-            </div>
-            <div class="order">
-              <div class="orders_item__top">
-                <p class="orders_item__date big_two animate_top">Заказ От 10 мая</p>
-                <p class="orders_item__number title_two animate_top">485789802-2345</p>
-              </div>
-              <div class="order__status_wrapper">
-                <div class="orders_item__status_wrapper animate_top">
-                  <p class="orders_item__status title_four orders_item__status_delivery">Доставка</p>
-                  <p class="orders_item__status_text title_four orders_item__status_text_delivery">Готов к выдаче</p>
-                </div>
-                <div class="orders_item__status_wrapper animate_top">
-                  <p class="orders_item__status title_four orders_item__status_cancelled ">Отменен</p>
-                  <p class="orders_item__status_text title_four orders_item__status_text_cancelled">Вернули деньги на карту</p>
-                </div>
-                <div class="orders_item__status_wrapper animate_top">
-                  <p class="orders_item__status title_four orders_item__status_you ">Уже у вас</p>
-                  <p class="orders_item__status_text title_four orders_item__status_text_you">Доставлен 11 мая</p>
-                </div>
-              </div>
-              <div class="order__track animate_top">
-                <p class="order__track_text">Отследить заказ</p>
-                <p class="order__track_number">485789802-2345</p>
-              </div>
-              <div class="order_data">
-                <div class="order__info">
-                  <p class="order_data__title title_three animate_top">Информация о заказе</p>
-                  <ul class="order_data__list">
-                    <li class="order_data__item animate_top">
-                      <p class="order_data__item_name title_three">Плановая дата доставки</p>
-                      <div class="order_data__item_dots"></div>
-                      <p class="order_data__item_meaning title_three">24 июля</p>
-                    </li>
-                    <li class="order_data__item animate_top">
-                      <p class="order_data__item_name title_three">Дата доставки</p>
-                      <div class="order_data__item_dots"></div>
-                      <p class="order_data__item_meaning title_three">11 мая, 19:00 - 23:00</p>
-                    </li>
-                    <li class="order_data__item animate_top">
-                      <p class="order_data__item_name title_three">Способ доставки</p>
-                      <div class="order_data__item_dots"></div>
-                      <p class="order_data__item_meaning title_three">Курьерская доставка</p>
-                    </li>
-                    <li class="order_data__item animate_top">
-                      <p class="order_data__item_name title_three">Способ оплаты</p>
-                      <div class="order_data__item_dots"></div>
-                      <p class="order_data__item_meaning title_three">Оплата онлайн</p>
-                    </li>
-                    <li class="order_data__item animate_top">
-                      <p class="order_data__item_name title_three">Адрес доставки</p>
-                      <div class="order_data__item_dots"></div>
-                      <p class="order_data__item_meaning title_three">119192, г. Москва, пр-кт. Мичуринский, д. 10, к. 1, кв. 77, подъезд 1, этаж 19</p>
-                    </li>
-                    <li class="order_data__item animate_top">
-                      <p class="order_data__item_name title_three">Срок хранения</p>
-                      <div class="order_data__item_dots"></div>
-                      <p class="order_data__item_meaning title_three">3 дня</p>
-                    </li>
-                  </ul>
-                </div>
-                <div class="order__price">
-                  <p class="order_data__title title_three animate_top" >сумма заказа</p>
-                  <ul class="order_data__list">
-                    <li class="order_data__item animate_top">
-                      <p class="order_data__item_name title_three">Продукты</p>
-                      <div class="order_data__item_dots"></div>
-                      <p class="order_data__item_meaning title_three">20 999 ₽</p>
-                    </li>
-                    <li class="order_data__item animate_top">
-                      <p class="order_data__item_name title_three">Доставка</p>
-                      <div class="order_data__item_dots"></div>
-                      <p class="order_data__item_meaning title_three">0 ₽</p>
-                    </li>
-                    <li class="order_data__item animate_top">
-                      <p class="order_data__item_name title_three">Скидка</p>
-                      <div class="order_data__item_dots"></div>
-                      <p class="order_data__item_meaning title_three">0 ₽</p>
-                    </li>
-                  </ul>
-                  <div class="orders_item__price">
-                    <p class="orders_item__price_text title_four animate_top">итого</p>
-                    <p class="orders_item__price_number title_two animate_top">20 999 ₽</p>
-                  </div>
-                </div>
-              </div>
-              <div class="order_compound">
-                <p class="order_compound__title title_three animate_top" >Состав заказа</p>
-                <ul class="order_compound__list">
-                  <li class="order_compound__item animate_top">
-                    <div class="order_compound__img">
-                      <img src="./img/orders/order_product.webp" alt="">
-                    </div>
-                    <div class="order_compound__info">
-                      <div class="order_compound__main">
-                        <p class="order_compound__name title_four">Гель для умывания</p>
-                        <p class="order_compound__series title_two">Cleansing gel</p>
-                        <div class="order_compound__for_whom">
-                          <p class="title_four">Для кого</p>
-                          <p class="title_four">Natasha</p>
-                        </div>
-                        <p class="order_compound__volume title_four">30 ML</p>
-                      </div>
-                      <div class="order_compound__price">
-                        <div class="about_slider__price">
-                          <p class="about_slider__price_new title_three">4 999 ₽</p>
-                          <p class="about_slider__price_old title_three">4 999 ₽</p>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="order_compound__item animate_top">
-                    <div class="order_compound__img">
-                      <img src="./img/orders/order_product.webp" alt="">
-                    </div>
-                    <div class="order_compound__info">
-                      <div class="order_compound__main">
-                        <p class="order_compound__name title_four">Гель для умывания</p>
-                        <p class="order_compound__series title_two">Cleansing gel</p>
-                        <div class="order_compound__for_whom">
-                          <p class="title_four">Для кого</p>
-                          <p class="title_four">Natasha</p>
-                        </div>
-                        <p class="order_compound__volume title_four">30 ML</p>
-                      </div>
-                      <div class="order_compound__price">
-                        <div class="about_slider__price">
-                          <p class="about_slider__price_new title_three">4 999 ₽</p>
-                          <p class="about_slider__price_old title_three">4 999 ₽</p>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="order_compound__item animate_top">
-                    <div class="order_compound__img">
-                      <img src="./img/orders/order_product.webp" alt="">
-                    </div>
-                    <div class="order_compound__info">
-                      <div class="order_compound__main">
-                        <p class="order_compound__name title_four">Гель для умывания</p>
-                        <p class="order_compound__series title_two">Cleansing gel</p>
-                        <div class="order_compound__for_whom">
-                          <p class="title_four">Для кого</p>
-                          <p class="title_four">Natasha</p>
-                        </div>
-                        <p class="order_compound__volume title_four">30 ML</p>
-                      </div>
-                      <div class="order_compound__price">
-                        <div class="about_slider__price">
-                          <p class="about_slider__price_new title_three">4 999 ₽</p>
-                          <p class="about_slider__price_old title_three">4 999 ₽</p>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="order_compound__item animate_top">
-                    <div class="order_compound__img">
-                      <img src="./img/orders/order_product.webp" alt="">
-                    </div>
-                    <div class="order_compound__info">
-                      <div class="order_compound__main">
-                        <p class="order_compound__name title_four">Гель для умывания</p>
-                        <p class="order_compound__series title_two">Cleansing gel</p>
-                        <div class="order_compound__for_whom">
-                          <p class="title_four">Для кого</p>
-                          <p class="title_four">Natasha</p>
-                        </div>
-                        <p class="order_compound__volume title_four">30 ML</p>
-                      </div>
-                      <div class="order_compound__price">
-                        <div class="about_slider__price">
-                          <p class="about_slider__price_new title_three">4 999 ₽</p>
-                          <p class="about_slider__price_old title_three">4 999 ₽</p>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="order_compound__item animate_top">
-                    <div class="order_compound__img">
-                      <img src="./img/orders/order_product.webp" alt="">
-                    </div>
-                    <div class="order_compound__info">
-                      <div class="order_compound__main">
-                        <p class="order_compound__name title_four">Гель для умывания</p>
-                        <p class="order_compound__series title_two">Cleansing gel</p>
-                        <div class="order_compound__for_whom">
-                          <p class="title_four">Для кого</p>
-                          <p class="title_four">Natasha</p>
-                        </div>
-                        <p class="order_compound__volume title_four">30 ML</p>
-                      </div>
-                      <div class="order_compound__price">
-                        <div class="about_slider__price">
-                          <p class="about_slider__price_new title_three">4 999 ₽</p>
-                          <p class="about_slider__price_old title_three">4 999 ₽</p>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="order_compound__item animate_top">
-                    <div class="order_compound__img">
-                      <img src="./img/orders/order_product.webp" alt="">
-                    </div>
-                    <div class="order_compound__info">
-                      <div class="order_compound__main">
-                        <p class="order_compound__name title_four">Гель для умывания</p>
-                        <p class="order_compound__series title_two">Cleansing gel</p>
-                        <div class="order_compound__for_whom">
-                          <p class="title_four">Для кого</p>
-                          <p class="title_four">Natasha</p>
-                        </div>
-                        <p class="order_compound__volume title_four">30 ML</p>
-                      </div>
-                      <div class="order_compound__price">
-                        <div class="about_slider__price">
-                          <p class="about_slider__price_new title_three">4 999 ₽</p>
-                          <p class="about_slider__price_old title_three">4 999 ₽</p>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="order_compound__item animate_top">
-                    <div class="order_compound__img">
-                      <img src="./img/orders/order_product.webp" alt="">
-                    </div>
-                    <div class="order_compound__info">
-                      <div class="order_compound__main">
-                        <p class="order_compound__name title_four">Гель для умывания</p>
-                        <p class="order_compound__series title_two">Cleansing gel</p>
-                        <div class="order_compound__for_whom">
-                          <p class="title_four">Для кого</p>
-                          <p class="title_four">Natasha</p>
-                        </div>
-                        <p class="order_compound__volume title_four">30 ML</p>
-                      </div>
-                      <div class="order_compound__price">
-                        <div class="about_slider__price">
-                          <p class="about_slider__price_new title_three">4 999 ₽</p>
-                          <p class="about_slider__price_old title_three">4 999 ₽</p>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="order_compound__item animate_top">
-                    <div class="order_compound__img">
-                      <img src="./img/orders/order_product.webp" alt="">
-                    </div>
-                    <div class="order_compound__info">
-                      <div class="order_compound__main">
-                        <p class="order_compound__name title_four">Гель для умывания</p>
-                        <p class="order_compound__series title_two">Cleansing gel</p>
-                        <div class="order_compound__for_whom">
-                          <p class="title_four">Для кого</p>
-                          <p class="title_four">Natasha</p>
-                        </div>
-                        <p class="order_compound__volume title_four">30 ML</p>
-                      </div>
-                      <div class="order_compound__price">
-                        <div class="about_slider__price">
-                          <p class="about_slider__price_new title_three">4 999 ₽</p>
-                          <p class="about_slider__price_old title_three">4 999 ₽</p>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-                <a href="" class="btn btn__white catalog_banner_max_button title_four animate_top">
-                  <span class="btn__hover"></span>
-                  <span class="btn__text">Повторить заказ</span>
-                </a>
-                <button id="orderBtnCancel" class="btn btn__line title_four order_btn_cancel animate_top">
-                  <span class="btn__hover"></span>
-                  <span class="btn__text">Отменить заказ</span>
-                </button>
-              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <div class="pop_up__overlay"></div>
-    <div class="pop_up cancel_order">
+    <div class="pop_up delete_profile">
       <div class="pop_up__block">
         <div class="pop_up__scroll">
           <div class="pop_up__wrapper"> 
@@ -515,20 +240,20 @@
               </svg>  
             </button>
             <div class="pop_up__info title_three">
-              <p class="pop_up__title title_one">отменить заказ</p>
-              <p class="pop_up__subtitle title_three">Цены и наличие товаров могут измениться.
-                Есть вопросы? Звоните 8 999 999 99 99 или пишите Telegram</p>
+              <p class="pop_up__title title_one">Вы уверены?</p>
+              <p class="pop_up__subtitle title_three">Мы удалим аккаунт, но не сразу. У вас будет 30 дней, 
+                чтобы зайти обратно и все вернуть. Активные заказы будут доставлены</p>
               <div class="pop_up__btn_wrapper">
                 <div class="pop_up__btn">
-                  <a href="" class="btn btn__white title_four">
+                  <button id="deleteProfileBtnCancel" class="btn btn__white title_four">
                     <span class="btn__hover"></span>
-                    <span class="btn__text">Добавить карту</span>
-                  </a>
+                    <span class="btn__text">Отмена</span>
+                  </button>
                 </div>
                 <div class="pop_up__btn_cancel">
                   <a href="" class="btn title_four">
                     <span class="btn__hover"></span>
-                    <span class="btn__text">Отменить</span>
+                    <span class="btn__text">Удалить</span>
                   </a>
                 </div>
               </div>
@@ -537,6 +262,7 @@
         </div>
       </div>
     </div>
+    <div class="pop_up__overlay"></div>
     <footer class="footer" id="footer" data-scroll-section data-scroll-section-inview>
       <div class="container footer__container">
         <div class="footer__block">
