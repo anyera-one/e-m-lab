@@ -270,35 +270,39 @@ burger.addEventListener('click', function() {
 const headerLogin = document.querySelector('.header__login');
 const headerPopupLogin = document.querySelector('.burger_popup__login');
 const loginPopupClose = document.querySelector('.login_popup__close');
+if (headerLogin){
+  headerLogin.addEventListener('click', function() {
+    overlay.classList.remove("active");
+    menu.classList.remove("active");
+    burger.classList.remove("active");
+    header.classList.remove("active");
+    headerClose.classList.remove("active");
+    burgerPopup.classList.remove("active");
+    header.classList.remove("header__transparent");
+    loginOverlay.classList.add("active");
+    loginPopup.classList.add("active");
+    headerClose.classList.add("active");
+    document.documentElement.classList.add("noscroll");
+    scroll.stop();
+  })
+}
 
-headerLogin.addEventListener('click', function() {
-  overlay.classList.remove("active");
-  menu.classList.remove("active");
-  burger.classList.remove("active");
-  header.classList.remove("active");
-  headerClose.classList.remove("active");
-  burgerPopup.classList.remove("active");
-  header.classList.remove("header__transparent");
-  loginOverlay.classList.add("active");
-  loginPopup.classList.add("active");
-  headerClose.classList.add("active");
-  document.documentElement.classList.add("noscroll");
-  scroll.stop();
-})
-headerPopupLogin.addEventListener('click', function() {
-  overlay.classList.remove("active");
-  menu.classList.remove("active");
-  burger.classList.remove("active");
-  header.classList.remove("active");
-  headerClose.classList.remove("active");
-  burgerPopup.classList.remove("active");
-  header.classList.remove("header__transparent");
-  loginOverlay.classList.add("active");
-  loginPopup.classList.add("active");
-  headerClose.classList.add("active");
-  document.documentElement.classList.add("noscroll");
-  scroll.stop();
-})
+if (headerPopupLogin){
+  headerPopupLogin.addEventListener('click', function() {
+    overlay.classList.remove("active");
+    menu.classList.remove("active");
+    burger.classList.remove("active");
+    header.classList.remove("active");
+    headerClose.classList.remove("active");
+    burgerPopup.classList.remove("active");
+    header.classList.remove("header__transparent");
+    loginOverlay.classList.add("active");
+    loginPopup.classList.add("active");
+    headerClose.classList.add("active");
+    document.documentElement.classList.add("noscroll");
+    scroll.stop();
+  })
+}
 // end header__login
 
 // button overlay
@@ -719,11 +723,14 @@ const problemPaymentItem = document.querySelector("#orderBtnCancel");
 
 const popUpProblemPayment = document.querySelector('.pop_up.problem_payment');
 const popUpCancelOrder = document.querySelector('.pop_up.cancel_order');
+const popUpDeleteProfile = document.querySelector('.pop_up.delete_profile');
 
 const forWhomPopUpInput = document.querySelector('.for_whom.pop_up .form__input');
+const deleteProfileBtnCancel = document.querySelector('#deleteProfileBtnCancel');
+const deleteProfileBtnDel = document.querySelector('#deleteProfileBtnDel');
 
 if (forWhomItems.length > 0) {
-  forWhomItems.forEach((forWhom, i) => {
+  forWhomItems.forEach((forWhom,) => {
     forWhom.addEventListener('click', function () {
       forWhomPopUpInput.setAttribute("data-idproduct",forWhom.getAttribute("data-idproduct")); 
       forWhom.classList.add('active')
@@ -744,12 +751,23 @@ if (problemPaymentItem) {
   });
 }
 
+if (deleteProfileBtnDel) {
+  deleteProfileBtnDel.addEventListener('click', function () {
+    popUpDeleteProfile.classList.add('active')
+    popUpOverlay.classList.add('active');
+    document.documentElement.classList.add("noscroll");
+    scroll.stop();
+  });
+}
+
+
 if (popUpOverlay) {  
   popUpOverlay.addEventListener('click', e => {
     popUpForWhom?.classList.remove('active');
     popUpOverlay.classList.remove('active');
     popUpProblemPayment?.classList.remove('active');
     popUpCancelOrder?.classList.remove('active');
+    popUpDeleteProfile?.classList.remove('active');
     document.documentElement.classList.remove("noscroll");
     scroll.start();
   });
@@ -759,11 +777,20 @@ if (popUpOverlay) {
       popUpOverlay.classList.remove('active');
       popUpProblemPayment?.classList.remove('active');
       popUpCancelOrder?.classList.remove('active');
+      popUpDeleteProfile?.classList.remove('active');
       document.documentElement.classList.remove("noscroll");
       scroll.start();
     });
   })
-  
+}
+
+if (deleteProfileBtnCancel) {
+  deleteProfileBtnCancel.addEventListener('click', e => {
+    popUpOverlay.classList.remove('active');
+    popUpDeleteProfile?.classList.remove('active');
+    document.documentElement.classList.remove("noscroll");
+    scroll.start();
+  })
 }
 
 // end popup 
