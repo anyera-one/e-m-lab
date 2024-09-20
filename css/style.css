@@ -2238,6 +2238,10 @@ img.about__text_img_3 {
   padding: 0 90px 15px 0;
 }
 
+.emLabApp .ingredients_home__wrapper h2 br{
+  display: none;
+}
+
 .emLabApp .ingredients_home__wrapper>a{
   margin: auto 0 20px 0;
   align-self: flex-end;
@@ -4151,7 +4155,11 @@ width: 230px;
   .emLabApp .ingredients_home__wrapper {
     padding: 282px 15px 0 20px;
   }
+  .ingredients_home__wrapper p {
+    width: 57%;
+  }
   .emLabApp .ingredients_home__wrapper h2 {
+    width: 100%;
     padding: 0 0px 15px 0;
     margin: 0 30px 0 0;
     letter-spacing: -0.03em;
@@ -5585,8 +5593,13 @@ width: 230px;
     padding: 177px 15px 0 5px;
   }
   .emLabApp .ingredients_home__wrapper h2 {
-    max-width: 230px;
     margin: 0 25px 0 0px;
+  }
+  .ingredients_home__wrapper p {
+    width: 58%;
+  }
+  .emLabApp .ingredients_home__wrapper h2 br{
+    display: block;
   }
   .emLabApp .ingredients_info {
     padding: 72px 0 88px 0;
@@ -6363,8 +6376,10 @@ width: 230px;
     padding: 18px 0px;
     gap: 5px;
   }
+  .ingredients_home__wrapper p {
+    width: 59%;
+  }
   .emLabApp .ingredients_home__wrapper h2 {
-    max-width: 190px;
     padding: 3px 0px 0 0;
     margin: 0 23px 0 0;
     letter-spacing: -0.01em;
@@ -7623,9 +7638,14 @@ width: 230px;
     object-position: 71% 50%;
   }
   .emLabApp .ingredients_home__wrapper {
+
     padding: 197px 15px 0 20px;
     flex-direction: column;
     gap: 10px;
+  }
+  .emLabApp .ingredients_home__wrapper h2 {
+    width: 190px;
+    text-align: left;
   }
   .emLabApp .ingredients_home__wrapper>a {
     margin: auto auto 20px 0;
