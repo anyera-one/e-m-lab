@@ -394,7 +394,7 @@ if(loginFormCode) {
 // end login_popup__form_code
 
 // start login_popup__form_reg
-const profileForm = document.getElementById('login_popup__form_reg');
+const profileForm = document.getElementById('profile__form');
 
 if(profileForm) {
   const profileName = document.getElementById('profile__name');
