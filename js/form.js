@@ -160,7 +160,7 @@ if(loginFormReg) {
     const loginRegEmailValue = loginRegEmail.value.trim();
     const loginRegPhoneValue = loginRegPhone.value.trim();
     if(!isFormEmailValid(loginRegEmailValue)) {
-      setErrorFor(loginRegEmail);
+      document.querySelector('#login_popup__form_reg .login_popup__button input').removeAttribute("disabled");
     } else if(
     loginRegNameValue !== '' && loginRegNameValue.length >= loginRegNameMin && loginRegNameValue.length <= loginRegNameMax && 
     loginRegLastnameValue !== '' && loginRegLastnameValue.length >= loginRegLastnameMin && loginRegLastnameValue.length <= loginRegLastnameMax && 
@@ -401,6 +401,8 @@ if(profileForm) {
   const profileLastname = document.getElementById('profile__lastname');
   const profileEmail = document.getElementById('profile__email');
   const profilePhone = document.getElementById('profile__tel');
+  const profileMale = document.getElementById('profile__male');
+  const profileFemale = document.getElementById('profile__female');
   const profileNameMin = profileName.getAttribute('minl');
   const profileNameMax = profileName.getAttribute('maxl');
   const profileLastnameMin = profileLastname.getAttribute('minl');
@@ -416,15 +418,17 @@ if(profileForm) {
     const profileEmailValue = profileEmail.value.trim();
     const profilePhoneValue = profilePhone.value.trim();
     if(!isFormEmailValid(profileEmailValue)) {
-      setErrorFor(profileEmail);
+      document.querySelector('.profile__button input').setAttribute("disabled", "true");
+    } else if(profileMale.checked === false && profileFemale.checked === false){
+      document.querySelector('.profile__button input').setAttribute("disabled", "true");
     } else if(
     profileNameValue !== '' && profileNameValue.length >= profileNameMin && profileNameValue.length <= profileNameMax && 
     profileLastnameValue !== '' && profileLastnameValue.length >= profileLastnameMin && profileLastnameValue.length <= profileLastnameMax && 
     profileEmailValue !== '' && profileEmailValue.length >= profileEmailMin && profileEmailValue.length <= profileEmailMax && 
     profilePhoneValue !== '' && profilePhoneValue.length >= profilePhoneMin && profilePhoneValue.length <= profilePhoneMax) {
-      document.querySelector('.profile__button_one input').removeAttribute("disabled");
+      document.querySelector('.profile__button input').removeAttribute("disabled");
     } else {
-      document.querySelector('.profile__button_one input').setAttribute("disabled", "true");
+      document.querySelector('.profile__button input').setAttribute("disabled", "true");
     }
   }
 
@@ -449,6 +453,12 @@ if(profileForm) {
   profilePhone.oninput = function(){
     setForButton();
     this.value = this.value.substr(0, profilePhoneMax);
+  }
+  if(profileMale.checked) {
+    setForButton();
+  }
+  if(profileFemale.checked) {
+    setForButton();
   }
 
   profileEmail.addEventListener('input', function () {
@@ -506,14 +516,16 @@ if(profileForm) {
     profileNameValue !== '' && profileNameValue.length >= profileNameMin && profileNameValue.length <= profileNameMax && 
     profileLastnameValue !== '' && profileLastnameValue.length >= profileLastnameMin && profileLastnameValue.length <= profileLastnameMax && 
     profileEmailValue !== '' && profileEmailValue.length >= profileEmailMin && profileEmailValue.length <= profileEmailMax && 
-    profilePhoneValue !== '' && profilePhoneValue.length >= profilePhoneMin && profilePhoneValue.length <= profilePhoneMax) {
+    profilePhoneValue !== '' && profilePhoneValue.length >= profilePhoneMin && profilePhoneValue.length <= profilePhoneMax && (profileMale.checked || profileFemale.checked)) {
       fetch('/ajax/sendMail.php', {
         method: 'POST',
         body: JSON.stringify({
           profileNameValue: profileNameValue,
           profileLastnameValue: profileLastnameValue,
           profileEmailValue: profileEmailValue,
-          profilePhoneValue: profilePhoneValue
+          profilePhoneValue: profilePhoneValue,
+          registrationcheckbox: profilePhoneValue,
+          registrationcheckbox: profilePhoneValue
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8"
