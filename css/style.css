@@ -3784,6 +3784,11 @@ width: 230px;
   gap: 40px;
 }
 
+.profile__del {
+  max-width: 570px;
+  margin: 40px 0 0;
+}
+
 /* end profile__form */
 
 /* start 1919px for 1440px */
@@ -5250,6 +5255,9 @@ width: 230px;
   .profile__form {
     max-width: 425px;
   }
+  .profile__del {
+    max-width: 425px;
+  }
   .profile .orders__title {
     padding: 0 0 60px;
   }
@@ -5930,6 +5938,9 @@ width: 230px;
   }
 
   .profile__form {
+    max-width: 460px;
+  }
+  .profile__del {
     max-width: 460px;
   }
 }
@@ -6980,6 +6991,10 @@ width: 230px;
   }
   .profile__form .form__bottom {
     gap: 25px;
+  }
+  .profile__del {
+    max-width: 352px;
+    margin: 25px 0 0;
   }
 }
 /* end 1023px */
