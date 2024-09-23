@@ -683,34 +683,46 @@ const ingredientpopup = document.querySelector('.ingredient_popup');
 const ingredientpopupOverlay = document.querySelector('.ingredient_popup__overlay');
 const ingredientPopupInfo = document.querySelector('.ingredient_popup__info');
 
-if (ingredientpopupOverlay) {
-  ingredientItems.forEach((ingredient, i) => {
-    ingredient.addEventListener('click', function () {
-      ingredientpopup.classList.add('active');
-      ingredientpopupOverlay.classList.add('active');
-      document.documentElement.classList.add("noscroll");
-      const ingredientText = this.children[0].children[1]
-      const ingredientName = this.children[1]
-      ingredientPopupInfo.innerHTML = `<p>${ingredientName.innerHTML}</p>` + ingredientText.innerHTML;
-      scroll.stop();
-    });
-  });
+
+function initializeIngredientPopup() {
   if (ingredientpopupOverlay) {
+    ingredientItems.forEach((ingredient) => {
+      ingredient.addEventListener('click', function () {
+        ingredientpopup.classList.add('active');
+        ingredientpopupOverlay.classList.add('active');
+        document.documentElement.classList.add("noscroll");
+        const ingredientText = this.children[0].children[1];
+        const ingredientName = this.children[1];
+        ingredientPopupInfo.innerHTML = `<p>${ingredientName.innerHTML}</p>` + ingredientText.innerHTML;
+        scroll.stop();
+      });
+    });
+
     ingredientpopupOverlay.addEventListener('click', e => {
       ingredientpopup.classList.remove('active');
       ingredientpopupOverlay.classList.remove('active');
       document.documentElement.classList.remove("noscroll");
       scroll.start();
     });
+
+    document.querySelector('.ingredient_popup__close').addEventListener('click', e => {
+      ingredientpopup.classList.remove('active');
+      ingredientpopupOverlay.classList.remove('active');
+      document.documentElement.classList.remove("noscroll");
+      scroll.start();
+    });
   }
-  document.querySelector('.ingredient_popup__close').addEventListener('click', e => {
-    ingredientpopup.classList.remove('active');
-    ingredientpopupOverlay.classList.remove('active');
-    document.documentElement.classList.remove("noscroll");
-    console.log('sss')
-    scroll.start();
-  });
 }
+
+function checkScreenSize() {
+  if (window.innerWidth < 768) {
+    initializeIngredientPopup();
+  }
+}
+
+checkScreenSize();
+
+window.addEventListener('resize', checkScreenSize);
 
 // end ingredient popup mobile
 

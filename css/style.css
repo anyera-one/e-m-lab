@@ -2983,6 +2983,7 @@ img.about__text_img_3 {
 
 .home_page .ingredients_home__wrapper {
   padding: 10px 80px 0;
+  flex-wrap: wrap;
 }
 
 .home_page__icon_wrapper {
@@ -3015,7 +3016,8 @@ width: 230px;
 }
 
 .home_page .ingredients_home__wrapper h2 {
-  padding: 0 135px 11px 0;
+  padding: 0;
+  text-align: center;
 }
 
 .home_page__icon_wrapper,
@@ -3031,7 +3033,9 @@ width: 230px;
   align-items: center;
   gap: 47px;
 }
-
+.ingredients_home__wrapper a {
+  text-align: end;
+}
 /* end home */
 
 /* start ingredients_scroll */
@@ -4031,6 +4035,9 @@ width: 230px;
     height: 59px;
   }
 
+  .ingredient_popup__block {
+    display: none;
+  }
   .ingredients__block {
     padding: 60px 0 150px;
   }
@@ -4043,11 +4050,6 @@ width: 230px;
   .ingredients_home__wrapper {
     padding: 230px 20px 0;
     align-items: baseline;
-  }
-  .ingredients_home__wrapper h2 {
-    margin: 0 37px 0 0;
-    padding: 0;
-    letter-spacing: -0.01em;
   }
   .ingredients_info {
     padding: 75px 0 185px 0;
@@ -4158,11 +4160,11 @@ width: 230px;
   .ingredients_home__wrapper p {
     width: 60%;
   }
-  .emLabApp .ingredients_home__wrapper h2 {
-    width: 100%;
-    padding: 0 0px 15px 0;
-    margin: 0 30px 0 0;
-    letter-spacing: -0.03em;
+  .ingredients_home__wrapper h2 {
+    width: 97%;
+  }
+  .ingredients_home__wrapper a {
+    width: 400px;
   }
   .emLabApp .ingredients_home__wrapper>a .btn__text {
     padding: 25px 18px;
@@ -4201,7 +4203,7 @@ width: 230px;
     padding: 281px 20px 0;
   }
   .indago .ingredients_home__wrapper h2 {
-    padding: 0 0 0 176px;
+    padding: 0;
   }
   .indago .ingredients_info {
     padding: 75px 0 140px 0;
@@ -4412,9 +4414,6 @@ width: 230px;
   }
   .home_page .ingredients_home__wrapper {
     padding: 346px 57px 0;
-  }
-  .home_page .ingredients_home__wrapper h2 {
-    padding: 0 120px 11px 0;
   }
   .home_page_name svg {
     width: 30px;
@@ -4698,7 +4697,7 @@ width: 230px;
     align-items: baseline;
   }
   .ingredients_home__wrapper h2 {
-    margin: 0 37px 0 0;
+    margin: 0;
     padding: 0;
     letter-spacing: -0.01em;
   }
@@ -4847,9 +4846,6 @@ width: 230px;
   }
   .indago .ingredients_home__wrapper {
     padding: 281px 20px 0;
-  }
-  .indago .ingredients_home__wrapper h2 {
-    padding: 0 0 0 176px;
   }
   .indago .ingredients_info {
     padding: 75px 0 140px 0;
@@ -5062,7 +5058,20 @@ width: 230px;
     padding: 346px 57px 0;
   }
   .home_page .ingredients_home__wrapper h2 {
-    padding: 0 120px 11px 0;
+    padding: 0;
+  }
+  .home_page .ingredients_home__wrapper h2  {
+    display: flex;
+    width: 100%;  
+    order: 0;
+    justify-content: center;
+  }
+  .home_page__link {
+    margin: 0 16px 16px 0;
+    order: 2;
+  }
+  .home_page__icon_wrapper {
+    order: 1;
   }
   .home_page_name svg {
     width: 30px;
@@ -5480,7 +5489,7 @@ width: 230px;
     height: 426px;
   }
   .ingredients_home__wrapper h2 {
-    width: 350px;
+    /* width: 350px; */
     margin: 0 0 0 17px;
     padding: 0;
     letter-spacing: -0.03em;  
@@ -5514,6 +5523,11 @@ width: 230px;
   }
   .ingredients__scanner_wrapper h2 {
     padding: 0 30px;
+  }
+  .ingredient__text {
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
 
   .answer__nav {
@@ -5626,8 +5640,17 @@ width: 230px;
     margin: 0;
   }
   .indago .ingredients_home__wrapper h2 {
-    margin: 0 0 0 200px;
+    margin: 0;
     padding: 0;
+  }
+  .indago .ingredients_home__wrapper p {
+    width: 57%;
+  }
+  .indago .ingredients_home__wrapper h2 {
+    width: 80%;
+  }
+  .ingredients_home__wrapper a {
+    width: 405px;
   }
   .indago .ingredients_info {
     padding: 71px 0 88px;
@@ -5768,12 +5791,7 @@ width: 230px;
     padding: 0;
   }
 
-  .home_page .ingredients_home__wrapper h2  {
-    display: flex;
-    width: 100%;  
-    order: 0;
-    justify-content: center;
-  }
+
 
   .home_page__icon_wrapper{
     order: 1;
@@ -6239,15 +6257,20 @@ width: 230px;
   .ingredients_home__wrapper {
     padding: 115px 0px 0 13px;
     flex-wrap: wrap;
-    gap: 88px;
+    gap: 0;
   }
   .ingredients_home__wrapper a {
-    width: 100%; 
-    margin: 0 380px 0 auto;
+    width: auto;
+    margin: 0 auto 0 32%;
     text-align: end;
   }
+  .ingredients_home__wrapper p {
+    width: 31%;
+  }
   .ingredients_home__wrapper h2 {
-    width: 455px;
+    width: 65%;
+  }
+  .ingredients_home__wrapper h2 {
     margin: 5px 10px 0 0px;
     padding: 0;
     letter-spacing: -0.01em;
@@ -6377,16 +6400,17 @@ width: 230px;
     width: auto;
   }
   .emLabApp .ingredients_home__wrapper>a .btn__text {
+    width: 160px;
     padding: 18px 0px;
     gap: 5px;
   }
-  .ingredients_home__wrapper p {
-    width: 65%;
+  .emLabApp .ingredients_home__wrapper p {
+    width: 43%;
   }
   .emLabApp .ingredients_home__wrapper>a {
-    width: 205px;
+    width: 160px;
   }
-  .emLabApp .ingredients_home__wrapper h2 {
+  .ingredients_home__wrapper h2 {
     padding: 3px 0px 0 0;
     margin: 0 23px 0 0;
     letter-spacing: -0.01em;
@@ -6423,11 +6447,12 @@ width: 230px;
     padding: 122px 20px 0;
   }
   .indago .ingredients_home__wrapper h2 {
+    width: 68%;
     margin: 0;
     padding: 0;
   }
-  .indago .ingredients_home__wrapper a {
-    margin: 0 272px 0 auto;
+  .indago .ingredients_home__wrapper p {
+    width: 31%;
   }
   .indago .ingredients_info {
     padding: 75px 0 76px;
@@ -6738,6 +6763,9 @@ width: 230px;
   }
   .home_page__icon_text {
     width: 170px;
+  }
+  .home_page .ingredients_home__wrapper p {
+    width: auto;
   }
   .home_page_name {
     padding: 54px 0 61px;
@@ -7395,11 +7423,12 @@ width: 230px;
   }
   .ingredients_home__wrapper a {
     width: 100%;
-    margin: 0;
+    margin: 160px 0 0;
     text-align: left;
   }
   .ingredients_home__wrapper h2 {
     margin: 0px 10px 160px 0px;
+    width: 100%;
   }
   .ingredients_info {
     flex-wrap: wrap;
@@ -7464,6 +7493,22 @@ width: 230px;
   }
   .ingredients_page__item:hover .ingredient__text {
     opacity: 0;
+  }
+  .ingredients_home__wrapper p {
+    width: 100%;
+  }
+  .ingredients_home__wrapper h2 {
+    margin: 0;
+    text-align: left;
+  }
+  .ingredients_home__wrapper {
+    padding: 196px 0px 17px 20px;
+    margin: 0;
+    gap: 0px;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 14px;
   }
 
   .ingredient_popup__overlay {
@@ -7645,7 +7690,6 @@ width: 230px;
     object-position: 71% 50%;
   }
   .emLabApp .ingredients_home__wrapper {
-
     padding: 197px 15px 0 20px;
     flex-direction: column;
     gap: 10px;
@@ -7681,6 +7725,9 @@ width: 230px;
   }
   .emLabApp.answer .answer__block {
     padding: 143px 0 107px;
+  }
+  .emLabApp .ingredients_home__wrapper>a {
+    width: 125px;
   }
 
   .indago .ingredients_home img {
@@ -7967,10 +8014,7 @@ width: 230px;
     order: 2;
     align-self: auto;
   }
-  .ingredients_home__wrapper h2 {
-    margin: 0;
-    text-align: center;
-  }
+
   .home_page .ingredients_home__wrapper a {
     align-self: center;
     margin: 19px 3px 17px 0;
