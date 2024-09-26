@@ -305,7 +305,7 @@ if (headerPopupLogin){
 }
 // end header__login
 
-button overlay
+//button overlay
 loginPopupClose.addEventListener('click', function() {
   loginOverlay.classList.remove("active");
   loginPopup.classList.remove("active");
