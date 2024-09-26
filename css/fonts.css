@@ -14,7 +14,7 @@
   --bg-success: #dff0d8;
   --white: #fff;
   --text: #202020;
-  --hover: rgba(165, 183, 201, 0.5);
+  --hover: #909090;
   --text-gray: #f8f8f8;
   --border: #2020204D;
   --swiper-btn: #fff6f8;
@@ -2513,6 +2513,7 @@ html.has-scroll-dragging {
   .big_two {
     font-size: 30px;
     line-height: 35px;
+    letter-spacing: -0.03em;
   }
   h3,
   .big_three {
@@ -2575,6 +2576,7 @@ html.has-scroll-dragging {
   .big_two {
     font-size: 30px;
     line-height: 35px;
+    letter-spacing: -0.03em;
   }
   h3,
   .big_three {
@@ -2674,12 +2676,16 @@ html.has-scroll-dragging {
   .profile__button:hover input:not(:disabled) ~ .btn {
     color: var(--text);
     background-color: var(--bg);
+    border: 1px solid var(--text)
+  }
+  .scanner__block .btn__transparent:not(:disabled):hover{
+    color:var(--color);
+    border: none;
   }
   .btn__cart:hover .btn:not(:disabled) {
     color: var(--white);
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: #D2D2D2;
   }
-
   .form__button_pass:hover {
     color: var(--hover);
   }
