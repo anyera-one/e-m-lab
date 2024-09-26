@@ -2547,11 +2547,11 @@ img.about__text_img_3 {
   max-height: 100%;
 }
 
-.indago_sub_picture.active .indago_sub_background {
+.indago_sub_picture.swiper-slide-active .indago_sub_background {
   opacity: 1;
 }
 
-.indago_sub_picture.active .catalog_banner_max__wrapper {
+.indago_sub_picture.swiper-slide-active .catalog_banner_max__wrapper {
   opacity: 1;
 }
 
@@ -8020,10 +8020,6 @@ width: 230px;
     width: 100%;
     height: 366px;
     padding: 38px 0 0;
-  }
-  .indago_sub_picture:nth-child(1),
-  .indago_sub_picture:nth-child(3) {
-    display: none;
   }
   .indago_sub .catalog_banner_max__background {
     padding: 12px 11px 10px;

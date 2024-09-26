@@ -596,6 +596,31 @@ if (aboutSlider) {
 }
 // end about_slider__swiper
 
+// start indago_sub__swiper
+const indagoSlider = document.querySelector('.indago_sub__swiper');
+if (indagoSlider) {
+  [...document.querySelectorAll('.indago_sub__swiper')].map((n, i) => {
+    let l = document.querySelectorAll('.indago_sub_pictures')[i].innerHTML;
+    n.querySelector('.indago_sub_pictures').innerHTML = l + l
+  })
+  var indagoSwiper = new Swiper('.indago_sub__swiper', {
+    loop: true,
+    slidesPerView: 1,
+    loopedSlides: 2,
+    centeredSlides: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 3,
+      },
+    },
+  });
+}
+// end indago_sub__swiper
+
 // start product
 const productSlider = document.querySelector('.product__swiper');
 if (productSlider) {
@@ -935,26 +960,6 @@ if (maps) {
   if (ymaps != undefined) ymaps.ready(init);
 }
 // end yandex map
-
-// start indago picture
-
-const indagoPicturesWrapper = document.querySelector('.indago_sub_pictures');
-const indagoPictureslist = document.querySelectorAll(".indago_sub_picture");
-
-if (indagoPicturesWrapper) {
-  indagoPictureslist.forEach((indagoPicture) => {
-    indagoPicture.addEventListener('mouseover', function () {
-      indagoPictureslist.forEach((picture) => {
-        if (picture.classList.contains('active')) {
-          picture.classList.remove('active');
-        }
-      })
-      indagoPicture.classList.add('active');
-    });
-  });
-}
-
-// end indago picture
 
 // start indago efficiency mobile
 
