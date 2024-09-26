@@ -2013,7 +2013,9 @@ img.about__text_img_3 {
 .answer__accordion .product__accordion_info {
   margin: -22px 0 12px;
 }
-
+.answer__accordion .product__accordion_head {
+  text-transform: none;
+}
 
 .answer__accordion .product__accordion_button {
   height: 93px;
@@ -2397,7 +2399,7 @@ img.about__text_img_3 {
 
 .indago_efficiency__end {
   display: flex;
-  padding: 5px 0 0;
+  padding: 30px 0 0;
   flex-wrap: wrap;
   align-items:end;
   gap: 24px;
@@ -3352,6 +3354,11 @@ width: 230px;
 .shopping_cart_design__btn .btn__text {
   width: 100%;
   padding: 16px;
+  border: none;
+}
+
+.shopping_cart_design__btn .btn__white .btn__text:hover {
+  border: none
 }
 
 .shopping_cart_design__btn .btn {
@@ -4352,7 +4359,7 @@ width: 230px;
     padding: 0 30px 0 0;
   }
   .indago_efficiency__end {
-    padding: 0 0 0;
+    padding: 50px 0 0;
   }
   .indago_sub__block {
     padding: 27px 0 33px;
@@ -4365,7 +4372,7 @@ width: 230px;
     padding: 13px 0 0;
   }
   .indago_sub__text_title {
-    max-width: 760px;
+    max-width: 730px;
   }
   .indago_sub__text_boxs {
     padding: 32px 0 60px 3px;
@@ -5809,6 +5816,7 @@ width: 230px;
   }
   .indago_efficiency__end {
     margin: -35px 0 0;
+    padding: 30px 0 0;
   }
   .indago_sub__text_title {
     padding: 0 0 0 4px;
@@ -6474,9 +6482,6 @@ width: 230px;
   .answer__accordion .product__accordion_desc {
     padding: 0 0 36px;
   }
-  .product__accordion_head {
-    font-size: 20px;
-  }
 
   .delivery__block {
     padding: 60px 0 80px;
@@ -6542,7 +6547,7 @@ width: 230px;
     gap: 5px;
   }
   .emLabApp .ingredients_home__wrapper h2 {
-    padding: 0 0px 15px 10px;
+    padding: 5px 0px 0px 10px;
   }
   .emLabApp .ingredients_home__wrapper p {
     width: 43%;
@@ -6634,7 +6639,8 @@ width: 230px;
     padding: 0 70px 0 0;
   }
   .indago_efficiency__end {
-    margin: -65px 0 0;
+    padding: 57px 0 0;
+    margin: 0 0 0;
     flex-direction: column;
     align-items: baseline;
     gap: 20px;
@@ -7947,7 +7953,7 @@ width: 230px;
   }
   .indago_efficiency__end {
     margin: 0;
-    padding: 0;
+    padding: 30px 0 0;
     flex-direction: column-reverse;
     gap: 13px; 
   }

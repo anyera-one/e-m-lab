@@ -1030,14 +1030,27 @@ const cardBtn = document.querySelector('.header__link_cart');
 const cardMinWrapper = document.querySelector('.cart_min');
 
 if (cardBtn) {
-  cardBtn.addEventListener('click', function () {
+  cardBtn.addEventListener('click', function(event) {
+    event.stopPropagation();
     cardMinWrapper.classList.toggle('active');
+    if (cardMinWrapper.classList.contains('active')) {
+      document.addEventListener('click', closeCart);
+    } else {
+      document.removeEventListener('click', closeCart);
+    }
   });
+}
+
+function closeCart(event) {
+  if (!event.target.closest('.cart_min')) {
+    cardMinWrapper.classList.remove('active');
+    document.removeEventListener('click', closeCart);
+  }
 }
 
 // end cart min
 
-// start cart min
+// start add_cart
 
 const addCart = document.querySelector('.add_cart');
 const addCartClose = document.querySelector('.add_cart_close');
@@ -1055,7 +1068,7 @@ if (buyButtons.length > 0) {
       const newAddCartItem = document.createElement('div');
       newAddCartItem.classList.add('add_cart__item');
       newAddCartItem.innerHTML = `
-          <p class="title_three"><a href="#">${aboutName.textContent}</a> добавлено в корзину</p>
+          <p class="title_three"><a href="/personal/cart/">${aboutName.textContent}</a> добавлено в корзину</p>
           <div class="add_cart_close">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M11.9941 13.0605L16.9336 18L17.9941 16.9395L13.0546 12L17.9941 7.0605L16.9336 6L11.9941 10.9395L7.05464 6L5.99414 7.0605L10.9336 12L5.99414 16.9395L7.05464 18L11.9941 13.0605Z" fill="white"/>
