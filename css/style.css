@@ -46,7 +46,18 @@
 }
 
 .header__transparent .btn__iosapp:hover .btn__text {
-  border: 1px solid #20202080;
+  border: 1px solid var(--white);
+}
+
+.header__transparent .btn__iosapp:not(:disabled):hover{
+  color: var(--bg);
+  background-color: #808080;
+}
+.header__transparent .btn__iosapp:not(:disabled):active {
+  background-color:  var(--text);
+}
+.header__transparent .btn__iosapp:not(:disabled):active .btn__text{
+  border: 1px solid var(--text)
 }
 
 .header__progress {
@@ -1244,6 +1255,11 @@ img.about__text_img_3 {
 .filters__btn_submit .btn__text {
   width: 100%;
   padding: 15px 14px;
+  border: none;
+}
+
+.catalog_banner_max_button .btn__text:hover {
+  border: none;
 }
 
 .filters__btn_submit:hover .btn__text {
@@ -2258,7 +2274,9 @@ img.about__text_img_3 {
   display: none;
 }
 
-.emLabApp .ingredients_home__wrapper>a{
+.emLabApp .ingredients_home__wrapper>a {
+  height: 50px;
+  width: 140px;
   margin: auto 0 20px 0;
   align-self: flex-end;
 }
@@ -6026,6 +6044,18 @@ width: 230px;
 
 /* start min 1280px for hover */
 @media (min-width: 1280px) {
+  .banner_telephone__block .btn {
+    border: none;
+  }
+  .banner_telephone__block .btn:hover  {
+    border: none;
+  }
+  .banner_telephone__block .btn .btn__text {
+    border: 1px solid var(--text); 
+  }
+  .banner_telephone__block .btn:hover .btn__text {
+    border: 1px solid var(--text); 
+  }
 }
 /* end min 1280px */
 
@@ -6494,7 +6524,11 @@ width: 230px;
     gap: 0;
   }
   .emLabApp .ingredients_home__wrapper>a {
+    height: 40px;
     width: auto;
+  }
+  .emLabApp .ingredients_home__wrapper>a .btn__text {
+    border: none;
   }
   .emLabApp .ingredients_home__wrapper>a .btn__text {
     width: 160px;

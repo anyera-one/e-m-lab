@@ -1083,7 +1083,7 @@ if (buyButtons.length > 0) {
       newAddCartItem.querySelector('.add_cart_close').addEventListener('click', function() {
         addCartContainer.removeChild(newAddCartItem);
         if (addCartContainer.children.length === 0) {
-          clearTimeout(cartTimer); // Останавливаем таймер при закрытии
+          clearTimeout(cartTimer); 
           addCartContainer.classList.remove('active');
         }
       });

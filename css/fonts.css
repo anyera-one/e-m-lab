@@ -2696,6 +2696,21 @@ html.has-scroll-dragging {
     color: var(--white);
     background-color: #D2D2D2;
   }
+ .btn__iosapp:hover .btn__text {
+    border: 1px solid var(--white);
+  }
+  .btn__iosapp:not(:disabled):hover{
+    color: var(--text);
+    background-color: #808080;
+  }
+  .btn__iosapp:not(:disabled):active {
+    color: var(--bg);
+    background-color:  var(--text);
+  }
+  .btn__iosapp:not(:disabled):active .btn__text{
+    border: 1px solid var(--text)
+  }
+
   .form__button_pass:hover {
     color: var(--hover);
   }
