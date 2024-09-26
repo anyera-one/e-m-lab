@@ -507,6 +507,7 @@ small {
 .btn__transparent {
   color: var(--bg);
   border-radius: 6px;
+  border: 1px solid var(--text)
 }
 
 .btn__white {
@@ -2668,7 +2669,10 @@ html.has-scroll-dragging {
     color: var(--bg);
     background-color: var(--text);
   }
-  .btn__totop:not(:disabled):hover,
+  .btn__totop:not(:disabled):hover {
+    color: var(--text);
+    background-color: var(--bg);
+  }
   .btn__white:not(:disabled):hover,
   .btn__transparent:not(:disabled):hover,
   .btn__incart:hover .btn:not(:disabled),
@@ -2677,6 +2681,12 @@ html.has-scroll-dragging {
     color: var(--text);
     background-color: var(--bg);
     border: 1px solid var(--text)
+  }
+  .btn__white .btn__text:hover,
+  .btn__transparent {
+    border: 1px solid var(--bg);
+    border-radius: 6px;
+    text-transform: uppercase;
   }
   .scanner__block .btn__transparent:not(:disabled):hover{
     color:var(--color);
