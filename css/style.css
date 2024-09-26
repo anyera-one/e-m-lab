@@ -1303,6 +1303,15 @@ img.about__text_img_3 {
 
 .banner_telephone__block .btn {
   margin: 0 0 0 auto;
+   border: none;  
+}
+
+.banner_telephone__block .btn:hover  {
+  border: none;
+}
+
+.banner_telephone__block .btn .btn__text {
+  border: 1px solid var(--text); 
 }
 
 .banner_telephone svg:first-child {
@@ -4266,6 +4275,9 @@ width: 230px;
   .emLabApp .ingredients_home__wrapper {
     padding: 282px 15px 0 20px;
   }
+  .emLabApp .ingredients_home__wrapper p {
+    width: 60%;
+  }
   .ingredients_home__wrapper h2 {
     width: 97%;
   }
@@ -4285,7 +4297,7 @@ width: 230px;
     height: 25px;
   }
   .emLabApp .ingredients_home__wrapper>a {
-    width: 235px;
+    width: 250px;
     margin: auto 0 15px 0;
   }
   .emLabApp .ingredients_info__description {
@@ -6044,15 +6056,6 @@ width: 230px;
 
 /* start min 1280px for hover */
 @media (min-width: 1280px) {
-  .banner_telephone__block .btn {
-    border: none;
-  }
-  .banner_telephone__block .btn:hover  {
-    border: none;
-  }
-  .banner_telephone__block .btn .btn__text {
-    border: 1px solid var(--text); 
-  }
   .banner_telephone__block .btn:hover .btn__text {
     border: 1px solid var(--text); 
   }
@@ -6470,6 +6473,9 @@ width: 230px;
   }
   .answer__accordion .product__accordion_desc {
     padding: 0 0 36px;
+  }
+  .product__accordion_head {
+    font-size: 20px;
   }
 
   .delivery__block {
@@ -7829,6 +7835,7 @@ width: 230px;
   }
   .emLabApp .ingredients_home__wrapper h2 {
     width: 190px;
+    padding: 3px 0 0;
     text-align: left;
   }
   .emLabApp .ingredients_home__wrapper>a {
