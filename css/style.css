@@ -2178,7 +2178,6 @@ section.catalog {
 .map {
   margin: 0;
   background-color: var(--bg);
-  cursor: none;
 }
 
 .map__yandex {
@@ -2187,10 +2186,6 @@ section.catalog {
   position: relative;
   z-index: 2;
   border-radius: 6px;
-}
-
-.map__yandex ymaps {
-  cursor: none !important;
 }
 
 .map__point {
@@ -2253,10 +2248,6 @@ section.catalog {
   border-bottom: 15px solid transparent;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
-}
-
-.map__yandex ymaps {
-  cursor: none !important;
 }
 
 .map__zoom {

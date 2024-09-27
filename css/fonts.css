@@ -46,17 +46,15 @@
 
 input {
   outline: none;
-  cursor: none;
 }
 
 textarea {
   outline: none;
   resize: none;
-  cursor: none;
 } 
 
 label {
-  cursor: none;
+  cursor: pointer;
 }
 
 input::-moz-selection {
@@ -94,7 +92,6 @@ input::-webkit-inner-spin-button {
 html {
   height: 100vh;
   scroll-behavior: smooth;
-  cursor: none;
   overflow-x: hidden;
   overflow-y: scroll;
 }
@@ -119,7 +116,7 @@ button {
   background: transparent;
   -webkit-transition: color 0.15s linear, background-color 0.15s linear;
   transition: color 0.15s linear, background-color 0.15s linear;
-  cursor: none;
+  cursor: pointer;
 }
 
 .main {
@@ -176,7 +173,7 @@ a {
   -webkit-transition: color 0.15s linear;
   transition: color 0.15s linear;
   text-decoration: none;
-  cursor: none;
+  cursor: pointer;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -795,7 +792,6 @@ html.has-scroll-dragging {
   transition: width .3s;
   cursor: -webkit-grab;
   cursor: grab;
-  cursor: none;
 }
 
 .c-scrollbar:hover .c-scrollbar_thumb {
@@ -816,193 +812,13 @@ html.has-scroll-dragging {
 }
 
 .has-scroll-dragging .c-scrollbar_thumb {
-  /* cursor: -webkit-grabbing;
-  cursor: grabbing; */
-  cursor: none;
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
 }
 
 [data-scroll-direction=horizontal] .c-scrollbar_thumb {
   bottom: 0;
   right: auto
-}
-
-.cursor {
-  display: flex;
-  width: 1px;
-  height: 1px;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  left: 0%;
-  top: 0%;
-  right: 0%;
-  bottom: 0%;
-  z-index: 1051;
-  mix-blend-mode: difference;
-  -webkit-transform: translate3d(-100px, -100px, 0);
-  transform: translate3d(-100px, -100px, 0);
-  -webkit-transition: width .2s linear, height .2s linear, mix-blend-mode .1s linear;
-  transition: width .2s linear, height .2s linear, mix-blend-mode .1s linear;
-  pointer-events: none;
-  touch-action: none;
-}
-
-.cursor svg {
-  height: 1rem;
-}
-
-.cursor.cursor__slider,
-.cursor.cursor__showreel {
-  mix-blend-mode: normal;
-}
-
-.cursor.cursor__slider.hover {
-  mix-blend-mode: difference;
-}
-
-.cursor::before {
-  position: absolute;
-  content: "";
-  top: 50%;
-  left: 50%;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: var(--bg);
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  -webkit-transition: width .2s linear, height .2s linear, background-color .2s linear;
-  transition: width .2s linear, height .2s linear, background-color .2s linear;
-}
-
-.cursor.cursor__slider::before,
-.cursor.cursor__showreel::before {
-  background-color: var(--text);
-}
-
-.cursor.cursor__slider.hover::before,
-.hover.cursor::before {
-  background-color: var(--color);
-}
-
-.active.cursor::before,
-.hover.active.cursor::before {
-  width: 50px;
-  height: 50px;
-  -webkit-transition: width 1s linear, height 1s linear, background-color .2s linear;
-  transition: width 1s linear, height 1s linear, background-color .2s linear;
-}
-
-.cursor__slider.active.cursor::before,
-.cursor__showreel.hover.active.cursor::before,
-.cursor__showreel.active.cursor::before {
-  width: 100px;
-  height: 100px;
-}
-
-.cursor__slider.hover.active.cursor::before,
-.hover.cursor::before {
-  width: 30px;
-  height: 30px;
-}
-
-.leave.cursor.cursor__slider .cursor__block,
-.leave.cursor.cursor__showreel .cursor__block,
-.leave.cursor::before {
-  width: 0px;
-  height: 0px;
-  -webkit-transition: width .2s linear, height .2s linear, background-color .2s linear;
-  transition: width .2s linear, height .2s linear, background-color .2s linear;
-}
-
-.cursor.cursor__slider.hover .cursor__block,
-.cursor__block {
-  position: relative;
-  display: flex;
-  width: 15px;
-  height: 15px;
-  flex: 0 0 auto;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background-color: var(--bg);
-  opacity: 0;
-  -webkit-transition: height .2s ease, width .2s ease, opacity .2s ease .2s, background-color .2s ease;
-  transition: height .2s ease, width .2s ease, opacity .2s ease .2s, background-color .2s ease;
-}
-
-.cursor.cursor__slider .cursor__block,
-.cursor.cursor__showreel .cursor__block {
-  opacity: 1;
-  background-color: var(--text);
-  -webkit-transition: height .2s ease, width .2s ease, opacity .2s ease, background-color .2s ease;
-  transition: height .2s ease, width .2s ease, opacity .2s ease, background-color .2s ease;
-}
-
-.cursor.cursor__showreel .cursor__block {
-  width: 100px;
-  height: 100px;
-}
-
-.cursor.cursor__slider .cursor__block {
-  width: 80px;
-  height: 80px;
-}
-
-.cursor__wrapper {
-  overflow: hidden;
-  height: 1rem;
-}
-
-.cursor__text_slider p,
-.cursor__text_showreel p {
-  display: none;
-}
-
-.cursor.cursor__slider .cursor__text_slider p,
-.cursor.cursor__showreel .cursor__text_showreel p {
-  display: flex;
-}
-
-.cursor__text p {
-  color: var(--bg);
-  -webkit-transition: transform .2s ease;
-  transition: transform .2s ease;
-}
-
-.cursor__left,
-.cursor__right {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  opacity: 0;
-  background-color: var(--text);
-  -webkit-transition: opacity .2s ease;
-  transition: opacity .2s ease;
-}
-
-.cursor__left {
-  left: -15px;
-}
-
-.cursor__right {
-  right: -15px;
-}
-
-.cursor__block.active .cursor__left,
-.cursor__block.active .cursor__right {
-  opacity: 1;
-}
-
-.cursor .cursor__block.active {
-  width: 50px;
-  height: 50px;
-}
-
-.cursor__block.active .cursor__text {
-  -webkit-transform: translateY(-100%);
-  transform: translateY(-100%);
 }
 
 /* end cursor */
@@ -1077,7 +893,7 @@ html.has-scroll-dragging {
 }
 
 .swiper-pagination-clickable .swiper-pagination-bullet {
-  cursor: none;
+  cursor: pointer;
 }
 
 .swiper-pagination {
@@ -1153,7 +969,7 @@ html.has-scroll-dragging {
 .swiper-button-prev.swiper-button-disabled {
   pointer-events: all;
   opacity: 0.5;
-  cursor: none;
+  cursor: pointer;
 }
 
 .swiper-button-next::after,
@@ -1196,7 +1012,7 @@ html.has-scroll-dragging {
   position: relative;
   top: 0;
   z-index: 10;
-  cursor: none;
+  cursor: pointer;
   color: var(--color);
  -webkit-transition: color 0.2s linear;
   transition: color 0.2s linear;
@@ -1300,7 +1116,7 @@ html.has-scroll-dragging {
   height: 100vh;
   -o-object-fit: cover;
   object-fit: cover;
-  cursor: none;
+  cursor: pointer;
 }
 
 .showreel__video_responsive {
@@ -1531,7 +1347,7 @@ html.has-scroll-dragging {
   font-size: 0;
   overflow: hidden;
   border-radius: 5px;
-  cursor: none;
+  cursor: pointer;
 }
 
 .spec:before {
@@ -1579,7 +1395,7 @@ html.has-scroll-dragging {
   border: 0;
   line-height: 1;
   outline: 0;
-  cursor: none;
+  cursor: pointer;
 }
 
 .spec__button.toggle {
@@ -1635,7 +1451,7 @@ html.has-scroll-dragging {
   visibility: visible;
   opacity: 0;
   z-index: 2;
-  cursor: none;
+  cursor: pointer;
 }
 
 .spec__slider {
@@ -1683,7 +1499,7 @@ html.has-scroll-dragging {
   background: transparent;
   border-top: 1px solid hsla(0,0%,100%,.2);
   border-bottom: 1px solid hsla(0,0%,100%,.2);
-  cursor: none;
+  cursor: pointer;
 }
 
 .spec .progress__line {
@@ -1752,7 +1568,7 @@ html.has-scroll-dragging {
   font-size: 0;
   overflow: hidden;
   border-radius: 5px;
-  cursor: none;
+  cursor: pointer;
 }
 
 .minimal:before {
@@ -1789,7 +1605,7 @@ html.has-scroll-dragging {
   -ms-flex-pack: center;
   -webkit-box-pack: center;
   justify-content: center;
-  cursor: none;
+  cursor: pointer;
 }
 
 .minimal__button i {
@@ -1816,7 +1632,7 @@ html.has-scroll-dragging {
   transition: all .2s ease-in;
   -ms-touch-action: manipulation;
   touch-action: manipulation;
-  cursor: none;
+  cursor: pointer;
 }
 
 .minimal__slider {
@@ -1883,7 +1699,7 @@ html.has-scroll-dragging {
   background: rgba(0, 0, 0, 0.5);
   border-radius: 4px;
   position: relative;
-  cursor: none;
+  cursor: pointer;
 }
 
 .minimal .progress__filled {
@@ -1904,7 +1720,7 @@ html.has-scroll-dragging {
   font-size: 0;
   overflow: hidden;
   border-radius: 5px;
-  cursor: none;
+  cursor: pointer;
 }
 
 .compact:before {
@@ -1940,7 +1756,7 @@ html.has-scroll-dragging {
   line-height: 1;
   outline: 0;
   padding: 0;
-  cursor: none;
+  cursor: pointer;
 }
 
 .compact__button i {
@@ -1967,7 +1783,7 @@ html.has-scroll-dragging {
   transition: all .2s ease-in;
   -ms-touch-action: manipulation;
   touch-action: manipulation;
-  cursor: none;
+  cursor: pointer;
 }
 
 .compact__slider {
@@ -2035,7 +1851,7 @@ html.has-scroll-dragging {
   background: rgba(0, 0, 0, 0.5);
   border-radius: 4px;
   position: relative;
-  cursor: none;
+  cursor: pointer;
 }
 
 .compact .progress__filled {
@@ -2357,7 +2173,7 @@ html.has-scroll-dragging {
   border: none;
   -webkit-transition: background-color 0.15s linear;
   transition: background-color 0.15s linear;
-  cursor: none;
+  cursor: pointer;
 }
 
 .form__select_selected_item:hover {
@@ -2429,7 +2245,7 @@ html.has-scroll-dragging {
   color: var(--text);
   background-color: var(--bg);
   position: relative;
-  cursor: none;
+  cursor: pointer;
 }
 
 .form__select_list_item:not(:last-child)::after {
