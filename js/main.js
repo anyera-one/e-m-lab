@@ -623,6 +623,27 @@ if (indagoSlider) {
 }
 // end indago_sub__swiper
 
+// start ingredients_page__swiper
+const ingredientsSlider = document.querySelector('.ingredients_page__swiper');
+if (ingredientsSlider) {
+  var indagoSwiper = new Swiper('.ingredients_page__swiper', {
+    loop: true,
+    slidesPerView: 1,
+    loopedSlides: 2,
+    centeredSlides: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 3,
+      },
+    },
+  });
+}
+// end ingredients_page__swiper
+
 // start product
 const productSlider = document.querySelector('.product__swiper');
 if (productSlider) {

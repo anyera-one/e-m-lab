@@ -1157,11 +1157,17 @@ section.catalog {
 .filters_box__bottom {
   display: flex;
   max-height: 0;
+  opacity: 0;
   flex-direction: column;
   gap: 6px;
   overflow: hidden;
-  -webkit-transition: max-height 1s;
-  transition: max-height 1s;
+  -webkit-transition: max-height 1s var(--ease), opacity 0.3s linear;
+  transition: max-height 1s var(--ease), opacity 0.3s linear;
+}
+
+.filters_box.active .filters_box__bottom {
+  max-height: 2000px;
+  opacity: 1;
 }
 
 .filters.active {
@@ -1412,6 +1418,19 @@ section.catalog {
 
 .product__pagination {
   display: none;
+}
+
+.has-scroll-smooth .product__sticky {
+  position: relative;
+  top: 0px;
+}
+
+.product__sticky {
+  width: 800px;
+  height: 800px;
+  position: sticky;
+  top: 80px;
+  z-index: 1;
 }
 
 .product__slider {
@@ -1875,6 +1894,14 @@ section.catalog {
 .ingredients_page__list {
   display: inline-block;
   width: 100%;
+}
+
+.ingredients_page__swiper {
+  overflow: hidden;
+}
+
+.ingredients_page__list.swiper-wrapper {
+  display: flex;
 }
 
 .ingredients_page__item {
@@ -4456,6 +4483,7 @@ width: 230px;
   .product__flex {
     gap: 73px;
   }
+  .product__sticky,
   .product__slider,
   .product__swiper {
     width: 600px;
@@ -4472,7 +4500,7 @@ width: 230px;
     height: 60px;
   }
   .product__info {
-    width: calc(100% - 600px);
+    width: calc(100% - 673px);
   }
   .product__denomination {
     padding: 0 0 50px;
@@ -5817,6 +5845,7 @@ width: 230px;
   .product__block {
     padding: 70px 0;
   }
+  .product__sticky,
   .product__slider,
   .product__swiper {
     width: 434px;
@@ -6743,6 +6772,7 @@ width: 230px;
   .product__block {
     padding: 80px 0 50px;
   }
+  .product__sticky,
   .product__slider,
   .product__swiper {
     width: 340px;
@@ -8047,10 +8077,15 @@ width: 230px;
   .product__flex {
     flex-direction: column;
   }
+  .product__sticky,
   .product__slider,
   .product__swiper {
     width: 100%;
     height: calc(100vw - 32px);
+  }
+  .product__sticky {
+    position: relative;
+    top: 0;
   }
   .product__info {
     width: 100%;

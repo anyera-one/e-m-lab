@@ -131,7 +131,7 @@
               <a href="index.html" class="title_four breadcrumbs__back">Cleansing gel</a>
             </li>
           </ul>
-          <div class="product__flex">
+          <div class="product__flex" id="product">
             <div class="product__denomination product__denomination_m">
               <h2 class="product__head animate_top">Cleansing gel</h2>
               <div class="product__desc animate_top">
@@ -169,34 +169,36 @@
                 </div>
               </div>
             </div>
-            <div class="product__slider animate_top">
-              <div class="product__thumbs_swiper swiper_thumbs swiper-container">
-                <ul class="product__thumbs swiper-wrapper">
-                  <button class="product__thumbs_image swiper-slide">
-                    <img class="lazyloaded" src="img/product/product_1.webp" alt="Cleansing gel 01" title="">
-                  </button>
-                  <button class="product__thumbs_image swiper-slide">
-                    <img class="lazyloaded" src="img/product/product_2.webp" alt="Cleansing gel 02" title="">
-                  </button>
-                  <button class="product__thumbs_image swiper-slide">
-                    <img class="lazyloaded" src="img/product/product_1.webp" alt="Cleansing gel 03" title="">
-                  </button>
-                </ul>
+            <div class="product__sticky" data-scroll data-scroll-sticky data-scroll-target="#product">
+              <div class="product__slider animate_top">
+                <div class="product__thumbs_swiper swiper_thumbs swiper-container">
+                  <ul class="product__thumbs swiper-wrapper">
+                    <button class="product__thumbs_image swiper-slide">
+                      <img class="lazyloaded" src="img/product/product_1.webp" alt="Cleansing gel 01" title="">
+                    </button>
+                    <button class="product__thumbs_image swiper-slide">
+                      <img class="lazyloaded" src="img/product/product_2.webp" alt="Cleansing gel 02" title="">
+                    </button>
+                    <button class="product__thumbs_image swiper-slide">
+                      <img class="lazyloaded" src="img/product/product_1.webp" alt="Cleansing gel 03" title="">
+                    </button>
+                  </ul>
+                </div>
+                <div class="product__swiper swiper-container">
+                  <ul class="product__big swiper-wrapper">
+                    <div class="product__image swiper-slide">
+                      <img class="lazyloaded" src="img/product/product_1.webp" alt="Cleansing gel 01" title="">
+                    </div>
+                    <div class="product__image swiper-slide">
+                      <img class="lazyloaded" src="img/product/product_2.webp" alt="Cleansing gel 02" title="">
+                    </div>
+                    <div class="product__image swiper-slide">
+                      <img class="lazyloaded" src="img/product/product_1.webp" alt="Cleansing gel 03" title="">
+                    </div>
+                  </ul>
+                </div>
+                <div class="swiper-pagination product__pagination"></div>
               </div>
-              <div class="product__swiper swiper-container">
-                <ul class="product__big swiper-wrapper">
-                  <div class="product__image swiper-slide">
-                    <img class="lazyloaded" src="img/product/product_1.webp" alt="Cleansing gel 01" title="">
-                  </div>
-                  <div class="product__image swiper-slide">
-                    <img class="lazyloaded" src="img/product/product_2.webp" alt="Cleansing gel 02" title="">
-                  </div>
-                  <div class="product__image swiper-slide">
-                    <img class="lazyloaded" src="img/product/product_1.webp" alt="Cleansing gel 03" title="">
-                  </div>
-                </ul>
-              </div>
-              <div class="swiper-pagination product__pagination"></div>
             </div>
             <div class="product__info">
               <form action="" class="product__form" id="product__form">
@@ -255,7 +257,6 @@
                           <div class="form__select_list_item title_three" data-select-action data-select-item>2000 ML</div>
                         </div>
                         <input class="form__select_input" type="text" id="product__select" value="80 ML" data-select-input>
-                        <span class="form__select_bar"></span>
                       </div>
                     </div>
                   </div>
@@ -384,47 +385,101 @@
     <section class="ingredients" data-scroll-section>
       <div class="container ingredients__container">
         <div class="ingredients__block_two">
-          <ul class="ingredients_page__list">
-            <li class="ingredients_page__item ingredient">
-              <div class="ingredient__wrapper">
-                <div class="ingredient__img animate_image">
-                  <img src="./img/ingredients/ingredient_1.webp"/>
+          <div class="ingredients_page__swiper swiper_thumbs swiper-container">
+            <ul class="ingredients_page__list swiper-wrapper">
+              <li class="ingredients_page__item ingredient swiper-slide">
+                <div class="ingredient__wrapper">
+                  <div class="ingredient__img animate_image">
+                    <img src="./img/ingredients/ingredient_1.webp"/>
+                  </div>
+                  <div class="ingredient__text title_three">
+                    <p class="ingredient__text_description">Ретиноид, производное витамина A, используемое в дерматологии для лечения акне, гиперпигментации и признаков старения. Естественный увлажняющий компонент, присутствующий в коже и других тканях организма</p>
+                    <p class="ingredient__text_contains" >Содержит:</p>
+                    <p class="ingredient__text_name">Cleansing gel</p>
+                  </div>
                 </div>
-                <div class="ingredient__text title_three">
-                  <p class="ingredient__text_description">Ретиноид, производное витамина A, используемое в дерматологии для лечения акне, гиперпигментации и признаков старения. Естественный увлажняющий компонент, присутствующий в коже и других тканях организма</p>
-                  <p class="ingredient__text_contains" >Содержит:</p>
-                  <p class="ingredient__text_name">Cleansing gel</p>
+                <p>HYALURONIC ACID</p>
+              </li>
+              <li class="ingredients_page__item ingredient swiper-slide">
+                <div class="ingredient__wrapper">
+                  <div class="ingredient__img animate_image">
+                    <img src="./img/ingredients/ingredient_2.webp"/>
+                  </div>
+                  <div class="ingredient__text title_three">
+                    <p class="ingredient__text_description">Ретиноид, производное витамина A, используемое в дерматологии для лечения акне, гиперпигментации и признаков старения. Естественный увлажняющий компонент, присутствующий в коже и других тканях организма</p>
+                    <p class="ingredient__text_contains" >Содержит:</p>
+                    <p class="ingredient__text_name">Cleansing gel</p>
+                  </div>
                 </div>
-              </div>
-              <p>HYALURONIC ACID</p>
-            </li>
-            <li class="ingredients_page__item ingredient">
-              <div class="ingredient__wrapper">
-                <div class="ingredient__img animate_image">
-                  <img src="./img/ingredients/ingredient_2.webp"/>
+                <p>PORTULACA OLERACEA EXTRACT</p>
+              </li>
+              <li class="ingredients_page__item ingredient swiper-slide">
+                <div class="ingredient__wrapper">
+                  <div class="ingredient__img animate_image">
+                    <img src="./img/ingredients/ingredient_3.webp"/>
+                  </div>
+                  <div class="ingredient__text title_three">
+                    <p class="ingredient__text_description">Ретиноид, производное витамина A, используемое в дерматологии для лечения акне, гиперпигментации и признаков старения. Естественный увлажняющий компонент, присутствующий в коже и других тканях организма</p>
+                    <p class="ingredient__text_contains" >Содержит:</p>
+                    <p class="ingredient__text_name">Cleansing gel</p>
+                  </div>
                 </div>
-                <div class="ingredient__text title_three">
-                  <p class="ingredient__text_description">Ретиноид, производное витамина A, используемое в дерматологии для лечения акне, гиперпигментации и признаков старения. Естественный увлажняющий компонент, присутствующий в коже и других тканях организма</p>
-                  <p class="ingredient__text_contains" >Содержит:</p>
-                  <p class="ingredient__text_name">Cleansing gel</p>
+                <p>CERAMIDE EOP</p>
+              </li>
+              <li class="ingredients_page__item ingredient swiper-slide">
+                <div class="ingredient__wrapper">
+                  <div class="ingredient__img animate_image">
+                    <img src="./img/ingredients/ingredient_3.webp"/>
+                  </div>
+                  <div class="ingredient__text title_three">
+                    <p class="ingredient__text_description">Ретиноид, производное витамина A, используемое в дерматологии для лечения акне, гиперпигментации и признаков старения. Естественный увлажняющий компонент, присутствующий в коже и других тканях организма</p>
+                    <p class="ingredient__text_contains" >Содержит:</p>
+                    <p class="ingredient__text_name">Cleansing gel</p>
+                  </div>
                 </div>
-              </div>
-              <p>PORTULACA OLERACEA EXTRACT</p>
-            </li>
-            <li class="ingredients_page__item ingredient">
-              <div class="ingredient__wrapper">
-                <div class="ingredient__img animate_image">
-                  <img src="./img/ingredients/ingredient_3.webp"/>
+                <p>CERAMIDE EOP</p>
+              </li>
+              <li class="ingredients_page__item ingredient swiper-slide">
+                <div class="ingredient__wrapper">
+                  <div class="ingredient__img animate_image">
+                    <img src="./img/ingredients/ingredient_3.webp"/>
+                  </div>
+                  <div class="ingredient__text title_three">
+                    <p class="ingredient__text_description">Ретиноид, производное витамина A, используемое в дерматологии для лечения акне, гиперпигментации и признаков старения. Естественный увлажняющий компонент, присутствующий в коже и других тканях организма</p>
+                    <p class="ingredient__text_contains" >Содержит:</p>
+                    <p class="ingredient__text_name">Cleansing gel</p>
+                  </div>
                 </div>
-                <div class="ingredient__text title_three">
-                  <p class="ingredient__text_description">Ретиноид, производное витамина A, используемое в дерматологии для лечения акне, гиперпигментации и признаков старения. Естественный увлажняющий компонент, присутствующий в коже и других тканях организма</p>
-                  <p class="ingredient__text_contains" >Содержит:</p>
-                  <p class="ingredient__text_name">Cleansing gel</p>
+                <p>CERAMIDE EOP</p>
+              </li>
+              <li class="ingredients_page__item ingredient swiper-slide">
+                <div class="ingredient__wrapper">
+                  <div class="ingredient__img animate_image">
+                    <img src="./img/ingredients/ingredient_3.webp"/>
+                  </div>
+                  <div class="ingredient__text title_three">
+                    <p class="ingredient__text_description">Ретиноид, производное витамина A, используемое в дерматологии для лечения акне, гиперпигментации и признаков старения. Естественный увлажняющий компонент, присутствующий в коже и других тканях организма</p>
+                    <p class="ingredient__text_contains" >Содержит:</p>
+                    <p class="ingredient__text_name">Cleansing gel</p>
+                  </div>
                 </div>
-              </div>
-              <p>CERAMIDE EOP</p>
-            </li>
-          </ul>
+                <p>CERAMIDE EOP</p>
+              </li>
+              <li class="ingredients_page__item ingredient swiper-slide">
+                <div class="ingredient__wrapper">
+                  <div class="ingredient__img animate_image">
+                    <img src="./img/ingredients/ingredient_3.webp"/>
+                  </div>
+                  <div class="ingredient__text title_three">
+                    <p class="ingredient__text_description">Ретиноид, производное витамина A, используемое в дерматологии для лечения акне, гиперпигментации и признаков старения. Естественный увлажняющий компонент, присутствующий в коже и других тканях организма</p>
+                    <p class="ingredient__text_contains" >Содержит:</p>
+                    <p class="ingredient__text_name">Cleansing gel</p>
+                  </div>
+                </div>
+                <p>CERAMIDE EOP</p>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
