@@ -1062,49 +1062,53 @@ const addCartClose = document.querySelector('.add_cart_close');
 const buyButtons = document.querySelectorAll('.buy-pokup');
 
 let cartTimer; 
+let listItem; 
 
 if (buyButtons.length > 0) {
   buyButtons.forEach(button => {
     button.addEventListener('click', function(event) {
       addCart.classList.add('active');
-      const listItem = button.closest('.catalog_page__item');
-      const aboutName = listItem.querySelector('.about_slider__name');
-      const addCartContainer = document.querySelector('.add_cart');
-      const newAddCartItem = document.createElement('div');
-      newAddCartItem.classList.add('add_cart__item');
-      newAddCartItem.innerHTML = `
-          <p class="title_three"><a href="/personal/cart/">${aboutName.textContent}</a> добавлено в корзину</p>
-          <div class="add_cart_close">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M11.9941 13.0605L16.9336 18L17.9941 16.9395L13.0546 12L17.9941 7.0605L16.9336 6L11.9941 10.9395L7.05464 6L5.99414 7.0605L10.9336 12L5.99414 16.9395L7.05464 18L11.9941 13.0605Z" fill="white"/>
-              </svg>
-          </div>
-      `;
-      addCartContainer.appendChild(newAddCartItem);
-      addCartContainer.classList.add('active');
-
-      if (cartTimer) {
-        clearTimeout(cartTimer);
+      if(button.closest('.catalog_page__item')){
+        listItem = button.closest('.catalog_page__item');
+      } else {
+        listItem = button.closest('.about_slider__slide');
       }
-      cartTimer = setTimeout(() => {
-        addCartContainer.classList.remove('active');
-        console.log('Таймер истек');
-        setTimeout(() => {
-          while (addCartContainer.firstChild) {
-            addCartContainer.removeChild(addCartContainer.firstChild);
-          }
-          addCartContainer.classList.remove('active');
-        }, 500);
-
-      }, 5000);
-
-      newAddCartItem.querySelector('.add_cart_close').addEventListener('click', function() {
-        addCartContainer.removeChild(newAddCartItem);
-        if (addCartContainer.children.length === 0) {
-          clearTimeout(cartTimer); 
-          addCartContainer.classList.remove('active');
+      if(listItem ) {
+        const aboutName = listItem.querySelector('.about_slider__name');
+        const addCartContainer = document.querySelector('.add_cart');
+        const newAddCartItem = document.createElement('div');
+        newAddCartItem.classList.add('add_cart__item');
+        newAddCartItem.innerHTML = `
+            <p class="title_three"><a href="/personal/cart/">${aboutName.textContent}</a> добавлено в корзину</p>
+            <div class="add_cart_close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.9941 13.0605L16.9336 18L17.9941 16.9395L13.0546 12L17.9941 7.0605L16.9336 6L11.9941 10.9395L7.05464 6L5.99414 7.0605L10.9336 12L5.99414 16.9395L7.05464 18L11.9941 13.0605Z" fill="white"/>
+                </svg>
+            </div>
+        `;
+        addCartContainer.appendChild(newAddCartItem);
+        addCartContainer.classList.add('active');
+        if (cartTimer) {
+          clearTimeout(cartTimer);
         }
-      });
+        cartTimer = setTimeout(() => {
+          addCartContainer.classList.remove('active');
+          console.log('Таймер истек');
+          setTimeout(() => {
+            while (addCartContainer.firstChild) {
+              addCartContainer.removeChild(addCartContainer.firstChild);
+            }
+            addCartContainer.classList.remove('active');
+          }, 500);
+        }, 5000);
+        newAddCartItem.querySelector('.add_cart_close').addEventListener('click', function() {
+          addCartContainer.removeChild(newAddCartItem);
+          if (addCartContainer.children.length === 0) {
+            clearTimeout(cartTimer); 
+            addCartContainer.classList.remove('active');
+          }
+        });
+      }  
     });
   });
 }
