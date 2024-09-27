@@ -1548,6 +1548,7 @@ img.about__text_img_3 {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  z-index: 0;
 }
 
 .product__minus,
