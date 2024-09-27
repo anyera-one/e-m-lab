@@ -702,6 +702,10 @@ img.about__text_img_3 {
   z-index: 4;
 }
 
+.about_slider__desc span {
+  text-transform: uppercase;
+}
+
 .about_slider__image_1 {
   width: 100%;
   height: 100%;
@@ -1548,6 +1552,7 @@ img.about__text_img_3 {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  z-index: 0;
 }
 
 .product__minus,
@@ -3047,7 +3052,7 @@ img.about__text_img_3 {
 
 @keyframes myAnimAddCart {
 	0% {
-		right: -500px;
+		right: -700px;
 	}
 
 	100% {
@@ -8133,6 +8138,9 @@ width: 230px;
     max-height: 55vh;
   }
 
+  .add_cart {
+    right: -100%;
+  }
   .add_cart__item {
     width: calc(100vw - 32px);
     padding: 12px 10px 8px 10px;
