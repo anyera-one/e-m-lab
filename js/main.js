@@ -30,7 +30,7 @@ const headerprogress = document.querySelector('.header__progress_bar');
 if (!document.querySelector('.has-scroll-smooth')) {
   window.addEventListener('scroll', function () {
     if (headert) {
-      if (window.scrollY <= 40) {
+      if (window.scrollY <= (document.querySelector(".ingredients_home").clientHeight - document.querySelector(".header").clientHeight)) {
         header.classList.add('header__transparent');
       } else {
         header.classList.remove('header__transparent');

@@ -6,7 +6,7 @@ for (i = 0; i < finputs.length; i++) {
 }
 
 function updateformValue() {
-  this.nextElementSibling.children[0].textContent = Math.max(0, Math.min(this.getAttribute('maxl'), this.value.length));
+  this.nextElementSibling.children[0].textContent = Math.abs(Math.max(0, Math.min(this.getAttribute('maxl'), this.value.length)) - this.getAttribute('maxl'));
   if (this.value.length < this.getAttribute('minl')) {
     this.parentElement.classList.add('error');
     this.parentElement.classList.remove('success');
@@ -386,7 +386,7 @@ if(loginFormCode) {
     }
   }
   document.querySelector('.login_popup__form_code_button').addEventListener('click', function() {
-    fetch('/ajax/sms.php', {
+    fetch('/ajax/login.php', {
       method: 'POST',
       body: JSON.stringify({
       }),

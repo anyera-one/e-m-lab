@@ -8374,6 +8374,7 @@ width: 230px;
     gap: 6px;
     color: var(--white);
     text-transform: uppercase;
+    text-align: left;
   }
   .burger_popup__login svg {
     display: flex;
