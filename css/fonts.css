@@ -2679,10 +2679,12 @@ html.has-scroll-dragging {
   }
   .btn__iosapp:not(:disabled):hover,
   .btn__line:not(:disabled):hover,
-  .btn__count:not(:disabled):hover,
   .profile__del:not(:disabled):hover {
     color: var(--bg);
     background-color: var(--text);
+  }
+  .btn__count:not(:disabled):hover{
+    color: #4f4f4f;
   }
   .btn__totop:not(:disabled):hover {
     color: var(--text);

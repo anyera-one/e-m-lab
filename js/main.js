@@ -1089,6 +1089,7 @@ let cartTimer;
 if (buyButtons.length > 0) {
   buyButtons.forEach(button => {
     button.addEventListener('click', function(event) {
+      document.querySelector('.header__link_cart_circle').classList.add('active');
       addCart.classList.add('active');
       const listItem = button.closest('.catalog_page__item');
       const aboutName = listItem.querySelector('.about_slider__name');
