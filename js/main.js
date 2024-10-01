@@ -436,16 +436,14 @@ const aboutSlider = document.querySelector('.about_slider__swiper');
 if (aboutSlider) {
   var aboutSwiper = new Swiper('.about_slider__swiper', {
     loop: false,
-    slidesPerView: 1,
+    slidesPerView: "auto",
     loopedSlides: 1,
     spaceBetween: 8,
     breakpoints: {
       1024: {
-        slidesPerView: 2,
         spaceBetween: 24,
       },
       768: {
-        slidesPerView: 2,
         spaceBetween: 16,
       },
     },
@@ -455,25 +453,101 @@ if (aboutSlider) {
 
 // start indago_sub__swiper
 const indagoSlider = document.querySelector('.indago_sub__swiper');
+
 if (indagoSlider) {
-  [...document.querySelectorAll('.indago_sub__swiper')].map((n, i) => {
-    let l = document.querySelectorAll('.indago_sub_pictures')[i].innerHTML;
-    n.querySelector('.indago_sub_pictures').innerHTML = l + l
-  })
-  var indagoSwiper = new Swiper('.indago_sub__swiper', {
-    loop: true,
-    slidesPerView: 1,
-    loopedSlides: 2,
-    centeredSlides: true,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false
-    },
-    breakpoints: {
-      768: {
-        slidesPerView: 3,
-      },
-    },
+  const slides = indagoSlider.querySelectorAll('.swiper-slide');
+  let indagoSwiper;
+  let slideInterval; 
+  let currentIndex = 0;
+  const intervalTime = 3000; 
+
+  function initSwiper() {
+    const isMobile = window.innerWidth <= 768;
+    if(isMobile) {
+      [...document.querySelectorAll('.indago_sub__swiper')].map((n, i) => {
+        let l = document.querySelectorAll('.indago_sub_pictures')[i].innerHTML;
+        n.querySelector('.indago_sub_pictures').innerHTML = l + l;
+      });
+    }
+    indagoSwiper = new Swiper('.indago_sub__swiper', {
+      loop: isMobile,
+      slidesPerView: isMobile ? 1 : 3,
+      loopedSlides: isMobile ? 2 : 0,
+      centeredSlides: isMobile,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+      }
+    });
+
+    if(!isMobile) {
+      slides.forEach((slide, index) => {
+        slide.addEventListener('mouseenter', (e) => {
+          slides.forEach((slide, index) => {
+            slide.classList.remove('swiper-slide-active')
+          })
+          e.target.classList.add('swiper-slide-active')
+        });
+      });
+      startCycle();
+      indagoSlider.addEventListener('mouseenter', (e) => {
+        stopCycle()
+      });
+        indagoSlider.addEventListener('mouseleave', (e) => {
+        resumeCycle()
+      });
+    }
+  }
+
+  initSwiper(); 
+
+  function setActiveSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('swiper-slide-active');
+      if (i === index) {
+        slide.classList.add('swiper-slide-active');
+      }
+    });
+  }
+
+  function observeSlides() {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5
+    };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveSlide(currentIndex);
+        }
+      });
+    }, options);
+    slides.forEach(slide => {
+      observer.observe(slide);
+    });
+  }
+
+  function startCycle() {
+    setActiveSlide(currentIndex);
+    observeSlides();
+    slideInterval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      setActiveSlide(currentIndex);
+    }, intervalTime);
+  }
+
+  function stopCycle() {
+    clearInterval(slideInterval); 
+  }
+
+  function resumeCycle() {
+    startCycle();
+  }
+
+  window.addEventListener('resize', () => {
+    indagoSwiper.destroy(true, true);
+    initSwiper(); 
   });
 }
 // end indago_sub__swiper
@@ -936,58 +1010,88 @@ function closeCart(event) {
 // start add_cart
 
 const addCart = document.querySelector('.add_cart');
-const addCartClose = document.querySelector('.add_cart_close');
 const buyButtons = document.querySelectorAll('.buy-pokup');
 
 let cartTimer; 
-let listItem; 
+let addCartTimeout; 
+let addCartQueue = []; 
+const intervalDelay = 1000; 
 
 if (buyButtons.length > 0) {
   buyButtons.forEach(button => {
     button.addEventListener('click', function(event) {
       document.querySelector('.header__link_cart_circle').classList.add('active');
-      addCart.classList.add('active');
-      if(button.closest('.catalog_page__item')){
-        listItem = button.closest('.catalog_page__item');
-      } else {
-        listItem = button.closest('.about_slider__slide');
+      addCartQueue.push(button);
+      if (!addCartTimeout) {
+        addNextToCart();
       }
-      if(listItem ) {
-        const aboutName = listItem.querySelector('.about_slider__name');
-        const addCartContainer = document.querySelector('.add_cart');
-        const newAddCartItem = document.createElement('div');
-        newAddCartItem.classList.add('add_cart__item');
-        newAddCartItem.innerHTML = `
-            <p class="title_three"><a href="/personal/cart/">${aboutName.textContent}</a> добавлено в корзину</p>
-            <div class="add_cart_close">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M11.9941 13.0605L16.9336 18L17.9941 16.9395L13.0546 12L17.9941 7.0605L16.9336 6L11.9941 10.9395L7.05464 6L5.99414 7.0605L10.9336 12L5.99414 16.9395L7.05464 18L11.9941 13.0605Z" fill="white"/>
-                </svg>
-            </div>
-        `;
-        addCartContainer.appendChild(newAddCartItem);
-        addCartContainer.classList.add('active');
-        if (cartTimer) {
-          clearTimeout(cartTimer);
-        }
-        cartTimer = setTimeout(() => {
-          addCartContainer.classList.remove('active');
-          console.log('Таймер истек');
-          setTimeout(() => {
-            while (addCartContainer.firstChild) {
-              addCartContainer.removeChild(addCartContainer.firstChild);
-            }
-            addCartContainer.classList.remove('active');
-          }, 500);
-        }, 5000);
-        newAddCartItem.querySelector('.add_cart_close').addEventListener('click', function() {
-          addCartContainer.removeChild(newAddCartItem);
-          if (addCartContainer.children.length === 0) {
-            clearTimeout(cartTimer); 
-            addCartContainer.classList.remove('active');
+    });
+  });
+
+  function addNextToCart() {
+    if (addCartQueue.length === 0) {
+      addCartTimeout = null; 
+      return;
+    }
+    const currentButton = addCartQueue.shift(); 
+    let listItem;
+
+    if(currentButton.closest('.catalog_page__item')){
+      listItem = currentButton.closest('.catalog_page__item');
+    } else {
+      listItem = currentButton.closest('.about_slider__slide');
+    }
+    if(listItem) {
+      const aboutName = listItem.querySelector('.about_slider__name');
+      const newAddCartItem = document.createElement('div');
+      newAddCartItem.classList.add('add_cart__item');
+      newAddCartItem.innerHTML = `
+        <p class="title_three"><a href="/personal/cart/">${aboutName.textContent}</a> добавлено в корзину</p>
+        <div class="add_cart_close">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.9941 13.0605L16.9336 18L17.9941 16.9395L13.0546 12L17.9941 7.0605L16.9336 6L11.9941 10.9395L7.05464 6L5.99414 7.0605L10.9336 12L5.99414 16.9395L7.05464 18L11.9941 13.0605Z" fill="white"/>
+          </svg>
+        </div>
+      `;
+      addCart.appendChild(newAddCartItem); 
+      addCart.classList.add('active');
+
+      if (cartTimer) {
+        clearTimeout(cartTimer); 
+      }
+      cartTimer = setTimeout(() => {
+        addCart.classList.remove('active');
+        console.log('Таймер истек');
+        setTimeout(() => {
+          while (addCart.firstChild) {
+            addCart.removeChild(addCart.firstChild);
           }
-        });
-      }  
+          addCart.classList.remove('active');
+        }, 500);
+      }, 4000);
+
+      addCartTimeout = setTimeout(() => {
+        addNextToCart(); 
+      }, intervalDelay);
+
+      newAddCartItem.querySelector('.add_cart_close').addEventListener('click', function() {
+        addCart.removeChild(newAddCartItem);
+        if (addCart.children.length === 0) { 
+          addCart.classList.remove('active');
+        }
+      });
+    }
+  }
+}
+
+const cartCloseButtons = document.querySelectorAll('.cart_min__goods .cart_min__item_close');
+if (cartCloseButtons.length > 0) {
+  cartCloseButtons.forEach(button => {
+    button.addEventListener('click', function(event) {
+      event.preventDefault();
+      if(cartCloseButtons.length < 2) {
+        document.querySelector('.header__link_cart_circle').classList.remove('active');
+      }
     });
   });
 }

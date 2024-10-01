@@ -80,13 +80,27 @@ input::-webkit-inner-spin-button {
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
   background: var(--bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  width: 8px;
-  background: var(--color);
+  width: 4px;
+  background-color: #909090; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; 
+}
+
+/* Для Firefox */
+.scrollable {
+  scrollbar-width: thin; 
+  scrollbar-color: #909090 transparent;
+}
+
+.scrollable:hover {
+  scrollbar-color: #555 transparent; 
 }
 
 html {
@@ -467,6 +481,7 @@ small {
   background-color: var(--bg);
   color: var(--text);
   border-radius: 8px;
+  padding: 0;
 }
 
 .btn__iosapp .btn__text {
@@ -504,7 +519,6 @@ small {
 .btn__transparent {
   color: var(--bg);
   border-radius: 6px;
-  border: 1px solid var(--text)
 }
 
 .btn__white {
@@ -528,6 +542,10 @@ small {
   border: 1px solid var(--bg);
   border-radius: 6px;
   text-transform: uppercase;
+}
+
+.btn__white .btn__text {
+  border: 1px solid var(--text);
 }
 
 .burger_popup__button .btn__text {
@@ -1915,8 +1933,17 @@ html.has-scroll-dragging {
   opacity: 0.3;
 }
 
+.form__counter {
+  color: #fff;
+}
+
 .form__counter.success {
-  color: var(--text);
+  color: #fff;
+  display: none;
+}
+
+.form__counter_min {
+  display: none;
 }
 
 .form__input {
@@ -2023,8 +2050,6 @@ html.has-scroll-dragging {
   height: 1px;
   position: absolute;
   bottom: 0;
-  -webkit-transition: width 0.3s ease;
-  transition: width 0.3s ease;
 }
 
 .form__bar::before,
@@ -2500,7 +2525,7 @@ html.has-scroll-dragging {
     background-color: var(--text);
   }
   .btn__count:not(:disabled):hover{
-    color: #4f4f4f;
+    color: #909090;
   }
   .btn__totop:not(:disabled):hover {
     color: var(--text);
@@ -2516,12 +2541,22 @@ html.has-scroll-dragging {
     background-color: var(--bg);
     border: 1px solid var(--text)
   }
+  .btn__appstore:not(:disabled):hover{
+    color: var(--bg);
+    background-color: var(--text);
+    border: none 
+  }
+  .btn__white:not(:disabled):hover{
+    border: none
+  }
   .btn__white .btn__text:hover,
   .burger_popup__button .btn__text:hover,
   .btn__transparent {
-    border: 1px solid var(--bg);
     border-radius: 6px;
     text-transform: uppercase;
+  }
+  .btn__white .btn__text:hover {
+    border: 1px solid var(--text);
   }
   .scanner__block .btn__transparent:not(:disabled):hover{
     color:var(--color);
@@ -2532,11 +2567,11 @@ html.has-scroll-dragging {
     background-color: #D2D2D2;
   }
  .btn__iosapp:hover .btn__text {
-    border: 1px solid var(--white);
+    border: 1px solid var(--text);
   }
   .btn__iosapp:not(:disabled):hover{
-    color: var(--text);
-    background-color: #808080;
+    color: var(--bg);
+    background-color: var(--text);
   }
   .btn__iosapp:not(:disabled):active {
     color: var(--bg);

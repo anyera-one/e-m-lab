@@ -14,33 +14,7 @@
 </head>
 <body>
   <div class="overlay"></div>
-  <div class="cursor">
-    <div class="cursor__block">
-      <div class="cursor__wrapper">
-        <div class="cursor__text cursor__text_slider">
-          <p>
-            <svg width="80" height="26" viewBox="0 0 80 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0.545556 14.0454C-0.18185 13.5274 -0.181853 12.4726 0.545553 11.9546L16.9788 0.253285C17.8607 -0.374635 19.1034 0.236825 19.1034 1.29864V24.7014C19.1034 25.7632 17.8607 26.3746 16.9788 25.7467L0.545556 14.0454Z" fill="currentColor"/>
-              <path d="M79.4544 14.0454C80.1819 13.5274 80.1819 12.4726 79.4544 11.9546L63.0212 0.253285C62.1393 -0.374635 60.8966 0.236825 60.8966 1.29864V24.7014C60.8966 25.7632 62.1393 26.3746 63.0212 25.7467L79.4544 14.0454Z" fill="currentColor"/>
-              <path d="M45.9705 13.2336C45.9705 16.4353 43.2974 19.0308 40 19.0308C36.7026 19.0308 34.0295 16.4353 34.0295 13.2336C34.0295 10.0318 36.7026 7.43635 40 7.43635C43.2974 7.43635 45.9705 10.0318 45.9705 13.2336Z" fill="currentColor"/>
-            </svg>
-          </p>
-        </div>
-        <div class="cursor__text cursor__text_showreel"><p>ОТКРЫТЬ</p></div>
-      </div>
-      <div class="cursor__left"></div>
-      <div class="cursor__right"></div>
-    </div>
-  </div>
   <div class="add_cart "> 
-    <div class="add_cart__item"> 
-      <p class="title_three"><a href="#">Cleansing gel</a> добавлено в корзину</p>
-      <div class="add_cart_close">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M11.9941 13.0605L16.9336 18L17.9941 16.9395L13.0546 12L17.9941 7.0605L16.9336 6L11.9941 10.9395L7.05464 6L5.99414 7.0605L10.9336 12L5.99414 16.9395L7.05464 18L11.9941 13.0605Z" fill="white"/>
-        </svg> 
-      </div>
-    </div>
   </div>
   <header class="header header__transparent">
     <div class="header__close"></div>
@@ -91,12 +65,12 @@
         </div>
         <div class="header__links">
           <div class="header__links_left">
-            <!-- <a href="orders.html" class="header__link header__login">
+            <a href="orders.html" class="header__link header__login">
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33" fill="none">
                 <circle cx="15.9993" cy="16.4993" r="12.3333" stroke="currentColor" stroke-width="1.2"/>
                 <path d="M21.6635 17.2344C21.6635 20.3624 19.1278 22.8982 15.9997 22.8982C12.8717 22.8982 10.3359 20.3624 10.3359 17.2344" stroke="currentColor" stroke-width="1.2"/>
               </svg>
-            </a> -->
+            </a>
             <button class="header__link header__login">
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33" fill="none">
                 <circle cx="15.9993" cy="16.4993" r="12.3333" stroke="currentColor" stroke-width="1.2"/>
@@ -111,8 +85,113 @@
               <span class="header__link_cart_circle active"></span>
             </button>
             <div class="cart_min scrolls">
-              <div class="cart_min__goods">
+              <div class="cart_min__goods active">
                 <ul class="cart_min__list">
+                  <li class="cart_min__item">
+                    <div class="cart_min__item_img">
+                      <img src="./img/orders/order_product.webp" alt=""/>
+                    </div>
+                    <div class="cart_min__item_info">
+                      <div class="cart_min__item_text">
+                        <p class="cart_min__item_name title_three">Cleansing gel</p>
+                        <p class="cart_min__item_price title_three">4 999 ₽</p>
+                      </div>
+                      <form class="cart_min__item_close">
+                        <label>
+                          <input type="submit" name="cartClose" class="hidden">                                 
+                            <div class="cart_min__item_close_svg">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.2">
+                                <path d="M11.9941 13.0605L16.9336 18L17.9941 16.9395L13.0546 12L17.9941 7.0605L16.9336 6L11.9941 10.9395L7.05464 6L5.99414 7.0605L10.9336 12L5.99414 16.9395L7.05464 18L11.9941 13.0605Z" fill="#202020"/></g>
+                              </svg>
+                            </div>
+                        </label>
+                      </form>
+                    </div>
+                  </li>
+                  <li class="cart_min__item">
+                    <div class="cart_min__item_img">
+                      <img src="./img/orders/order_product.webp" alt=""/>
+                    </div>
+                    <div class="cart_min__item_info">
+                      <div class="cart_min__item_text">
+                        <p class="cart_min__item_name title_three">Cleansing gel</p>
+                        <p class="cart_min__item_price title_three">4 999 ₽</p>
+                      </div>
+                      <form class="cart_min__item_close">
+                        <label>
+                          <input type="submit" name="cartClose" class="hidden">                                 
+                            <div class="cart_min__item_close_svg">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.2">
+                                <path d="M11.9941 13.0605L16.9336 18L17.9941 16.9395L13.0546 12L17.9941 7.0605L16.9336 6L11.9941 10.9395L7.05464 6L5.99414 7.0605L10.9336 12L5.99414 16.9395L7.05464 18L11.9941 13.0605Z" fill="#202020"/></g>
+                              </svg>
+                            </div>
+                        </label>
+                      </form>
+                    </div>
+                  </li>
+                  <li class="cart_min__item">
+                    <div class="cart_min__item_img">
+                      <img src="./img/orders/order_product.webp" alt=""/>
+                    </div>
+                    <div class="cart_min__item_info">
+                      <div class="cart_min__item_text">
+                        <p class="cart_min__item_name title_three">Cleansing gel</p>
+                        <p class="cart_min__item_price title_three">4 999 ₽</p>
+                      </div>
+                      <form class="cart_min__item_close">
+                        <label>
+                          <input type="submit" name="cartClose" class="hidden">                                 
+                            <div class="cart_min__item_close_svg">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.2">
+                                <path d="M11.9941 13.0605L16.9336 18L17.9941 16.9395L13.0546 12L17.9941 7.0605L16.9336 6L11.9941 10.9395L7.05464 6L5.99414 7.0605L10.9336 12L5.99414 16.9395L7.05464 18L11.9941 13.0605Z" fill="#202020"/></g>
+                              </svg>
+                            </div>
+                        </label>
+                      </form>
+                    </div>
+                  </li>
+                  <li class="cart_min__item">
+                    <div class="cart_min__item_img">
+                      <img src="./img/orders/order_product.webp" alt=""/>
+                    </div>
+                    <div class="cart_min__item_info">
+                      <div class="cart_min__item_text">
+                        <p class="cart_min__item_name title_three">Cleansing gel</p>
+                        <p class="cart_min__item_price title_three">4 999 ₽</p>
+                      </div>
+                      <form class="cart_min__item_close">
+                        <label>
+                          <input type="submit" name="cartClose" class="hidden">                                 
+                            <div class="cart_min__item_close_svg">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.2">
+                                <path d="M11.9941 13.0605L16.9336 18L17.9941 16.9395L13.0546 12L17.9941 7.0605L16.9336 6L11.9941 10.9395L7.05464 6L5.99414 7.0605L10.9336 12L5.99414 16.9395L7.05464 18L11.9941 13.0605Z" fill="#202020"/></g>
+                              </svg>
+                            </div>
+                        </label>
+                      </form>
+                    </div>
+                  </li>
+                  <li class="cart_min__item">
+                    <div class="cart_min__item_img">
+                      <img src="./img/orders/order_product.webp" alt=""/>
+                    </div>
+                    <div class="cart_min__item_info">
+                      <div class="cart_min__item_text">
+                        <p class="cart_min__item_name title_three">Cleansing gel</p>
+                        <p class="cart_min__item_price title_three">4 999 ₽</p>
+                      </div>
+                      <form class="cart_min__item_close">
+                        <label>
+                          <input type="submit" name="cartClose" class="hidden">                                 
+                            <div class="cart_min__item_close_svg">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.2">
+                                <path d="M11.9941 13.0605L16.9336 18L17.9941 16.9395L13.0546 12L17.9941 7.0605L16.9336 6L11.9941 10.9395L7.05464 6L5.99414 7.0605L10.9336 12L5.99414 16.9395L7.05464 18L11.9941 13.0605Z" fill="#202020"/></g>
+                              </svg>
+                            </div>
+                        </label>
+                      </form>
+                    </div>
+                  </li>
                   <li class="cart_min__item">
                     <div class="cart_min__item_img">
                       <img src="./img/orders/order_product.webp" alt=""/>
