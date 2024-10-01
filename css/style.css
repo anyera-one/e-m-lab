@@ -174,10 +174,6 @@
   width: 20px;
   height: 20px;
   position: relative;
-  -webkit-transform: rotate(-180deg);
-  transform: rotate(-180deg);
-  -webkit-transition: -webkit-transform 0.4s;
-  transition: transform 0.4s;
 }
 
 .header__burger_flex span:nth-child(1),
@@ -217,13 +213,6 @@
   transition-delay: 0.2s, 0s;
 }
 
-.header__burger.active .header__burger_flex {
-  -webkit-transform: rotate(0);
-  transform: rotate(0);
-  -webkit-transition: -webkit-transform 0.4s;
-  transition: transform 0.4s;
-  transition-delay: 0.2s;
-}
 
 .header__burger.active .header__burger_flex span:nth-child(1),
 .header__transparent .header__burger.active .header__burger_flex span:nth-child(1) {
@@ -1242,8 +1231,6 @@ section.catalog {
   left: 50%;
   background-color: var(--black);
   border-radius: 5px;
-  -webkit-transition: transform 0.5s;
-  transition: transform 0.5s;
 }
 
 .filters_box__plus::before {
@@ -1361,7 +1348,7 @@ section.catalog {
   display: flex;
   padding: 20px 0;
   flex-wrap: wrap;
-  gap: 20px 0;
+  gap: 4px 0;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -3176,8 +3163,44 @@ width: 230px;
 .home_page_name a:hover {
   color: #D2D2D2;
 }
+
 .ingredients_home__wrapper a {
   text-align: end;
+}
+
+.home_page_name__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home_page_name__catalog,
+.home_page_name__indago {
+  padding: 0 0 0 40px;
+  gap: 40px;
+  display: none;
+}
+
+.home_page_name__catalog {
+  gap: 20px;
+}
+
+.home_page_name__subtitle {
+  display: flex;
+  gap: 10px;
+}
+
+.home_page_name__text {
+  width: 165px;
+}
+
+.home_page_name__catalog .home_page_name__subtitle:nth-child(2) .home_page_name__text{
+  width: 195px;
+}
+
+.home_page_name__catalog.active,
+.home_page_name__indago.active {
+  display: flex;
 }
 /* end home */
 
@@ -5186,6 +5209,10 @@ width: 230px;
   .home_page_name {
     padding: 73px 0 76px;
   }
+  .home_page_name__catalog, 
+  .home_page_name__indago {
+    padding: 0 0 0 50px;
+  }
   .approach__block {
     padding: 90px 0 105px;
   }
@@ -6940,6 +6967,10 @@ width: 230px;
   .home_page_name svg {
     width: 21px;
     height: 21px;
+  }
+  .home_page_name__catalog.active, 
+  .home_page_name__indago.active {
+    display: none;
   }
 
   .approach__block {

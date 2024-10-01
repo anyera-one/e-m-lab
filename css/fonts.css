@@ -1911,8 +1911,6 @@ html.has-scroll-dragging {
   left: 0;
   -webkit-transform: translateX(-100%);
   transform: translateX(-100%);
-  -webkit-transition: -webkit-transform 0.3s linear;
-  transition: transform 0.3s linear;
 }
 
 .form__control.error .form__error {
@@ -2218,9 +2216,13 @@ html.has-scroll-dragging {
   transition: transform 0.3s linear;
 }
 
+.form__select_arrow.none {
+  display: none;
+}
+
 .form__select_arrow_rotate {
-  -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg);
+  -webkit-transform: rotate(-180deg);
+  transform: rotate(-180deg);
 }
 
 .form__select_list {
@@ -2271,6 +2273,10 @@ html.has-scroll-dragging {
   background-color: var(--bg);
   position: relative;
   cursor: pointer;
+}
+
+.form__select_list_item.none {
+  display: none;
 }
 
 .form__select_list_item:not(:last-child)::after {
