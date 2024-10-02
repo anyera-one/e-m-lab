@@ -476,7 +476,7 @@ if (indagoSlider) {
   const intervalTime = 3000; 
 
   function initSwiper() {
-    const isMobile = window.innerWidth <= 768;
+    const isMobile = window.innerWidth <= 767;
     if(isMobile) {
       [...document.querySelectorAll('.indago_sub__swiper')].map((n, i) => {
         let l = document.querySelectorAll('.indago_sub_pictures')[i].innerHTML;
@@ -579,7 +579,7 @@ if (ingredientsSlider) {
       disableOnInteraction: false
     },
     breakpoints: {
-      768: {
+      767: {
         slidesPerView: 3,
       },
     },
