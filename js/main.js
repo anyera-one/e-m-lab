@@ -1147,33 +1147,26 @@ const shoppingCartWrapper = document.querySelector('.shopping_cart');
 
 function shopping() {
   if (shoppingCartWrapper) {
-    const shoppingCartCloses = shoppingCartWrapper.querySelectorAll('.shopping_cart_products__close');
-    console.log(shoppingCartWrapper)
-    console.log(shoppingCartCloses.length)
-    if (shoppingCartCloses.length > 0) {
-
-      shoppingCartCloses.forEach(close => {
-        console.log(close)
-        close.addEventListener('click', () => {
-          console.log('click')
-          if (shoppingCartCloses.length === 1 ) {
-            console.log('active')
-            setTimeout(() => {
-              location. reload()
-            }, 500)
-          } else {
-            setTimeout(() => {
-              shopping()
-              console.log('timer')
-            }, 200)
-          }
-        })
-      })
-    }
+    shoppingCartWrapper.addEventListener('click', (event) => {
+      if (event.target.classList.contains('shopping_cart_products__close_path') || event.target.classList.contains('shopping_cart_products__close_svg')) {
+        const closeButton = event.target;
+        const product = closeButton.closest('.shopping_cart_product');
+        if (product) {
+          product.remove();
+        }
+        const shoppingCartCloses = shoppingCartWrapper.querySelectorAll('.shopping_cart_products__close');
+        if (shoppingCartCloses.length === 0) {
+          setTimeout(() => {
+            location.reload();
+          }, 500)
+        }
+      }
+    });
   }
 }
 
-shopping()
+shopping();
+
 // end shopping cart
 
 // start homePageName
