@@ -1716,8 +1716,6 @@ section.catalog {
   background-image: linear-gradient(227deg, transparent 95%, var(--text));
   background-size: 4px;
   background-image: -webkit-repeating-radial-gradient(center center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 1px, transparent 1px, transparent 100%);
-  background-image: -moz-repeating-radial-gradient(center center, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) 1px, transparent 1px, transparent 100%);
-  background-image: -ms-repeating-radial-gradient(center center, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) 1px, transparent 1px, transparent 100%);
   background-image: repeating-radial-gradient(center center, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) 1px, transparent 1px, transparent 100%);
   -webkit-background-size: 3px 3px;
   -moz-background-size: 3px 3px;
@@ -1901,7 +1899,6 @@ section.catalog {
 .ingredients_page__item {
   display: flex;
   width: 33.3%;
-  height: 659px;
   flex-direction: column;
   gap: 6px;
   float: left;
@@ -2777,8 +2774,6 @@ section.catalog {
   background-image: linear-gradient(227deg, transparent 95%, var(--text));
   background-size: 4px;
   background-image: -webkit-repeating-radial-gradient(center center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 1px, transparent 1px, transparent 100%);
-  background-image: -moz-repeating-radial-gradient(center center, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) 1px, transparent 1px, transparent 100%);
-  background-image: -ms-repeating-radial-gradient(center center, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) 1px, transparent 1px, transparent 100%);
   background-image: repeating-radial-gradient(center center, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) 1px, transparent 1px, transparent 100%);
   -webkit-background-size: 3px 3px;
   -moz-background-size: 3px 3px;
@@ -3023,8 +3018,6 @@ section.catalog {
   background-image: linear-gradient(227deg, transparent 95%, var(--text));
   background-size: 4px;
   background-image: -webkit-repeating-radial-gradient(center center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 1px, transparent 1px, transparent 100%);
-  background-image: -moz-repeating-radial-gradient(center center, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) 1px, transparent 1px, transparent 100%);
-  background-image: -ms-repeating-radial-gradient(center center, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) 1px, transparent 1px, transparent 100%);
   background-image: repeating-radial-gradient(center center, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) 1px, transparent 1px, transparent 100%);
   -webkit-background-size: 3px 3px;
   -moz-background-size: 3px 3px;
@@ -3354,6 +3347,7 @@ width: 230px;
 /* end home */
 
 /* start shopping_cart */
+
 .shopping_cart__block {
   padding: 0 0 400px;
 }
@@ -3385,14 +3379,22 @@ width: 230px;
   display:  none;
 }
 
+.has-scroll-smooth .shopping_cart__sticky {
+  position: relative;
+  top: 0px;
+}
 
-.shopping_cart_design {
+.shopping_cart__sticky {
   width: calc(34% - 60px);
   height: fit-content;
-  padding: 24px 16px;
   position: sticky;
-  top: 100px;
-  left: 0;
+  top: 80px;
+  z-index: 1;
+}
+
+.shopping_cart_design {
+  height: max-content;
+  padding: 24px 16px;
   background: var(--text-gray);
   border-radius: 6px;
 }
@@ -3406,8 +3408,6 @@ width: 230px;
   background-image: linear-gradient(227deg, transparent 95%, var(--text));
   background-size: 4px;
   background-image: -webkit-repeating-radial-gradient(center center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 1px, transparent 1px, transparent 100%);
-  background-image: -moz-repeating-radial-gradient(center center, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) 1px, transparent 1px, transparent 100%);
-  background-image: -ms-repeating-radial-gradient(center center, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) 1px, transparent 1px, transparent 100%);
   background-image: repeating-radial-gradient(center center, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) 1px, transparent 1px, transparent 100%);
   -webkit-background-size: 3px 3px;
   -moz-background-size: 3px 3px;
@@ -4270,7 +4270,6 @@ width: 230px;
     letter-spacing: 0;
   }
   .ingredients_page__item {
-    height: 489px;
     padding: 14px 12px 15px;
     gap: 10px;
   }
@@ -4936,7 +4935,6 @@ width: 230px;
     letter-spacing: 0;
   }
   .ingredients_page__item {
-    height: 489px;
     padding: 14px 12px 15px;
     gap: 10px;
   }
@@ -5278,7 +5276,7 @@ width: 230px;
   .shopping_cart_products {
     padding: 0 255px 0 0;
   }
-  .shopping_cart_design {
+  .shopping_cart__sticky {
     width: calc(34% - 50px);
   }
   .shopping_cart_design .order_data__list {
@@ -5665,7 +5663,6 @@ width: 230px;
     margin: 0;
   }
   .ingredients_page__item {
-    height: 362px;
     padding: 11px 12px 15px;
   }
   .ingredient__wrapper {
@@ -6014,7 +6011,7 @@ width: 230px;
   .shopping_cart_products {
     padding: 0;
   }
-  .shopping_cart_design {
+  .shopping_cart__sticky {
     width: calc(34% - 40px);
   }
   .shopping_cart_products .order_compound__info {
@@ -6492,7 +6489,6 @@ width: 230px;
     letter-spacing: -0.01em;
   }
   .ingredients_page__item {
-    height: 310px;
     gap: 5px;
   }
   .ingredient__wrapper {
@@ -7092,9 +7088,13 @@ width: 230px;
   .shopping_cart_products .product__subscription {
     gap: 13px;
   }
-  .shopping_cart_design {
+  .shopping_cart__sticky {
     width: 66%;
     position: static; 
+  }
+  .has-scroll-smooth .shopping_cart__sticky {
+    position: static; 
+    transform: none !important;
   }
   .shopping_cart__zero_text {
     padding: 23px 0 0;
@@ -7685,7 +7685,7 @@ width: 230px;
     padding: 42px 0 53px 0;
   }
   .ingredients_page__item {
-    height: 250px;
+    width: 190px;
     padding: 7px 4px 6px;
   }
   .ingredients_page {
@@ -8198,6 +8198,9 @@ width: 230px;
     position: relative;
     top: 0;
   }
+  .has-scroll-smooth .product__sticky {
+    transform: none !important;
+  }
   .product__info {
     width: 100%;
   }
@@ -8369,7 +8372,7 @@ width: 230px;
   .shopping_cart_products .product__subscription_info {
     max-width: 60%;
   }
-  .shopping_cart_design {
+  .shopping_cart__sticky {
     width: 100%;
   }
   .shopping_cart_design__btn .btn__text {

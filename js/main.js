@@ -571,9 +571,9 @@ const ingredientsSlider = document.querySelector('.ingredients_page__swiper');
 if (ingredientsSlider) {
   var indagoSwiper = new Swiper('.ingredients_page__swiper', {
     loop: true,
-    slidesPerView: 1,
+    slidesPerView: 'auto',
     loopedSlides: 2,
-    centeredSlides: true,
+    centeredSlides: false,
     autoplay: {
       delay: 3000,
       disableOnInteraction: false
@@ -581,6 +581,7 @@ if (ingredientsSlider) {
     breakpoints: {
       767: {
         slidesPerView: 3,
+        centeredSlides: true,
       },
     },
   });

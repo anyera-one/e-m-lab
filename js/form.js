@@ -10,11 +10,11 @@ function updateformValue() {
   if (this.value.length < this.getAttribute('minl')) {
     this.parentElement.classList.add('error');
     this.parentElement.classList.remove('success');
-    this.nextElementSibling.classList.remove('success');
+    if(this.nextElementSibling){this.nextElementSibling.classList.remove('success');}
   } else {
     this.parentElement.classList.remove('error');
     this.parentElement.classList.add('success');
-    this.nextElementSibling.classList.add('success');
+    if(this.nextElementSibling){this.nextElementSibling.classList.add('success');}
   }
 }
 
@@ -50,7 +50,7 @@ if (phone_input) {
           e.target.value = '';
           this.parentElement.classList.add('error');
           this.parentElement.classList.remove('success');
-          this.nextElementSibling.classList.remove('success');
+          if(this.nextElementSibling){this.nextElementSibling.classList.remove('success');}
           return;
         }
       }
@@ -263,7 +263,7 @@ if(loginFormReg) {
           "Content-type": "application/json; charset=UTF-8"
         },
       })
-      .then(() => {
+      .then((response) => {
         loginRegName.value = '';
         loginRegLastname.value = '';
         loginRegEmail.value = '';
@@ -272,7 +272,14 @@ if(loginFormReg) {
         document.querySelector('.login_popup').classList.remove("active");
         document.documentElement.classList.remove("noscroll");
         scroll.start();
-        window.location.href="/personal/private/";
+        if(response.status == 200)
+        {
+           window.location.href="/personal/private/";
+        }
+        if(response.status == 509)
+        {
+            alert("Такой пользователь уже существует");
+        }
       })
     }
   }
