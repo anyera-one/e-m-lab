@@ -1512,7 +1512,16 @@ section.catalog {
   gap: 10px;
 }
 
-.product__desc_icon img {
+.product__desc_icon svg {
+  opacity: 0.5;
+}
+
+.product__desc_icon svg.active {
+  opacity: 1;
+}
+
+.product__desc_icon img.
+.product__desc_icon svg {
   width: 24px;
   height: 24px;
 }
@@ -2561,11 +2570,12 @@ section.catalog {
   max-height: 100%;
 }
 
-.indago_sub_picture.swiper-slide-active .indago_sub_background {
-  opacity: 1;
-}
-
-.indago_sub_picture.swiper-slide-active .catalog_banner_max__wrapper {
+.indago_sub__block.one .indago_sub_picture:nth-child(1) .indago_sub_background,
+.indago_sub__block.one .indago_sub_picture:nth-child(1) .catalog_banner_max__wrapper,
+.indago_sub__block.two .indago_sub_picture:nth-child(2) .indago_sub_background,
+.indago_sub__block.two .indago_sub_picture:nth-child(2) .catalog_banner_max__wrapper,
+.indago_sub__block.three .indago_sub_picture:nth-child(3) .indago_sub_background,
+.indago_sub__block.three .indago_sub_picture:nth-child(3) .catalog_banner_max__wrapper {
   opacity: 1;
 }
 
@@ -8126,6 +8136,10 @@ width: 230px;
   }
   .indago_sub__swiper {
     order: 2;
+  }
+  .indago_sub_picture .indago_sub_background,
+  .indago_sub_picture .catalog_banner_max__wrapper {
+    opacity: 1;
   }
   .indago.emLabApp.answer .answer__block {
     padding: 146px 0 0;

@@ -1,3 +1,9 @@
+var is_opera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+var is_Edge = navigator.userAgent.indexOf("Edge") > -1;
+var is_chrome = !!window.chrome && !is_opera && !is_Edge;
+var is_explorer= typeof document !== 'undefined' && !!document.documentMode && !is_Edge;
+var is_firefox = typeof window.InstallTrigger !== 'undefined';
+var is_safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 // start height
 let oldWidth = window.innerWidth;
 const docheight = document.documentElement;
@@ -18,8 +24,12 @@ appHeight();
 // end height
 
 // start scroll
-scroll = new LocomotiveScroll({ el: document.querySelector('[data-scroll-container]'), smooth: true, getDirection: true, scrollFromAnywhere: true, breakpoint: 0, inertia: 1.7, mobile: { breakpoint: 0, smooth: false, inertia: 0, }, tablet: { breakpoint: 0, smooth: false, inertia: 1.7, }, smartphone: { breakpoint: 0, smooth: false, inertia: 1.7, } })
-// scroll = new LocomotiveScroll({el: document.querySelector('[data-scroll-container]'),smooth: true,getDirection: true,scrollFromAnywhere: true,breakpoint: 0,inertia: 0,tablet: {breakpoint: 0,smooth: false,inertia: 0,}})
+if(is_safari) {
+  scroll = new LocomotiveScroll({ el: document.querySelector('[data-scroll-container]'), smooth: false})
+} else {
+  scroll = new LocomotiveScroll({ el: document.querySelector('[data-scroll-container]'), smooth: true, getDirection: true, scrollFromAnywhere: true, breakpoint: 0, inertia: 1.7, mobile: { breakpoint: 0, smooth: false, inertia: 0, }, tablet: { breakpoint: 0, smooth: false, inertia: 1.7, }, smartphone: { breakpoint: 0, smooth: false, inertia: 1.7, } })
+  // scroll = new LocomotiveScroll({el: document.querySelector('[data-scroll-container]'),smooth: true,getDirection: true,scrollFromAnywhere: true,breakpoint: 0,inertia: 0,tablet: {breakpoint: 0,smooth: false,inertia: 0,}}
+}
 new ResizeObserver(() => scroll.update()).observe(document.querySelector("[data-scroll-container]"));
 
 const header = document.querySelector('.header');
@@ -35,7 +45,6 @@ if (!document.querySelector('.has-scroll-smooth')) {
       } else {
         header.classList.remove('header__transparent');
       }
-      console.log(window.scrollY, document.querySelector(".ingredients_home").clientHeight, document.querySelector(".header").clientHeight)
     }
 
     document.documentElement.setAttribute('scroll', `${window.scrollY}`);
@@ -467,102 +476,43 @@ if (aboutSlider) {
 
 // start indago_sub__swiper
 const indagoSlider = document.querySelector('.indago_sub__swiper');
-
+const indagoBlock = document.querySelector('.indago_sub__block');
 if (indagoSlider) {
-  const slides = indagoSlider.querySelectorAll('.swiper-slide');
-  let indagoSwiper;
-  let slideInterval; 
-  let currentIndex = 0;
-  const intervalTime = 3000; 
-
-  function initSwiper() {
-    const isMobile = window.innerWidth <= 767;
-    if(isMobile) {
-      [...document.querySelectorAll('.indago_sub__swiper')].map((n, i) => {
-        let l = document.querySelectorAll('.indago_sub_pictures')[i].innerHTML;
-        n.querySelector('.indago_sub_pictures').innerHTML = l + l;
-      });
-    }
-    indagoSwiper = new Swiper('.indago_sub__swiper', {
-      loop: isMobile,
-      slidesPerView: isMobile ? 1 : 3,
-      loopedSlides: isMobile ? 2 : 0,
-      centeredSlides: isMobile,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false
-      }
-    });
-
-    if(!isMobile) {
-      slides.forEach((slide, index) => {
-        slide.addEventListener('mouseenter', (e) => {
-          slides.forEach((slide, index) => {
-            slide.classList.remove('swiper-slide-active')
-          })
-          e.target.classList.add('swiper-slide-active')
-        });
-      });
-      startCycle();
-      indagoSlider.addEventListener('mouseenter', (e) => {
-        stopCycle()
-      });
-        indagoSlider.addEventListener('mouseleave', (e) => {
-        resumeCycle()
-      });
-    }
-  }
-
-  initSwiper(); 
-
-  function setActiveSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.remove('swiper-slide-active');
-      if (i === index) {
-        slide.classList.add('swiper-slide-active');
-      }
-    });
-  }
-
-  function observeSlides() {
-    const options = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.5
-    };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setActiveSlide(currentIndex);
-        }
-      });
-    }, options);
-    slides.forEach(slide => {
-      observer.observe(slide);
-    });
-  }
-
-  function startCycle() {
-    setActiveSlide(currentIndex);
-    observeSlides();
-    slideInterval = setInterval(() => {
-      currentIndex = (currentIndex + 1) % slides.length;
-      setActiveSlide(currentIndex);
-    }, intervalTime);
-  }
-
-  function stopCycle() {
-    clearInterval(slideInterval); 
-  }
-
-  function resumeCycle() {
-    startCycle();
-  }
-
-  window.addEventListener('resize', () => {
-    indagoSwiper.destroy(true, true);
-    initSwiper(); 
+  var indagoSwiper = new Swiper('.indago_sub__swiper', {
+    loop: true,
+    slidesPerView: 1,
+    loopedSlides: 2,
+    centeredSlides: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false
+    },
+    breakpoints: {
+      767: {
+        loop: false,
+        slidesPerView: 3,
+        centeredSlides: false,
+      },
+    },
   });
+  if (window.innerWidth >= 768) {
+    const indagoBlockArr = [
+      {colors: 'one', time: 3000},
+      {colors: 'two', time: 3000},
+      {colors: 'three', time: 3000},
+    ];
+    var currentFourPosition = 0;
+    
+    function animationFourClass(currentElement, container) {
+      setTimeout(function() {
+        container.className = "indago_sub__block " + currentElement.colors;
+        currentFourPosition++;
+        if (currentFourPosition === indagoBlockArr.length) currentFourPosition = 0;
+        animationFourClass(indagoBlockArr[currentFourPosition], container);
+      }, currentElement.time);
+    }
+    animationFourClass(indagoBlockArr[currentFourPosition], indagoBlock);
+  }
 }
 // end indago_sub__swiper
 
@@ -939,11 +889,9 @@ if (indagoEfficiencyDescr) {
   if (indagoEfficiencyDescr.scrollHeight > indagoEfficiencyText.scrollHeight) {
     indagoEfficiencyText.style.maxHeight = indagoEfficiencyDescr.scrollHeight + "px";
     indagoEfficiencyText.style.height = indagoEfficiencyDescr.scrollHeight + "px";
-    console.log(indagoEfficiencyDescr.scrollHeight, indagoEfficiencyText.scrollHeight)
   } else {
     indagoEfficiencyText.style.maxHeight = indagoEfficiencyText.scrollHeight + "px";
     indagoEfficiencyText.style.height = indagoEfficiencyText.scrollHeight + "px";
-    console.log(indagoEfficiencyDescr.scrollHeight, indagoEfficiencyText.scrollHeight)
   }
 }
 
